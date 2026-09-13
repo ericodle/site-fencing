@@ -1,0 +1,16 @@
+{
+  "name": "Ember Tide Fencing Club · 焰潮擊劍會",
+  "short_name": "Ember Tide",
+  "description": "Taipei's only bilingual fencing club — foil, épée and sabre in English and Mandarin.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#06080d",
+  "theme_color": "#06080d",
+  "lang": "en",
+  "icons": [
+    { "src": "assets/img/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "assets/img/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "assets/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}

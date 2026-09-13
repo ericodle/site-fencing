@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Ember Tide Fencing Club">
+  <defs>
+    <linearGradient id="et-flame" x1="32" y1="4" x2="32" y2="60" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffd166"/>
+      <stop offset=".45" stop-color="#ff7a1f"/>
+      <stop offset="1" stop-color="#e2372b"/>
+    </linearGradient>
+    <linearGradient id="et-tide" x1="8" y1="60" x2="56" y2="14" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0e6b8a"/>
+      <stop offset=".5" stop-color="#1fb6c9"/>
+      <stop offset="1" stop-color="#7ef0ff"/>
+    </linearGradient>
+  </defs>
+  <!-- Sagittarius arrow, half flame half tide -->
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="5">
+    <path d="M12 52 L50 14" stroke="url(#et-tide)"/>
+    <path d="M34 14 H50 V30" stroke="url(#et-flame)"/>
+    <path d="M22 32 L32 42" stroke="url(#et-flame)" stroke-width="4.5"/>
+  </g>
+  <circle cx="12" cy="52" r="4.5" fill="url(#et-tide)"/>
+</svg>

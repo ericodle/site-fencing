@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="fire" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffd166"/><stop offset="0.5" stop-color="#ff6b1f"/><stop offset="1" stop-color="#e2372b"/>
+    </linearGradient>
+    <linearGradient id="tide" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#0e6b8a"/><stop offset="0.55" stop-color="#1fb6c9"/><stop offset="1" stop-color="#7ef0ff"/>
+    </linearGradient>
+    <radialGradient id="g1" cx="0.12" cy="0.05" r="0.7">
+      <stop offset="0" stop-color="#ff6b1f" stop-opacity="0.38"/><stop offset="1" stop-color="#ff6b1f" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="g2" cx="0.92" cy="0.95" r="0.75">
+      <stop offset="0" stop-color="#1fb6c9" stop-opacity="0.38"/><stop offset="1" stop-color="#1fb6c9" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="#06080d"/>
+  <rect width="1200" height="630" fill="url(#g1)"/>
+  <rect width="1200" height="630" fill="url(#g2)"/>
+
+  <!-- arrow mark -->
+  <g transform="translate(830 315) scale(1.15)">
+    <circle r="185" fill="none" stroke="#ffffff" stroke-opacity="0.10" stroke-width="1.5"/>
+    <circle r="160" fill="none" stroke="#ffffff" stroke-opacity="0.06" stroke-width="1.5" stroke-dasharray="4 12"/>
+    <g stroke-linecap="round" stroke-linejoin="round" fill="none">
+      <path d="M-110 110 L100 -100" stroke="url(#tide)" stroke-width="16"/>
+      <path d="M20 -100 H106 V-14" stroke="url(#fire)" stroke-width="16"/>
+      <path d="M-48 8 L2 58" stroke="url(#fire)" stroke-width="13"/>
+    </g>
+    <circle cx="-110" cy="110" r="15" fill="url(#tide)"/>
+  </g>
+
+  <g font-family="DejaVu Sans, sans-serif">
+    <text x="90" y="214" fill="#ffc861" font-size="26" letter-spacing="7">TAIPEI  ·  SONGSHAN  ·  EST. 2019</text>
+    <text x="90" y="300" fill="#eef3f8" font-size="66" font-weight="bold" letter-spacing="1">EMBER TIDE</text>
+    <text x="90" y="374" fill="#eef3f8" font-size="66" font-weight="bold" letter-spacing="1">FENCING CLUB</text>
+    <text x="90" y="440" fill="#7ef0ff" font-size="40" font-family="Droid Sans Fallback, sans-serif">焰潮擊劍會</text>
+    <text x="90" y="508" fill="#9aabbd" font-size="27">Taipei&#8217;s only bilingual fencing club</text>
+    <text x="90" y="548" fill="#9aabbd" font-size="27" font-family="Droid Sans Fallback, sans-serif">台北唯一的雙語擊劍會・花劍　銳劍　軍刀</text>
+  </g>
+  <rect x="0" y="614" width="1200" height="16" fill="url(#fire)"/>
+</svg>
