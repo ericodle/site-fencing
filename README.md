@@ -1,7 +1,7 @@
 # Ember Tide Fencing Club · 焰潮擊劍會
 
-Marketing site for **Ember Tide Fencing Club** — Taipei's only bilingual fencing
-club. Foil, épée and sabre, coached in English and Mandarin, in Songshan District.
+Marketing site for **Ember Tide Fencing Club** — a competitive, cooperative fencing
+club for Taipei's English-speaking community. Foil, épée and saber, coached in English and Mandarin, in Songshan District.
 
 > 箭出如火，劍走如水。 The arrow flies like fire. The blade flows like water.
 
@@ -22,7 +22,7 @@ index.html          the whole page
 404.html            not-found page
 css/styles.css      all styling
 js/config.js        the bits an owner edits — form endpoint, socials, language
-js/main.js          language switch, nav, reveals, share, embeds, booking form
+js/main.js          language switch, nav, reveals, share, embeds, contact form
 assets/             logo, favicon, social card, generated icons
 site.webmanifest    installable-app metadata
 sitemap.xml         one URL; update lastmod when the copy changes materially
@@ -71,11 +71,13 @@ Placeholder details are scattered through `index.html`. Search and replace:
 | `@embertidefencing` | social rail, social cards, footer, coach links, JSON-LD `sameAs` |
 | `@embertide` (LINE) | every `line.me` link, plus `js/config.js` |
 | `+886 2 2762 1234` | contact list, footer, WhatsApp link, JSON-LD |
-| `hello@embertide.tw` | contact list, footer, `js/config.js` |
+| `hello@embertide.tw` | `#contact` channels, footer, `js/config.js` (contact form inbox) |
 | Address and coordinates | `#visit` section, JSON-LD `address` / `geo`, map `data-q` |
 | `REPLACE_WITH_YOUTUBE_ID` | `data-video` on the YouTube embed in `#social` |
 | Coach names, bios and photos | `#coaches` |
 | Prices, schedule rows | `#pricing`, `#schedule` |
+| Tournament rows (sample events) | `#tournaments` — replace each season |
+| Park meeting point (Minsheng Park) | `#programs`, `#schedule`, `#faq`, `#visit` |
 
 Coach portraits are gradient placeholders showing initials. Drop a photo in and
 it takes over:
@@ -92,8 +94,8 @@ point each tile at its post.
 
 - **Links**: a fixed left rail on desktop, a card grid in `#social`, and the
   footer — Instagram, Facebook, LINE, YouTube, TikTok, Threads, Discord, WhatsApp.
-- **LINE**: the primary contact channel, as it should be in Taiwan. Header
-  button, hero button, a floating button on mobile, and the contact list.
+- **LINE**: the primary contact channel, as it should be in Taiwan. Hero
+  button, a floating button on mobile, and the first row in `#contact`.
 - **Embeds**: the YouTube player, the Facebook page plugin and the map are
   *click-to-load*. Nothing third-party is requested until a visitor asks for it,
   which keeps the page fast and keeps their cookies out of it until they opt in.
@@ -104,14 +106,20 @@ point each tile at its post.
 - **Search**: `SportsClub` JSON-LD in the `<head>` carries the address, hours,
   languages and social profiles.
 
-## The booking form
+## The contact form
 
-`js/config.js` decides where a trial request goes:
+There is no booking system: people reach out on LINE, Instagram, WhatsApp,
+Facebook or email, all listed in `#contact`. The form next to that list sends an
+email without leaving the page. `js/config.js` decides where it goes:
 
-- `formEndpoint: ""` — opens the visitor's mail app with the request filled in.
-  Works with no backend at all, which is where the site starts.
+- `formEndpoint: ""` — posts through [FormSubmit](https://formsubmit.co) to
+  `email`. No account needed; the first message sends an activation link to
+  that inbox, and nothing is delivered until it is clicked. `email` is a
+  placeholder, so replace it before launch.
 - `formEndpoint: "https://formspree.io/f/xxxxxxxx"` — or any endpoint that
   accepts a `POST` of JSON. Formspree, Formspark, Basin, a Cloudflare Worker.
+
+If sending fails, the visitor is told to email the address directly or use LINE.
 
 There is a honeypot field bots fill in and people never see; those submissions
 are dropped silently.

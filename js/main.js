@@ -2,7 +2,7 @@
    Ember Tide Fencing Club — main.js
    No framework, no build step, no dependencies. Runs as a classic script.
    1 i18n · 2 header & nav · 3 scrollspy · 4 reveal & counters
-   5 share · 6 deferred embeds · 7 booking form · 8 misc
+   5 share · 6 deferred embeds · 7 contact form · 8 misc
    --------------------------------------------------------------------------- */
 (function () {
   "use strict";
@@ -22,22 +22,22 @@
 
   var STRINGS = {
     docTitle: {
-      en: "Ember Tide Fencing Club · 焰潮擊劍會 — Taipei's only bilingual fencing club",
-      zh: "焰潮擊劍會 Ember Tide Fencing Club — 台北唯一的雙語擊劍會"
+      en: "Ember Tide Fencing Club · 焰潮擊劍會 — Competitive, cooperative, English-friendly fencing in Taipei",
+      zh: "焰潮擊劍會 Ember Tide Fencing Club — 台北競技、合作、英語友善的擊劍會"
     },
     metaDesc: {
-      en: "Ember Tide Fencing Club (焰潮擊劍會) is Taipei's only fully bilingual fencing club. Foil, épée and sabre coached in English and Mandarin, in Songshan District. Beginners welcome — gear provided.",
-      zh: "焰潮擊劍會是台北唯一全程雙語的擊劍俱樂部。位於松山區，花劍、銳劍、軍刀皆以中英雙語授課。歡迎零基礎，全套裝備提供。"
+      en: "Ember Tide Fencing Club (焰潮擊劍會) is a competitive fencing club for Taipei's English-speaking community. Foil, épée and saber, a tournament calendar with registration help, guests from other clubs welcome, and training kept low-cost.",
+      zh: "焰潮擊劍會是為台北英語社群而生的競技擊劍俱樂部。花劍、銳劍、軍刀，提供賽事行事曆與報名協助，歡迎其他俱樂部劍手來訪，並努力維持低廉的訓練費用。"
     },
     copied: { en: "Link copied.", zh: "連結已複製。" },
     copyFail: { en: "Could not copy — long-press the address bar instead.", zh: "複製失敗，請改為長按網址列。" },
     shared: { en: "Thanks for sharing.", zh: "感謝分享。" },
     sending: { en: "Sending…", zh: "傳送中…" },
-    sent: { en: "Got it. We'll reply within one working day — usually much sooner.", zh: "已收到。我們會在一個工作天內回覆，通常更快。" },
-    mailOpened: { en: "Your mail app should be open with the request ready to send.", zh: "郵件程式應已開啟，內容已填好，按送出即可。" },
-    failed: { en: "That didn't send. Please message us on LINE or email hello@embertide.tw.", zh: "傳送失敗，請改用 LINE 或寄信至 hello@embertide.tw。" },
+    sent: { en: "Sent — thank you. We'll reply by email, usually within a day.", zh: "已寄出，謝謝！我們會以 Email 回覆，通常在一天內。" },
+    failed: { en: "That didn't send. Please email {email} directly or message us on LINE.", zh: "傳送失敗，請直接寄信至 {email}，或透過 LINE 聯絡我們。" },
     needName: { en: "Please add a name we can call you by.", zh: "請留下我們可以稱呼您的名字。" },
-    needContact: { en: "Please add an email or LINE ID so we can reply.", zh: "請留下 Email 或 LINE ID 以便回覆。" },
+    needEmail: { en: "Please add an email address we can reply to.", zh: "請留下可以回覆您的 Email。" },
+    needMessage: { en: "Please write a message.", zh: "請輸入訊息內容。" },
     ytMissing: {
       en: "No video is wired up yet — set data-video on this block in index.html to a YouTube video ID.",
       zh: "尚未設定影片——請在 index.html 中將此區塊的 data-video 改為 YouTube 影片 ID。"
@@ -316,10 +316,13 @@
     });
   });
 
-  /* 7 ── booking form ────────────────────────────────────────────────── */
+  /* 7 ── contact form ────────────────────────────────────────────────────
+     Sends without leaving the page. With no formEndpoint configured, the
+     message goes through FormSubmit (formsubmit.co) to CFG.email.         */
 
-  var form = $("#join-form");
+  var form = $("#contact-form");
   var formStatus = $("#form-status");
+  var inbox = CFG.email || "hello@embertide.tw";
 
   if (form) {
     form.addEventListener("submit", function (e) {
@@ -329,47 +332,33 @@
       var fields = form.elements;
       if (fields.website && fields.website.value) return; // honeypot: silently drop
 
-      var name = (fields.name && fields.name.value || "").trim();
-      var contact = (fields.contact && fields.contact.value || "").trim();
+      var value = function (el) { return (el && el.value || "").trim(); };
+      var name = value(fields.name);
+      var email = value(fields.email);
+      var message = value(fields.message);
       if (!name) { say(formStatus, t("needName"), false); fields.name.focus(); return; }
-      if (!contact) { say(formStatus, t("needContact"), false); fields.contact.focus(); return; }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { say(formStatus, t("needEmail"), false); fields.email.focus(); return; }
+      if (!message) { say(formStatus, t("needMessage"), false); fields.message.focus(); return; }
 
-      var picked = function (select) {
-        if (!select) return "";
-        var opt = select.options[select.selectedIndex];
-        return opt ? opt.textContent.trim() : select.value;
-      };
+      var select = fields.topic;
+      var topic = select ? select.options[select.selectedIndex].textContent.trim() : "";
 
       var payload = {
         name: name,
-        contact: contact,
-        program: picked(fields.program),
-        language: picked(fields.language),
-        message: (fields.message && fields.message.value || "").trim(),
+        email: email,
+        topic: topic,
+        message: message,
         pageLanguage: currentLang,
-        sentAt: new Date().toISOString()
+        _subject: "Website message — " + topic + " — " + name,
+        _template: "table",
+        _captcha: "false"
       };
 
-      var endpoint = CFG.formEndpoint;
-
-      if (!endpoint) {
-        // No backend wired up: hand the request to the visitor's mail client.
-        var body = [
-          "Name / 姓名: " + payload.name,
-          "Contact / 聯絡方式: " + payload.contact,
-          "Program / 課程: " + payload.program,
-          "Language / 語言: " + payload.language,
-          "",
-          payload.message
-        ].join("\n");
-        location.href = "mailto:" + (CFG.email || "hello@embertide.tw") +
-          "?subject=" + encodeURIComponent("Trial booking — " + payload.name) +
-          "&body=" + encodeURIComponent(body);
-        say(formStatus, t("mailOpened"));
-        return;
-      }
-
+      var endpoint = CFG.formEndpoint || "https://formsubmit.co/ajax/" + inbox;
+      var submit = $("[type='submit']", form);
+      if (submit) submit.disabled = true;
       say(formStatus, t("sending"));
+
       fetch(endpoint, {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
@@ -377,10 +366,16 @@
       })
         .then(function (res) {
           if (!res.ok) throw new Error("bad status " + res.status);
+          return res.json().catch(function () { return {}; });
+        })
+        .then(function (data) {
+          // FormSubmit reports some failures, like an unactivated inbox, with a 200
+          if (data && String(data.success) === "false") throw new Error(data.message || "not sent");
           form.reset();
           say(formStatus, t("sent"));
         })
-        .catch(function () { say(formStatus, t("failed"), false); });
+        .catch(function () { say(formStatus, t("failed").replace("{email}", inbox), false); })
+        .then(function () { if (submit) submit.disabled = false; });
     });
   }
 
@@ -392,6 +387,16 @@
       window.scrollTo({ top: 0, behavior: reduced ? "auto" : "smooth" });
     });
   }
+
+  // links that point at a closed FAQ answer open it on the way there
+  function openDetails(id) {
+    var el = id && doc.getElementById(id);
+    if (el && el.tagName === "DETAILS") el.open = true;
+  }
+  $$("a[href^='#']").forEach(function (a) {
+    a.addEventListener("click", function () { openDetails(a.getAttribute("href").slice(1)); });
+  });
+  openDetails(location.hash.slice(1));
 
   var ticking = false;
   function onScroll() {
