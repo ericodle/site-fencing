@@ -93,7 +93,7 @@ point each tile at its post.
 ## Social integrations
 
 - **Links**: a fixed left rail on desktop, a card grid in `#social`, and the
-  footer — Instagram, Facebook, LINE, YouTube, TikTok, Threads, Discord, WhatsApp.
+  footer — Instagram, Facebook, LINE, YouTube, Threads, Discord, WhatsApp.
 - **LINE**: the primary contact channel, as it should be in Taiwan. Hero
   button, a floating button on mobile, and the first row in `#contact`.
 - **Embeds**: the YouTube player, the Facebook page plugin and the map are
