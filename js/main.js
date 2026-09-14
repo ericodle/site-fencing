@@ -2,7 +2,7 @@
    Ember Tide Fencing Club — main.js
    No framework, no build step, no dependencies. Runs as a classic script.
    1 i18n · 2 header & nav · 3 scrollspy · 4 reveal & counters
-   5 share · 6 deferred embeds · 7 contact form · 8 misc
+   5 share · 6 deferred embeds · 7 calendar · 8 contact form · 9 misc
    --------------------------------------------------------------------------- */
 (function () {
   "use strict";
@@ -38,6 +38,17 @@
     needName: { en: "Please add a name we can call you by.", zh: "請留下我們可以稱呼您的名字。" },
     needEmail: { en: "Please add an email address we can reply to.", zh: "請留下可以回覆您的 Email。" },
     needMessage: { en: "Please write a message.", zh: "請輸入訊息內容。" },
+    cal_practice: { en: "Practice", zh: "練習" },
+    cal_tournament: { en: "Tournament", zh: "比賽" },
+    cal_interclub: { en: "Inter-club", zh: "跨館交流" },
+    cal_social: { en: "Social", zh: "聚會" },
+    calNone: { en: "Nothing else on this month — try the next one.", zh: "本月沒有其他活動了——看看下個月吧。" },
+    calPast: { en: "already happened", zh: "已結束" },
+    calMap: { en: "Open map", zh: "開啟地圖" },
+    reg_open: { en: "Registration open", zh: "報名中" },
+    reg_soon: { en: "Closes soon", zh: "即將截止" },
+    reg_tba: { en: "Not yet announced", zh: "尚未公告" },
+    reg_closed: { en: "Registration closed", zh: "報名截止" },
     ytMissing: {
       en: "No video is wired up yet — set data-video on this block in index.html to a YouTube video ID.",
       zh: "尚未設定影片——請在 index.html 中將此區塊的 data-video 改為 YouTube 影片 ID。"
@@ -50,6 +61,7 @@
   }
 
   var currentLang = "en";
+  var langHooks = []; // renderers that build text in JS and must rerun on a language switch
 
   function detectLang() {
     var url = new URLSearchParams(location.search).get("lang");
@@ -99,6 +111,7 @@
 
     try { localStorage.setItem("et-lang", currentLang); } catch (e) { /* ignore */ }
     buildShareLinks();
+    langHooks.forEach(function (fn) { fn(); });
   }
 
   $$("[data-set-lang]").forEach(function (btn) {
@@ -316,7 +329,321 @@
     });
   });
 
-  /* 7 ── contact form ────────────────────────────────────────────────────
+  /* 7 ── club calendar ───────────────────────────────────────────────────
+     A month grid in the manner of the site-fundivers calendar: multi-day
+     events are laid into stacked tracks, and a bar restarts (with its title)
+     at the start of each week. Events come from js/events.js.             */
+
+  var CAL_TYPES = ["practice", "tournament", "interclub", "social"];
+  var TRACK_H = 18;
+  var TRACK_GAP = 2;
+  var DAY_MS = 86400000;
+
+  function locale() { return currentLang === "zh" ? "zh-TW" : "en-US"; }
+  function pick(pair) { return pair ? (pair[currentLang] || pair.en || "") : ""; }
+  function el(tag, cls, text) {
+    var node = doc.createElement(tag);
+    if (cls) node.className = cls;
+    if (text != null) node.textContent = text;
+    return node;
+  }
+
+  // "2026-10-03 09:00" or "2026-10-17", read as local (Taipei) time
+  function parseStamp(s) {
+    var m = /^(\d{4})-(\d{2})-(\d{2})(?:[ T](\d{2}):(\d{2}))?$/.exec(s || "");
+    if (!m) return null;
+    return {
+      day: new Date(+m[1], m[2] - 1, +m[3]),
+      at: new Date(+m[1], m[2] - 1, +m[3], +(m[4] || 0), +(m[5] || 0)),
+      time: m[4] ? m[4] + ":" + m[5] : ""
+    };
+  }
+
+  var todayStart = new Date();
+  todayStart.setHours(0, 0, 0, 0);
+
+  var calEvents = (window.CLUB_EVENTS || [])
+    .map(function (src) {
+      var start = parseStamp(src.start);
+      if (!start) return null;
+      var end = parseStamp(src.end) || start;
+      var endsAt = end.time ? end.at : new Date(end.day.getTime() + DAY_MS);
+      return { src: src, type: src.type, start: start, end: end, past: endsAt < new Date() };
+    })
+    .filter(Boolean)
+    .sort(function (a, b) { return a.start.at - b.start.at; });
+
+  // Lowest free track per event; on equal starts the longer event goes lower.
+  function assignTracks(events) {
+    var ranges = events.map(function (ev) {
+      return { ev: ev, start: ev.start.day, end: ev.end.day, track: 0 };
+    });
+    ranges.sort(function (a, b) {
+      return (a.start - b.start) || ((b.end - b.start) - (a.end - a.start));
+    });
+    var trackEnds = [];
+    ranges.forEach(function (r) {
+      var track = 0;
+      while (track < trackEnds.length && !(r.start > trackEnds[track])) track++;
+      r.track = track;
+      trackEnds[track] = r.end;
+    });
+    return ranges;
+  }
+
+  function spanLabel(ev) {
+    var opts = { weekday: "short", month: "short", day: "numeric" };
+    var label = ev.start.day.toLocaleDateString(locale(), opts);
+    if (ev.start.day.getTime() !== ev.end.day.getTime()) {
+      return label + " – " + ev.end.day.toLocaleDateString(locale(), opts);
+    }
+    if (ev.start.time) label += " · " + ev.start.time + (ev.end.time && ev.end.time !== ev.start.time ? "–" + ev.end.time : "");
+    return label;
+  }
+
+  function gcalStamp(p, nextDay) {
+    var d = nextDay ? new Date(p.day.getTime() + DAY_MS) : p.day;
+    var ymd = d.getFullYear() + String(d.getMonth() + 1).padStart(2, "0") + String(d.getDate()).padStart(2, "0");
+    return p.time && !nextDay ? ymd + "T" + p.time.replace(":", "") + "00" : ymd;
+  }
+
+  function googleCalUrl(ev) {
+    var dates = ev.start.time
+      ? gcalStamp(ev.start) + "/" + gcalStamp(ev.end.time ? ev.end : ev.start)
+      : gcalStamp(ev.start) + "/" + gcalStamp(ev.end, true);
+    return "https://calendar.google.com/calendar/render?action=TEMPLATE" +
+      "&text=" + encodeURIComponent(pick(ev.src.title) + " — Ember Tide") +
+      "&dates=" + dates + "&ctz=Asia/Taipei" +
+      "&location=" + encodeURIComponent(pick(ev.src.place)) +
+      "&details=" + encodeURIComponent(pick(ev.src.details));
+  }
+
+  var cal = $("#cal");
+  var modal = $("#event-modal");
+  var calMonth = new Date(todayStart.getFullYear(), todayStart.getMonth(), 1);
+  var hiddenTypes = {};
+  var openEvent = null;
+
+  function calBar(r, day, week, last) {
+    var ev = r.ev;
+    var time = day.getTime();
+    // a bar also restarts where a week row or the month begins or ends
+    var isStart = time === r.start.getTime() || day.getDay() === 0 || day.getDate() === 1;
+    var isEnd = time === r.end.getTime() || day.getDay() === 6 || day.getDate() === last;
+    var title = pick(ev.src.title);
+    var bar = el("button", "cal-bar t-" + ev.type);
+    bar.type = "button";
+    if (isStart) bar.classList.add("is-start");
+    if (isEnd) bar.classList.add("is-end");
+    if (ev.src.featured) bar.classList.add("is-featured");
+    bar.style.top = r.track * (TRACK_H + TRACK_GAP) + "px";
+    bar.style.left = isStart ? "3px" : "0";
+    bar.style.right = isEnd ? "3px" : "0";
+    bar.textContent = isStart ? (ev.src.featured ? "★ " : "") + title : " ";
+    bar.title = ev.past ? title + " (" + t("calPast") + ")" : title;
+    if (!isStart || ev.past) bar.tabIndex = -1;
+    if (!isStart) bar.setAttribute("aria-hidden", "true");
+    if (ev.past) {
+      bar.classList.add("is-past");
+      bar.setAttribute("aria-disabled", "true");
+    } else {
+      bar.addEventListener("click", function () { openModal(ev); });
+    }
+    return bar;
+  }
+
+  function renderCalendar() {
+    if (!cal) return;
+
+    $$(".cal-chip", cal).forEach(function (chip) {
+      var type = chip.getAttribute("data-type");
+      chip.setAttribute("aria-pressed", String(!hiddenTypes[type]));
+      $(".cal-chip-label", chip).textContent = t("cal_" + type);
+    });
+
+    var year = calMonth.getFullYear();
+    var month = calMonth.getMonth();
+    var first = new Date(year, month, 1);
+    var last = new Date(year, month + 1, 0);
+    $(".cal-month", cal).textContent = first.toLocaleDateString(locale(), { month: "long", year: "numeric" });
+
+    var shown = calEvents.filter(function (ev) { return !hiddenTypes[ev.type]; });
+    var ranges = assignTracks(shown);
+    var rows = 0;
+    ranges.forEach(function (r) {
+      if (r.end >= first && r.start <= last) rows = Math.max(rows, r.track + 1);
+    });
+    var strip = Math.max(1, rows) * (TRACK_H + TRACK_GAP);
+
+    var grid = $(".cal-grid", cal);
+    grid.innerHTML = "";
+    grid.style.setProperty("--cell-h", (32 + strip + 6) + "px");
+    for (var w = 0; w < 7; w++) {
+      // 13 Sep 2026 is a Sunday; any Sunday anchors the weekday names
+      grid.appendChild(el("div", "cal-wd", new Date(2026, 8, 13 + w).toLocaleDateString(locale(), { weekday: "narrow" })));
+    }
+    for (var b = 0; b < first.getDay(); b++) grid.appendChild(el("div", "cal-day is-blank"));
+    for (var d = 1; d <= last.getDate(); d++) {
+      var day = new Date(year, month, d);
+      var cell = el("div", "cal-day");
+      if (day.getTime() === todayStart.getTime()) cell.classList.add("is-today");
+      cell.appendChild(el("span", "cal-date", String(d)));
+      var holder = el("div", "cal-strip");
+      holder.style.height = strip + "px";
+      ranges.forEach(function (r) {
+        if (day >= r.start && day <= r.end) holder.appendChild(calBar(r, day, null, last.getDate()));
+      });
+      cell.appendChild(holder);
+      grid.appendChild(cell);
+    }
+    for (var tail = (first.getDay() + last.getDate()) % 7; tail && tail < 7; tail++) {
+      grid.appendChild(el("div", "cal-day is-blank"));
+    }
+
+    var list = $(".cal-items", cal);
+    list.innerHTML = "";
+    var upcoming = shown.filter(function (ev) {
+      return !ev.past && ev.end.day >= first && ev.start.day <= last;
+    });
+    if (!upcoming.length) {
+      var none = el("li");
+      none.appendChild(el("p", "cal-empty", t("calNone")));
+      list.appendChild(none);
+    }
+    upcoming.forEach(function (ev) {
+      var item = el("button", "cal-item");
+      item.type = "button";
+      var head = el("span", "cal-item-head");
+      head.appendChild(el("span", "cal-pill t-" + ev.type, t("cal_" + ev.type)));
+      head.appendChild(el("span", "", (ev.src.featured ? "★ " : "") + pick(ev.src.title)));
+      item.appendChild(head);
+      item.appendChild(el("span", "cal-item-meta", spanLabel(ev) + " · " + pick(ev.src.place)));
+      item.addEventListener("click", function () { openModal(ev); });
+      var li = el("li");
+      li.appendChild(item);
+      list.appendChild(li);
+    });
+
+    if (openEvent) fillModal(openEvent);
+  }
+
+  // the tournament desk lists every upcoming event that carries registration info
+  function renderTourneys() {
+    var list = $("#tourney-list");
+    if (!list) return;
+    list.innerHTML = "";
+    calEvents
+      .filter(function (ev) { return ev.src.registration && !ev.past; })
+      .slice(0, 4)
+      .forEach(function (ev) {
+        var reg = ev.src.registration;
+        var row = el("button", "event" + (ev.type === "interclub" ? " is-host" : ""));
+        row.type = "button";
+
+        var date = el("span", "event-date");
+        date.appendChild(el("b", "", ev.start.day.toLocaleDateString(locale(), { month: "short" })));
+        var sd = ev.start.day.getDate();
+        var ed = ev.end.day.getDate();
+        date.appendChild(el("span", "", sd === ed ? String(sd) : sd + "–" + ed));
+
+        var body = el("span", "event-body");
+        body.appendChild(el("span", "event-title", pick(ev.src.title)));
+        body.appendChild(el("span", "event-meta", pick(ev.src.place)));
+
+        var status = el("span", "event-status");
+        status.appendChild(el("span", "reg-pill " + reg.status, t("reg_" + reg.status)));
+        if (pick(reg)) status.appendChild(el("small", "", pick(reg)));
+
+        row.appendChild(date);
+        row.appendChild(body);
+        row.appendChild(status);
+        row.addEventListener("click", function () { openModal(ev); });
+        var li = el("li");
+        li.appendChild(row);
+        list.appendChild(li);
+      });
+  }
+
+  function fillModal(ev) {
+    var src = ev.src;
+    var type = $("#ev-type");
+    type.className = "cal-pill t-" + ev.type;
+    type.textContent = t("cal_" + ev.type);
+    $("#ev-title").textContent = pick(src.title);
+    $("#ev-when").textContent = spanLabel(ev);
+
+    var where = $("#ev-where");
+    where.textContent = pick(src.place);
+    if (src.map) {
+      where.appendChild(doc.createTextNode(" · "));
+      var map = el("a", "", t("calMap"));
+      map.href = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(src.map);
+      map.target = "_blank";
+      map.rel = "noopener";
+      where.appendChild(map);
+    }
+
+    $("#ev-reg-row").hidden = !src.registration;
+    if (src.registration) {
+      $("#ev-reg").textContent = t("reg_" + src.registration.status) +
+        (pick(src.registration) ? " — " + pick(src.registration) : "");
+    }
+    $("#ev-details").textContent = pick(src.details);
+    $("#ev-gcal").href = googleCalUrl(ev);
+  }
+
+  function openModal(ev) {
+    if (!modal) return;
+    openEvent = ev;
+    fillModal(ev);
+    if (typeof modal.showModal === "function") {
+      if (!modal.open) modal.showModal();
+    } else {
+      modal.setAttribute("open", "");
+    }
+  }
+
+  function closeModal() {
+    openEvent = null;
+    if (typeof modal.close === "function") modal.close();
+    else modal.removeAttribute("open");
+  }
+
+  if (modal) {
+    modal.addEventListener("close", function () { openEvent = null; });
+    // a click on the backdrop lands on the <dialog> itself, outside its body
+    modal.addEventListener("click", function (e) {
+      if (e.target === modal || e.target.closest("[data-close]")) closeModal();
+    });
+  }
+
+  if (cal) {
+    var filters = $(".cal-filters", cal);
+    CAL_TYPES.forEach(function (type) {
+      var chip = el("button", "cal-chip");
+      chip.type = "button";
+      chip.setAttribute("data-type", type);
+      chip.appendChild(el("span", "cal-dot t-" + type));
+      chip.appendChild(el("span", "cal-chip-label"));
+      chip.addEventListener("click", function () {
+        hiddenTypes[type] = !hiddenTypes[type];
+        renderCalendar();
+      });
+      filters.appendChild(chip);
+    });
+    $$("[data-cal-step]", cal).forEach(function (step) {
+      step.addEventListener("click", function () {
+        calMonth = new Date(calMonth.getFullYear(), calMonth.getMonth() + Number(step.getAttribute("data-cal-step")), 1);
+        renderCalendar();
+      });
+    });
+  }
+
+  langHooks.push(renderCalendar, renderTourneys);
+  renderCalendar();
+  renderTourneys();
+
+  /* 8 ── contact form ────────────────────────────────────────────────────
      Sends without leaving the page. With no formEndpoint configured, the
      message goes through FormSubmit (formsubmit.co) to CFG.email.         */
 
@@ -379,7 +706,7 @@
     });
   }
 
-  /* 8 ── back to top, scroll wiring ──────────────────────────────────── */
+  /* 9 ── back to top, scroll wiring ──────────────────────────────────── */
 
   var toTop = $("#to-top");
   if (toTop) {

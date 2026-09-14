@@ -1,7 +1,7 @@
 # Ember Tide Fencing Club · 焰潮擊劍會
 
-Marketing site for **Ember Tide Fencing Club** — a competitive, cooperative fencing
-club for Taipei's English-speaking community. Foil, épée and saber, coached in English and Mandarin, in Songshan District.
+Marketing site for **Ember Tide Fencing Club** — an online-first, competitive, cooperative
+fencing club for Taipei's English-speaking community. Foil, épée and saber, coached in English and Mandarin, at regular venues and pop-up practices all over the city.
 
 > 箭出如火，劍走如水。 The arrow flies like fire. The blade flows like water.
 
@@ -22,7 +22,8 @@ index.html          the whole page
 404.html            not-found page
 css/styles.css      all styling
 js/config.js        the bits an owner edits — form endpoint, socials, language
-js/main.js          language switch, nav, reveals, share, embeds, contact form
+js/events.js        club calendar events, which also feed the tournament desk
+js/main.js          language switch, nav, reveals, share, embeds, calendar, contact form
 assets/             logo, favicon, social card, generated icons
 site.webmanifest    installable-app metadata
 sitemap.xml         one URL; update lastmod when the copy changes materially
@@ -76,7 +77,7 @@ Placeholder details are scattered through `index.html`. Search and replace:
 | `REPLACE_WITH_YOUTUBE_ID` | `data-video` on the YouTube embed in `#social` |
 | Coach names, bios and photos | `#coaches` |
 | Prices, schedule rows | `#pricing`, `#schedule` |
-| Tournament rows (sample events) | `#tournaments` — replace each season |
+| Calendar events (samples) | `js/events.js` — also feeds the `#tournaments` list |
 | Park meeting point (Minsheng Park) | `#programs`, `#schedule`, `#faq`, `#visit` |
 
 Coach portraits are gradient placeholders showing initials. Drop a photo in and
@@ -123,6 +124,21 @@ If sending fails, the visitor is told to email the address directly or use LINE.
 
 There is a honeypot field bots fill in and people never see; those submissions
 are dropped silently.
+
+## The calendar
+
+The club is online-first: beyond the regular weekly sessions in `#schedule`,
+practices pop up all over Taipei. `#calendar` shows them in a month grid with
+type filters, a list of what is still to come that month, and a details dialog
+with a map link and an "Add to Google Calendar" button. Past events stay on
+the grid, dimmed, and cannot be opened.
+
+Events live in `js/events.js` — there is no database yet. Each one has a
+`type` (`practice`, `tournament`, `interclub` or `social`), `start` and `end`
+in Taipei time (`"2026-10-03 09:00"`, or a bare date for all-day and multi-day
+events), and English and Chinese `title`, `place` and `details`. Give an event
+a `registration` object and it also appears in the tournament desk list. The
+field reference is at the top of the file.
 
 ## Deploying
 
