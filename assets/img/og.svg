@@ -35,8 +35,8 @@
     <text x="90" y="300" fill="#eef3f8" font-size="66" font-weight="bold" letter-spacing="1">EMBER TIDE</text>
     <text x="90" y="374" fill="#eef3f8" font-size="66" font-weight="bold" letter-spacing="1">FENCING CLUB</text>
     <text x="90" y="440" fill="#7ef0ff" font-size="40" font-family="Droid Sans Fallback, sans-serif">焰潮擊劍會</text>
-    <text x="90" y="508" fill="#9aabbd" font-size="27">Competitive · Cooperative · Inclusive</text>
-    <text x="90" y="548" fill="#9aabbd" font-size="27" font-family="Droid Sans Fallback, sans-serif">競技・合作・包容・銳劍　軍刀</text>
+    <text x="90" y="508" fill="#9aabbd" font-size="27">Competitive · Open · Inclusive</text>
+    <text x="90" y="548" fill="#9aabbd" font-size="27" font-family="Droid Sans Fallback, sans-serif">競技・公開・包容・銳劍　軍刀</text>
   </g>
   <rect x="0" y="614" width="1200" height="16" fill="url(#fire)"/>
 </svg>

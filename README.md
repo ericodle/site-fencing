@@ -1,6 +1,6 @@
 # Ember Tide Fencing Club · 焰潮擊劍會
 
-Marketing site for **Ember Tide Fencing Club** — an online-first, competitive, cooperative
+Marketing site for **Ember Tide Fencing Club** — an online-first, competitive, open, inclusive
 fencing club in Taipei. Épée and saber, at regular venues and pop-up practices all over the city.
 
 > 箭出如火，劍走如水。 The arrow flies like fire. The blade flows like water.

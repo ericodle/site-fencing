@@ -22,8 +22,8 @@
 
   var STRINGS = {
     docTitle: {
-      en: "Ember Tide Fencing Club · 焰潮擊劍會 — Competitive, cooperative fencing in Taipei",
-      zh: "焰潮擊劍會 Ember Tide Fencing Club — 台北競技、合作的擊劍會"
+      en: "Ember Tide Fencing Club · 焰潮擊劍會 — Competitive, open, inclusive fencing in Taipei",
+      zh: "焰潮擊劍會 Ember Tide Fencing Club — 台北競技、公開、包容的擊劍會"
     },
     metaDesc: {
       en: "Ember Tide Fencing Club (焰潮擊劍會) is a competitive épée and saber club in Taipei. Tournament support, guests from other clubs welcome, low-cost training.",
