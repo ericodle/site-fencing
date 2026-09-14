@@ -1,7 +1,7 @@
 # Ember Tide Fencing Club · 焰潮擊劍會
 
 Marketing site for **Ember Tide Fencing Club** — an online-first, competitive, cooperative
-fencing club for Taipei's English-speaking community. Foil, épée and saber, coached in English and Mandarin, at regular venues and pop-up practices all over the city.
+fencing club for Taipei's English-speaking community. Épée and saber, coached in English and Mandarin, at regular venues and pop-up practices all over the city.
 
 > 箭出如火，劍走如水。 The arrow flies like fire. The blade flows like water.
 
@@ -75,16 +75,15 @@ Placeholder details are scattered through `index.html`. Search and replace:
 | `hello@embertide.tw` | `#contact` channels, footer, `js/config.js` (contact form inbox) |
 | Address and coordinates | `#visit` section, JSON-LD `address` / `geo`, map `data-q` |
 | `REPLACE_WITH_YOUTUBE_ID` | `data-video` on the YouTube embed in `#social` |
-| Coach names, bios and photos | `#coaches` |
-| Prices, schedule rows | `#pricing`, `#schedule` |
+| Coach bios and photos | `#coaches` |
 | Calendar events (samples) | `js/events.js` — also feeds the `#tournaments` list |
-| Park meeting point (Minsheng Park) | `#programs`, `#schedule`, `#faq`, `#visit` |
+| Park meeting point (Minsheng Park) | `#programs`, `#faq`, `#visit`, `js/events.js` |
 
 Coach portraits are gradient placeholders showing initials. Drop a photo in and
 it takes over:
 
 ```html
-<div class="portrait"><img src="assets/img/coach-lin.jpg" alt="Coach Lin Wei-chen"></div>
+<div class="portrait"><img src="assets/img/coach-odle.jpg" alt="Coach Eric Odle"></div>
 ```
 
 The Instagram wall works the same way — the six tiles in `#social` are gradient
@@ -127,9 +126,9 @@ are dropped silently.
 
 ## The calendar
 
-The club is online-first: beyond the regular weekly sessions in `#schedule`,
-practices pop up all over Taipei. `#calendar` shows them in a month grid with
-type filters, a list of what is still to come that month, and a details dialog
+The club is online-first, so `#calendar` is the one schedule: weekly sessions,
+pop-up practices all over Taipei, tournaments and socials, in a month grid with
+type filters, a list of the month's special events, and a details dialog
 with a map link and an "Add to Google Calendar" button. Past events stay on
 the grid, dimmed, and cannot be opened.
 
@@ -137,8 +136,10 @@ Events live in `js/events.js` — there is no database yet. Each one has a
 `type` (`practice`, `tournament`, `interclub` or `social`), `start` and `end`
 in Taipei time (`"2026-10-03 09:00"`, or a bare date for all-day and multi-day
 events), and English and Chinese `title`, `place` and `details`. Give an event
-a `registration` object and it also appears in the tournament desk list. The
-field reference is at the top of the file.
+a `registration` object and it also appears in the tournament desk list. Add
+`repeat: "weekly"` and an `until` date for a regular session: it appears every
+week on the grid, under the Weekly filter, but stays out of the month's list of
+special events. The field reference is at the top of the file.
 
 ## Deploying
 
@@ -171,5 +172,4 @@ PY
 - Everything reachable by keyboard; the mobile menu closes on `Escape`.
 - `prefers-reduced-motion` switches off the reveals, the floating arrow and
   smooth scrolling.
-- The schedule is a real `<table>` with headers; the FAQ is native `<details>`,
-  so it works before JavaScript runs.
+- The FAQ is native `<details>`, so it works before JavaScript runs.

@@ -4,7 +4,8 @@
    this file. Add an object, save, reload. There is no database yet.
 
      id            anything unique
-     type          "practice" | "tournament" | "interclub" | "social"
+     type          "regular" (a weekly session) | "practice" | "tournament" |
+                   "interclub" | "social"
      start, end    Taipei time, "2026-10-03 09:00" — or "2026-10-17" for a
                    whole day. A multi-day event runs from start's day to end's.
      title, place  { en, zh }
@@ -13,10 +14,135 @@
      registration  optional; lists the event in the tournament desk:
                    { status: "open" | "soon" | "tba" | "closed", en, zh }
      featured      optional; true adds a star
+     repeat        optional; "weekly" repeats the event every week from start
+     until         with repeat, the last date it can fall on ("2026-12-31")
 
    The events below are samples. Replace them with the real season.
    --------------------------------------------------------------------------- */
 window.CLUB_EVENTS = [
+  // regular weekly sessions
+  {
+    id: "weekly-foundations-a",
+    type: "regular",
+    repeat: "weekly",
+    start: "2026-09-07 19:00",
+    end: "2026-09-07 21:00",
+    until: "2026-12-31",
+    title: { en: "Foundations · Block A", zh: "基礎課・A 班" },
+    place: { en: "Bade Road venue, B1", zh: "八德路場地 B1" },
+    map: "No. 128, Section 4, Bade Road, Taipei",
+    details: { en: "Épée. The eight-week beginner course, in English and Mandarin.", zh: "銳劍。八週初學課程，中英雙語。" }
+  },
+  {
+    id: "weekly-cadets",
+    type: "regular",
+    repeat: "weekly",
+    start: "2026-09-08 17:00",
+    end: "2026-09-08 18:30",
+    until: "2026-12-31",
+    title: { en: "Cadets (7–13)", zh: "少年劍士 (7–13)" },
+    place: { en: "Bade Road venue, B1", zh: "八德路場地 B1" },
+    map: "No. 128, Section 4, Bade Road, Taipei",
+    details: { en: "Épée and saber for ages 7–13, led in Mandarin with English alongside.", zh: "7–13 歲的銳劍與軍刀課程，以中文為主、英文並行。" }
+  },
+  {
+    id: "weekly-open-training",
+    type: "regular",
+    repeat: "weekly",
+    start: "2026-09-08 19:00",
+    end: "2026-09-08 21:30",
+    until: "2026-12-31",
+    title: { en: "Open training", zh: "自由練習" },
+    place: { en: "Bade Road venue, B1", zh: "八德路場地 B1" },
+    map: "No. 128, Section 4, Bade Road, Taipei",
+    details: { en: "Épée and saber bouting with a coach on the floor. Guests from other clubs welcome.", zh: "銳劍與軍刀自由對打，場上有教練。歡迎其他俱樂部劍手。" }
+  },
+  {
+    id: "weekly-park-footwork",
+    type: "regular",
+    repeat: "weekly",
+    start: "2026-09-09 06:45",
+    end: "2026-09-09 07:45",
+    until: "2026-12-31",
+    title: { en: "Park footwork", zh: "公園步法" },
+    place: { en: "Minsheng Park, Songshan", zh: "松山區民生公園" },
+    map: "Minsheng Park, Taipei",
+    details: { en: "No blades needed: footwork drills in running shoes, led in English. Moves under cover if it rains.", zh: "不需用劍：穿跑鞋練步法，以英文帶領。遇雨移至有遮蔽處。" }
+  },
+  {
+    id: "weekly-saber-night",
+    type: "regular",
+    repeat: "weekly",
+    start: "2026-09-09 19:00",
+    end: "2026-09-09 21:00",
+    until: "2026-12-31",
+    title: { en: "Saber night", zh: "軍刀之夜" },
+    place: { en: "Bade Road venue, B1", zh: "八德路場地 B1" },
+    map: "No. 128, Section 4, Bade Road, Taipei",
+    details: { en: "Saber drills and bouting, led in English.", zh: "軍刀練習與對打，以英文帶領。" }
+  },
+  {
+    id: "weekly-foundations-b",
+    type: "regular",
+    repeat: "weekly",
+    start: "2026-09-10 19:00",
+    end: "2026-09-10 21:00",
+    until: "2026-12-31",
+    title: { en: "Foundations · Block B", zh: "基礎課・B 班" },
+    place: { en: "Bade Road venue, B1", zh: "八德路場地 B1" },
+    map: "No. 128, Section 4, Bade Road, Taipei",
+    details: { en: "Saber. The eight-week beginner course, in English and Mandarin.", zh: "軍刀。八週初學課程，中英雙語。" }
+  },
+  {
+    id: "weekly-club-night",
+    type: "regular",
+    repeat: "weekly",
+    start: "2026-09-11 19:30",
+    end: "2026-09-11 22:00",
+    until: "2026-12-31",
+    title: { en: "Club night & ladder bouts", zh: "俱樂部之夜・排位賽" },
+    place: { en: "Bade Road venue, B1", zh: "八德路場地 B1" },
+    map: "No. 128, Section 4, Bade Road, Taipei",
+    details: { en: "Ladder bouts in épée and saber. Guests from other clubs welcome.", zh: "銳劍與軍刀排位賽。歡迎其他俱樂部劍手。" }
+  },
+  {
+    id: "weekly-park-cross-training",
+    type: "regular",
+    repeat: "weekly",
+    start: "2026-09-12 08:00",
+    end: "2026-09-12 09:30",
+    until: "2026-12-31",
+    title: { en: "Park cross-training", zh: "公園體能訓練" },
+    place: { en: "Minsheng Park, Songshan", zh: "松山區民生公園" },
+    map: "Minsheng Park, Taipei",
+    details: { en: "Conditioning and agility, no blades needed. In English and Mandarin.", zh: "體能與敏捷訓練，不需用劍。中英雙語。" }
+  },
+  {
+    id: "weekly-tournament-training",
+    type: "regular",
+    repeat: "weekly",
+    start: "2026-09-12 13:00",
+    end: "2026-09-12 16:00",
+    until: "2026-12-31",
+    title: { en: "Tournament training", zh: "備賽訓練" },
+    place: { en: "Bade Road venue, B1", zh: "八德路場地 B1" },
+    map: "No. 128, Section 4, Bade Road, Taipei",
+    details: { en: "Bouting and video review aimed at the next tournament.", zh: "以下一場比賽為目標的對打與錄影檢討。" }
+  },
+  {
+    id: "weekly-open-mat",
+    type: "regular",
+    repeat: "weekly",
+    start: "2026-09-13 14:00",
+    end: "2026-09-13 17:00",
+    until: "2026-12-31",
+    title: { en: "Open mat & private lessons", zh: "自由練習・個人課" },
+    place: { en: "Bade Road venue, B1", zh: "八德路場地 B1" },
+    map: "No. 128, Section 4, Bade Road, Taipei",
+    details: { en: "Open bouting, with private lessons alongside.", zh: "自由對打，並同時進行個人課。" }
+  },
+
+  // one-off events
   {
     id: "popup-dajia-0905",
     type: "practice",
@@ -51,8 +177,8 @@ window.CLUB_EVENTS = [
     place: { en: "Da'an Forest Park, by the amphitheater", zh: "大安森林公園露天音樂台旁" },
     map: "Da'an Forest Park amphitheater, Taipei",
     details: {
-      en: "Footwork ladders, then open bouting on wireless scoring under the trees. Loaner gear available, free for everyone.",
-      zh: "步法梯訓練後，在樹下以無線計分自由對打。可借用裝備，所有人免費。"
+      en: "Footwork ladders, then open bouting on wireless scoring under the trees. Loaner gear available.",
+      zh: "步法梯訓練後，在樹下以無線計分自由對打。可借用裝備。"
     }
   },
   {
@@ -124,7 +250,7 @@ window.CLUB_EVENTS = [
     end: "2026-10-18",
     featured: true,
     title: { en: "National Ranking Tournament · Round 1", zh: "全國排名賽・第一站" },
-    place: { en: "Taichung · all three weapons · Open, U20", zh: "台中・三劍種・公開組、U20" },
+    place: { en: "Taichung · épée, saber · Open, U20", zh: "台中・銳劍、軍刀・公開組、U20" },
     map: "Taichung",
     registration: { status: "soon", en: "Entries close Sep 28", zh: "9 月 28 日截止報名" },
     details: {
@@ -163,7 +289,7 @@ window.CLUB_EVENTS = [
     type: "tournament",
     start: "2026-11-07",
     title: { en: "Taipei City Open", zh: "臺北市擊劍公開賽" },
-    place: { en: "Taipei · foil, épée · Open, Veterans", zh: "台北・花劍、銳劍・公開組、壯年組" },
+    place: { en: "Taipei · épée, saber · Open, Veterans", zh: "台北・銳劍、軍刀・公開組、壯年組" },
     registration: { status: "open", en: "Entries close Oct 16", zh: "10 月 16 日截止報名" },
     details: {
       en: "A home event, so no travel. A good first tournament for anyone through Foundations.",
@@ -217,7 +343,7 @@ window.CLUB_EVENTS = [
     start: "2026-12-12",
     end: "2026-12-13",
     title: { en: "National Ranking Tournament · Round 2", zh: "全國排名賽・第二站" },
-    place: { en: "Kaohsiung · all three weapons · Open, U17, U20", zh: "高雄・三劍種・公開組、U17、U20" },
+    place: { en: "Kaohsiung · épée, saber · Open, U17, U20", zh: "高雄・銳劍、軍刀・公開組、U17、U20" },
     map: "Kaohsiung",
     registration: { status: "tba", en: "We'll post it on LINE", zh: "公告後將發布於 LINE" },
     details: {

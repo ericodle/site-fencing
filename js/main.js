@@ -26,8 +26,8 @@
       zh: "焰潮擊劍會 Ember Tide Fencing Club — 台北競技、合作、英語友善的擊劍會"
     },
     metaDesc: {
-      en: "Ember Tide Fencing Club (焰潮擊劍會) is a competitive fencing club for Taipei's English-speaking community. Foil, épée and saber, a tournament calendar with registration help, guests from other clubs welcome, and training kept low-cost.",
-      zh: "焰潮擊劍會是為台北英語社群而生的競技擊劍俱樂部。花劍、銳劍、軍刀，提供賽事行事曆與報名協助，歡迎其他俱樂部劍手來訪，並努力維持低廉的訓練費用。"
+      en: "Ember Tide Fencing Club (焰潮擊劍會) is a competitive fencing club for Taipei's English-speaking community. Épée and saber, a tournament calendar with registration help, guests from other clubs welcome, and training kept low-cost.",
+      zh: "焰潮擊劍會是為台北英語社群而生的競技擊劍俱樂部。銳劍與軍刀，提供賽事行事曆與報名協助，歡迎其他俱樂部劍手來訪，並努力維持低廉的訓練費用。"
     },
     copied: { en: "Link copied.", zh: "連結已複製。" },
     copyFail: { en: "Could not copy — long-press the address bar instead.", zh: "複製失敗，請改為長按網址列。" },
@@ -38,6 +38,7 @@
     needName: { en: "Please add a name we can call you by.", zh: "請留下我們可以稱呼您的名字。" },
     needEmail: { en: "Please add an email address we can reply to.", zh: "請留下可以回覆您的 Email。" },
     needMessage: { en: "Please write a message.", zh: "請輸入訊息內容。" },
+    cal_regular: { en: "Weekly", zh: "每週" },
     cal_practice: { en: "Practice", zh: "練習" },
     cal_tournament: { en: "Tournament", zh: "比賽" },
     cal_interclub: { en: "Inter-club", zh: "跨館交流" },
@@ -45,6 +46,7 @@
     calNone: { en: "Nothing else on this month — try the next one.", zh: "本月沒有其他活動了——看看下個月吧。" },
     calPast: { en: "already happened", zh: "已結束" },
     calMap: { en: "Open map", zh: "開啟地圖" },
+    calEvery: { en: "every {day}", zh: "每{day}" },
     reg_open: { en: "Registration open", zh: "報名中" },
     reg_soon: { en: "Closes soon", zh: "即將截止" },
     reg_tba: { en: "Not yet announced", zh: "尚未公告" },
@@ -334,7 +336,7 @@
      events are laid into stacked tracks, and a bar restarts (with its title)
      at the start of each week. Events come from js/events.js.             */
 
-  var CAL_TYPES = ["practice", "tournament", "interclub", "social"];
+  var CAL_TYPES = ["regular", "practice", "tournament", "interclub", "social"];
   var TRACK_H = 18;
   var TRACK_GAP = 2;
   var DAY_MS = 86400000;
@@ -362,16 +364,32 @@
   var todayStart = new Date();
   todayStart.setHours(0, 0, 0, 0);
 
-  var calEvents = (window.CLUB_EVENTS || [])
-    .map(function (src) {
-      var start = parseStamp(src.start);
-      if (!start) return null;
-      var end = parseStamp(src.end) || start;
-      var endsAt = end.time ? end.at : new Date(end.day.getTime() + DAY_MS);
-      return { src: src, type: src.type, start: start, end: end, past: endsAt < new Date() };
-    })
-    .filter(Boolean)
-    .sort(function (a, b) { return a.start.at - b.start.at; });
+  // move a parsed stamp by whole days, keeping its time of day
+  function shiftStamp(p, days) {
+    var day = new Date(p.day.getFullYear(), p.day.getMonth(), p.day.getDate() + days);
+    var at = new Date(day.getTime());
+    at.setHours(p.at.getHours(), p.at.getMinutes());
+    return { day: day, at: at, time: p.time };
+  }
+
+  // weekly sessions expand into one instance per week, through `until`
+  // (or for 26 weeks when it is missing)
+  var calEvents = [];
+  (window.CLUB_EVENTS || []).forEach(function (src) {
+    var start = parseStamp(src.start);
+    if (!start) return;
+    var end = parseStamp(src.end) || start;
+    var weekly = src.repeat === "weekly";
+    var until = weekly ? parseStamp(src.until) : null;
+    var weeks = !weekly ? 1 : until ? Math.floor(Math.round((until.day - start.day) / DAY_MS) / 7) + 1 : 26;
+    for (var i = 0; i < weeks; i++) {
+      var s = shiftStamp(start, i * 7);
+      var e = shiftStamp(end, i * 7);
+      var endsAt = e.time ? e.at : new Date(e.day.getTime() + DAY_MS);
+      calEvents.push({ src: src, type: src.type, start: s, end: e, weekly: weekly, past: endsAt < new Date() });
+    }
+  });
+  calEvents.sort(function (a, b) { return a.start.at - b.start.at; });
 
   // Lowest free track per event; on equal starts the longer event goes lower.
   function assignTracks(events) {
@@ -398,6 +416,7 @@
       return label + " – " + ev.end.day.toLocaleDateString(locale(), opts);
     }
     if (ev.start.time) label += " · " + ev.start.time + (ev.end.time && ev.end.time !== ev.start.time ? "–" + ev.end.time : "");
+    if (ev.weekly) label += " · " + t("calEvery").replace("{day}", ev.start.day.toLocaleDateString(locale(), { weekday: "long" }));
     return label;
   }
 
@@ -415,7 +434,8 @@
       "&text=" + encodeURIComponent(pick(ev.src.title) + " — Ember Tide") +
       "&dates=" + dates + "&ctz=Asia/Taipei" +
       "&location=" + encodeURIComponent(pick(ev.src.place)) +
-      "&details=" + encodeURIComponent(pick(ev.src.details));
+      "&details=" + encodeURIComponent(pick(ev.src.details)) +
+      (ev.weekly && ev.src.until ? "&recur=" + encodeURIComponent("RRULE:FREQ=WEEKLY;UNTIL=" + ev.src.until.slice(0, 10).replace(/-/g, "")) : "");
   }
 
   var cal = $("#cal");
@@ -503,7 +523,7 @@
     var list = $(".cal-items", cal);
     list.innerHTML = "";
     var upcoming = shown.filter(function (ev) {
-      return !ev.past && ev.end.day >= first && ev.start.day <= last;
+      return !ev.past && !ev.weekly && ev.end.day >= first && ev.start.day <= last;
     });
     if (!upcoming.length) {
       var none = el("li");

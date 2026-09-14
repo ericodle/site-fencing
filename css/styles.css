@@ -663,53 +663,10 @@ html[data-lang="zh"] .zh-br { display: inline; }
 /* 5.7 weapons */
 .weapon { display: flex; flex-direction: column; gap: 0.9rem; }
 .weapon .blade { height: 3px; border-radius: 3px; background: var(--grad-fire); width: 100%; }
-.weapon:nth-child(2) .blade { background: var(--grad-steam); }
-.weapon:nth-child(3) .blade { background: var(--grad-tide); }
+.weapon.is-tide .blade { background: var(--grad-tide); }
 .weapon dl { display: grid; grid-template-columns: auto 1fr; gap: 0.3rem 0.9rem; margin: 0.4rem 0 0; font-size: 0.87rem; }
 .weapon dt { color: var(--muted-dim); letter-spacing: 0.08em; text-transform: uppercase; font-size: 0.72rem; align-self: center; }
 .weapon dd { margin: 0; color: var(--paper); }
-
-/* 5.8 schedule */
-.table-scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--r-lg); background: rgba(10, 13, 20, 0.7); }
-table.schedule { width: 100%; border-collapse: collapse; min-width: 620px; }
-table.schedule th,
-table.schedule td { padding: 0.9rem 1.1rem; text-align: left; border-bottom: 1px solid var(--line); font-size: 0.92rem; vertical-align: middle; }
-table.schedule thead th {
-  font-family: var(--font-display);
-  font-size: 0.74rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--flame);
-  background: rgba(255, 107, 31, 0.06);
-}
-table.schedule tbody tr:last-child td { border-bottom: 0; }
-table.schedule tbody tr:hover td { background: rgba(255, 255, 255, 0.035); }
-table.schedule td:first-child { font-weight: 600; white-space: nowrap; }
-.lang-pill {
-  display: inline-block;
-  padding: 0.15rem 0.55rem;
-  border-radius: var(--r-pill);
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  border: 1px solid currentColor;
-}
-.lang-pill.en { color: var(--flame); }
-.lang-pill.zh { color: var(--tide-soft); }
-.lang-pill.both { color: #b6f0c4; }
-.park-pill {
-  display: inline-block;
-  margin-left: 0.45rem;
-  padding: 0.1rem 0.5rem;
-  border-radius: var(--r-pill);
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--tide-soft);
-  background: rgba(31, 182, 201, 0.12);
-  vertical-align: 0.1em;
-}
 
 /* 5.8b tournaments */
 .tourney-grid { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: clamp(1.5rem, 3vw, 2.5rem); align-items: start; }
@@ -761,6 +718,7 @@ button.event { width: 100%; color: inherit; font: inherit; text-align: left; cur
 .reg-pill.closed { color: var(--muted-dim); }
 
 /* 5.8c club calendar */
+.t-regular { background: var(--flame); color: #1a0d02; }
 .t-practice { background: var(--ember); color: #180a02; }
 .t-tournament { background: var(--coal); color: #fff; }
 .t-interclub { background: var(--tide); color: #02161c; }
@@ -897,6 +855,12 @@ button.event { width: 100%; color: inherit; font: inherit; text-align: left; cur
 
 /* 5.9 coaches */
 .coach { text-align: left; }
+/* two coaches, equal columns, side by side at every width */
+.coach-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.coach-grid .coach { display: grid; grid-template-columns: clamp(7rem, 12vw, 10rem) minmax(0, 1fr); column-gap: 1.4rem; align-content: start; }
+.coach-grid .coach > * { grid-column: 2; }
+.coach-grid .coach .portrait { grid-column: 1; grid-row: 1 / span 4; aspect-ratio: 1; margin: 0; }
+.coach-grid .coach .portrait .initials { font-size: clamp(1.6rem, 1.1rem + 1.6vw, 2.5rem); }
 .coach .portrait {
   aspect-ratio: 4 / 5;
   border-radius: var(--r-md);
@@ -931,27 +895,6 @@ button.event { width: 100%; color: inherit; font: inherit; text-align: left; cur
 }
 .coach .socials a:hover { color: var(--flame); border-color: var(--flame); }
 .coach .socials svg { width: 15px; height: 15px; }
-
-/* 5.10 pricing */
-.price { display: flex; flex-direction: column; }
-.price > .tag { align-self: flex-start; }
-.price.featured { border-color: rgba(255, 200, 97, 0.4); box-shadow: 0 20px 60px -30px rgba(255, 107, 31, 0.8); }
-.price.featured::after { opacity: 0.5; }
-.price .amount {
-  font-family: var(--font-head);
-  font-size: clamp(2rem, 1.6rem + 1.4vw, 2.7rem);
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  line-height: 1;
-  margin: 0.6rem 0 0.2rem;
-}
-.price .amount small { display: block; margin-top: .45rem; font-size: 0.8rem; font-weight: 500; letter-spacing: .02em;
-  color: var(--muted-dim); -webkit-text-fill-color: var(--muted-dim); background: none; }
-.price ul { display: grid; gap: 0.55rem; margin: 1.2rem 0 1.6rem; font-size: 0.93rem; color: var(--muted); }
-.price ul li { display: flex; gap: 0.6rem; }
-.price ul li::before { content: "→"; color: var(--ember); }
-.price .btn { margin-top: auto; width: 100%; padding-inline: .9rem; font-size: .92rem; }
-.price-note { color: var(--muted-dim); font-size: 0.87rem; margin-top: 1.25rem; }
 
 /* 5.11 social hub */
 .social-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr)); gap: clamp(1rem, 2vw, 1.5rem); }
@@ -1314,6 +1257,10 @@ footer.site {
   .hero-art { order: -1; }
   .hero-art svg { width: min(70%, 300px); }
   .tourney-grid { grid-template-columns: 1fr; }
+  .coach-grid .coach { grid-template-columns: minmax(0, 1fr); }
+  .coach-grid .coach > *,
+  .coach-grid .coach .portrait { grid-column: 1; grid-row: auto; }
+  .coach-grid .coach .portrait { margin-bottom: 0.9rem; }
   .nav {
     position: fixed;
     inset: var(--nav-h) 0 auto;
@@ -1350,6 +1297,9 @@ footer.site {
   .cta-band .btn-row .btn { width: 100%; }
   .foot-bottom { justify-content: flex-start; }
   .event { grid-template-columns: auto minmax(0, 1fr); gap: 0.9rem; }
+  .coach-grid { gap: 0.75rem; }
+  .coach-grid .coach { padding: 1rem; }
+  .coach .role { font-size: 0.72rem; letter-spacing: 0.06em; }
   .event-status { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem; text-align: left; }
   .pledge { align-items: flex-start; }
 }
