@@ -22,12 +22,12 @@
 
   var STRINGS = {
     docTitle: {
-      en: "Ember Tide Fencing Club · 焰潮擊劍會 — Competitive, cooperative, English-friendly fencing in Taipei",
-      zh: "焰潮擊劍會 Ember Tide Fencing Club — 台北競技、合作、英語友善的擊劍會"
+      en: "Ember Tide Fencing Club · 焰潮擊劍會 — Competitive, cooperative fencing in Taipei",
+      zh: "焰潮擊劍會 Ember Tide Fencing Club — 台北競技、合作的擊劍會"
     },
     metaDesc: {
-      en: "Ember Tide Fencing Club (焰潮擊劍會) is a competitive fencing club for Taipei's English-speaking community. Épée and saber, a tournament calendar with registration help, guests from other clubs welcome, and training kept low-cost.",
-      zh: "焰潮擊劍會是為台北英語社群而生的競技擊劍俱樂部。銳劍與軍刀，提供賽事行事曆與報名協助，歡迎其他俱樂部劍手來訪，並努力維持低廉的訓練費用。"
+      en: "Ember Tide Fencing Club (焰潮擊劍會) is a competitive épée and saber club in Taipei. Tournament support, guests from other clubs welcome, low-cost training.",
+      zh: "焰潮擊劍會是台北的競技銳劍與軍刀俱樂部。提供賽事協助，歡迎其他俱樂部劍手，訓練費用低廉。"
     },
     copied: { en: "Link copied.", zh: "連結已複製。" },
     copyFail: { en: "Could not copy — long-press the address bar instead.", zh: "複製失敗，請改為長按網址列。" },

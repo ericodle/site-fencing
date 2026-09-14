@@ -22,28 +22,28 @@
 window.CLUB_EVENTS = [
   // regular weekly sessions
   {
-    id: "weekly-foundations-a",
+    id: "weekly-beginner-adult-epee",
     type: "regular",
     repeat: "weekly",
     start: "2026-09-07 19:00",
     end: "2026-09-07 21:00",
     until: "2026-12-31",
-    title: { en: "Foundations · Block A", zh: "基礎課・A 班" },
+    title: { en: "Adult beginner lessons · Épée", zh: "成人初學團體課・銳劍" },
     place: { en: "Bade Road venue, B1", zh: "八德路場地 B1" },
     map: "No. 128, Section 4, Bade Road, Taipei",
-    details: { en: "Épée. The eight-week beginner course, in English and Mandarin.", zh: "銳劍。八週初學課程，中英雙語。" }
+    details: { en: "Group épée lessons for adult beginners. You finish competition-ready.", zh: "成人銳劍初學團體課，結業即具備參賽能力。" }
   },
   {
-    id: "weekly-cadets",
+    id: "weekly-beginner-kids",
     type: "regular",
     repeat: "weekly",
     start: "2026-09-08 17:00",
     end: "2026-09-08 18:30",
     until: "2026-12-31",
-    title: { en: "Cadets (7–13)", zh: "少年劍士 (7–13)" },
+    title: { en: "Kids' beginner lessons (7–13)", zh: "兒童初學團體課 (7–13)" },
     place: { en: "Bade Road venue, B1", zh: "八德路場地 B1" },
     map: "No. 128, Section 4, Bade Road, Taipei",
-    details: { en: "Épée and saber for ages 7–13, led in Mandarin with English alongside.", zh: "7–13 歲的銳劍與軍刀課程，以中文為主、英文並行。" }
+    details: { en: "Group épée and saber lessons for ages 7–13.", zh: "7–13 歲銳劍與軍刀初學團體課。" }
   },
   {
     id: "weekly-open-training",
@@ -67,7 +67,7 @@ window.CLUB_EVENTS = [
     title: { en: "Park footwork", zh: "公園步法" },
     place: { en: "Minsheng Park, Songshan", zh: "松山區民生公園" },
     map: "Minsheng Park, Taipei",
-    details: { en: "No blades needed: footwork drills in running shoes, led in English. Moves under cover if it rains.", zh: "不需用劍：穿跑鞋練步法，以英文帶領。遇雨移至有遮蔽處。" }
+    details: { en: "No blades needed: footwork drills in running shoes. Moves under cover if it rains.", zh: "不需用劍：穿跑鞋練步法。遇雨移至有遮蔽處。" }
   },
   {
     id: "weekly-saber-night",
@@ -79,19 +79,19 @@ window.CLUB_EVENTS = [
     title: { en: "Saber night", zh: "軍刀之夜" },
     place: { en: "Bade Road venue, B1", zh: "八德路場地 B1" },
     map: "No. 128, Section 4, Bade Road, Taipei",
-    details: { en: "Saber drills and bouting, led in English.", zh: "軍刀練習與對打，以英文帶領。" }
+    details: { en: "Saber drills and bouting.", zh: "軍刀練習與對打。" }
   },
   {
-    id: "weekly-foundations-b",
+    id: "weekly-beginner-adult-saber",
     type: "regular",
     repeat: "weekly",
     start: "2026-09-10 19:00",
     end: "2026-09-10 21:00",
     until: "2026-12-31",
-    title: { en: "Foundations · Block B", zh: "基礎課・B 班" },
+    title: { en: "Adult beginner lessons · Saber", zh: "成人初學團體課・軍刀" },
     place: { en: "Bade Road venue, B1", zh: "八德路場地 B1" },
     map: "No. 128, Section 4, Bade Road, Taipei",
-    details: { en: "Saber. The eight-week beginner course, in English and Mandarin.", zh: "軍刀。八週初學課程，中英雙語。" }
+    details: { en: "Group saber lessons for adult beginners. You finish competition-ready.", zh: "成人軍刀初學團體課，結業即具備參賽能力。" }
   },
   {
     id: "weekly-club-night",
@@ -115,7 +115,7 @@ window.CLUB_EVENTS = [
     title: { en: "Park cross-training", zh: "公園體能訓練" },
     place: { en: "Minsheng Park, Songshan", zh: "松山區民生公園" },
     map: "Minsheng Park, Taipei",
-    details: { en: "Conditioning and agility, no blades needed. In English and Mandarin.", zh: "體能與敏捷訓練，不需用劍。中英雙語。" }
+    details: { en: "Conditioning and agility, no blades needed.", zh: "體能與敏捷訓練，不需用劍。" }
   },
   {
     id: "weekly-tournament-training",
@@ -292,8 +292,8 @@ window.CLUB_EVENTS = [
     place: { en: "Taipei · épée, saber · Open, Veterans", zh: "台北・銳劍、軍刀・公開組、壯年組" },
     registration: { status: "open", en: "Entries close Oct 16", zh: "10 月 16 日截止報名" },
     details: {
-      en: "A home event, so no travel. A good first tournament for anyone through Foundations.",
-      zh: "在台北舉行，不必長途移動。很適合完成基礎課的劍手當作第一場比賽。"
+      en: "A home event, so no travel. A good first tournament for anyone through the beginner course.",
+      zh: "在台北舉行，不必長途移動。很適合完成初學課程的劍手當作第一場比賽。"
     }
   },
   {

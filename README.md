@@ -1,7 +1,7 @@
 # Ember Tide Fencing Club · 焰潮擊劍會
 
 Marketing site for **Ember Tide Fencing Club** — an online-first, competitive, cooperative
-fencing club for Taipei's English-speaking community. Épée and saber, coached in English and Mandarin, at regular venues and pop-up practices all over the city.
+fencing club in Taipei. Épée and saber, at regular venues and pop-up practices all over the city.
 
 > 箭出如火，劍走如水。 The arrow flies like fire. The blade flows like water.
 
@@ -77,7 +77,7 @@ Placeholder details are scattered through `index.html`. Search and replace:
 | `REPLACE_WITH_YOUTUBE_ID` | `data-video` on the YouTube embed in `#social` |
 | Coach bios and photos | `#coaches` |
 | Calendar events (samples) | `js/events.js` — also feeds the `#tournaments` list |
-| Park meeting point (Minsheng Park) | `#programs`, `#faq`, `#visit`, `js/events.js` |
+| Park meeting point (Minsheng Park) | `#faq`, `#visit`, `js/events.js` |
 
 Coach portraits are gradient placeholders showing initials. Drop a photo in and
 it takes over:
