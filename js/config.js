@@ -25,7 +25,7 @@ window.CLUB = {
 
   /* Text that gets shared when someone taps the share buttons. */
   shareTitle: "Ember Tide Fencing Club · 焰潮擊劍會",
-  shareText: "Competitive, open, inclusive fencing in Taipei — épée and saber, guests from other clubs welcome. 台北競技、公開、包容的擊劍會。",
+  shareText: "Competitive, open, inclusive fencing in Taipei — épée and saber, guests from other clubs welcome. 台北競技、開放、包容的擊劍會。",
 
   /* Default language when a visitor has no saved preference:
      "auto" follows the browser, or force it with "en" / "zh".                */

@@ -306,7 +306,7 @@ window.CLUB_EVENTS = [
     map: "Neihu Riverside Park, Taipei",
     details: {
       en: "Open to fencers from any club. Wireless scoring and loaner gear on site.",
-      zh: "任何俱樂部的劍手都歡迎。現場提供無線計分與租借裝備。"
+      zh: "任何俱樂部的劍手都歡迎。現場提供無線計分與借用裝備。"
     }
   },
   {
@@ -360,7 +360,7 @@ window.CLUB_EVENTS = [
     place: { en: "Venue announced on LINE", zh: "地點將於 LINE 公布" },
     details: {
       en: "Season awards, bad fencing jokes, and a toast to every club we fenced with this year.",
-      zh: "賽季頒獎、冷笑話，並向今年一起擊劍的每間俱樂部舉杯。"
+      zh: "賽季頒獎、擊劍冷笑話，並向今年一起擊劍的每間俱樂部舉杯。"
     }
   }
 ];

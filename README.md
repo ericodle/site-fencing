@@ -129,7 +129,7 @@ are dropped silently.
 The club is online-first, so `#calendar` is the one schedule: weekly sessions,
 pop-up practices all over Taipei, tournaments and socials, in a month grid with
 type filters, a list of the month's special events, and a details dialog
-with a map link and an "Add to Google Calendar" button. Past events stay on
+with a map link. Past events stay on
 the grid, dimmed, and cannot be opened.
 
 Events live in `js/events.js` — there is no database yet. Each one has a

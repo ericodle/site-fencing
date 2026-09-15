@@ -23,7 +23,7 @@
   var STRINGS = {
     docTitle: {
       en: "Ember Tide Fencing Club · 焰潮擊劍會 — Competitive, open, inclusive fencing in Taipei",
-      zh: "焰潮擊劍會 Ember Tide Fencing Club — 台北競技、公開、包容的擊劍會"
+      zh: "焰潮擊劍會 Ember Tide Fencing Club — 台北競技、開放、包容的擊劍會"
     },
     metaDesc: {
       en: "Ember Tide Fencing Club (焰潮擊劍會) is a competitive épée and saber club in Taipei. Tournament support, guests from other clubs welcome, low-cost training.",
@@ -420,24 +420,6 @@
     return label;
   }
 
-  function gcalStamp(p, nextDay) {
-    var d = nextDay ? new Date(p.day.getTime() + DAY_MS) : p.day;
-    var ymd = d.getFullYear() + String(d.getMonth() + 1).padStart(2, "0") + String(d.getDate()).padStart(2, "0");
-    return p.time && !nextDay ? ymd + "T" + p.time.replace(":", "") + "00" : ymd;
-  }
-
-  function googleCalUrl(ev) {
-    var dates = ev.start.time
-      ? gcalStamp(ev.start) + "/" + gcalStamp(ev.end.time ? ev.end : ev.start)
-      : gcalStamp(ev.start) + "/" + gcalStamp(ev.end, true);
-    return "https://calendar.google.com/calendar/render?action=TEMPLATE" +
-      "&text=" + encodeURIComponent(pick(ev.src.title) + " — Ember Tide") +
-      "&dates=" + dates + "&ctz=Asia/Taipei" +
-      "&location=" + encodeURIComponent(pick(ev.src.place)) +
-      "&details=" + encodeURIComponent(pick(ev.src.details)) +
-      (ev.weekly && ev.src.until ? "&recur=" + encodeURIComponent("RRULE:FREQ=WEEKLY;UNTIL=" + ev.src.until.slice(0, 10).replace(/-/g, "")) : "");
-  }
-
   var cal = $("#cal");
   var modal = $("#event-modal");
   var calMonth = new Date(todayStart.getFullYear(), todayStart.getMonth(), 1);
@@ -609,7 +591,6 @@
         (pick(src.registration) ? " — " + pick(src.registration) : "");
     }
     $("#ev-details").textContent = pick(src.details);
-    $("#ev-gcal").href = googleCalUrl(ev);
   }
 
   function openModal(ev) {
