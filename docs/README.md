@@ -5,7 +5,7 @@ long form behind the public copy, and the forms members sign.
 
 | File | What it is |
 | --- | --- |
-| `mission_statement.txt` | The three pillars — Open, Competitive, Inclusive — broken into components, each with the evidence that backs it and a status tag. Ends with a gap list of claims we cannot yet evidence. |
+| `mission_statement.txt` | The three pillars — Open, Competitive, Data-driven — broken into components, each with the evidence that backs it and a status tag. Ends with a gap list of claims we cannot yet evidence. |
 | `mission_statement.zh-TW.txt` | Traditional Chinese version of the above. Keep the two in step. |
 | `liability_waiver.txt` | Assumption of risk, waiver and release, bilingual in one signable document. |
 | `media_release.txt` | Consent to photographs, video and other media, bilingual, with the PDPA collection notice. |

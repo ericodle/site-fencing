@@ -3,7 +3,7 @@ EMBER TIDE FENCING CLUB · 焰潮擊劍會
 MISSION STATEMENT AND EVIDENCE REGISTER
 ================================================================================
 Internal administrative document. Not for publication as written.
-Version 1.0 · 16 September 2026 · Owner: club administration
+Version 1.1 · 16 September 2026 · Owner: club administration
 Traditional Chinese version: docs/mission_statement.zh-TW.txt
 
 --------------------------------------------------------------------------------
@@ -46,12 +46,12 @@ elements we train — ember for the attack you commit to entirely, tide for the
 defense that yields and returns. Everything below is an attempt to hold those
 two together in how the club is actually run.
 
-The three pillars are Open, Competitive and Inclusive, in the order they appear
-on the public site. They are not ranked. They constrain each other: being open
-about results is uncomfortable precisely because we are competitive, and being
-inclusive costs us money we could otherwise spend on facilities. When the three
-conflict, the conflict is resolved in the open, in writing, and the decision is
-recorded here at the next revision.
+The three pillars are Open, Competitive and Data-driven, in the order they
+appear on the public site. They are not ranked. They constrain each other: being
+open about results is uncomfortable precisely because we are competitive, and
+keeping an honest record is what stops the other two becoming a story we tell
+about ourselves. When the three conflict, the conflict is resolved in the open,
+in writing, and the decision is recorded here at the next revision.
 
 ================================================================================
 PILLAR 01 — OPEN
@@ -116,9 +116,9 @@ specifications for our scoring equipment are published. The target is a fully
 DIY wireless reel and scoring box system built from off-the-shelf parts, with
 the bill of materials, firmware and enclosure files public, so that a school
 club or a group of students anywhere can put a scored piste on any flat floor
-for a fraction of the commercial price. This is the pillar where Open and
-Inclusive are the same commitment seen from two directions: the point of
-publishing the design is that cost stops being a barrier for somebody else too.
+for a fraction of the commercial price. Publishing the design is how openness
+and affordability turn out to be the same commitment seen from two directions:
+the point of publishing is that cost stops being a barrier for someone else too.
 
 Evidence:
   [PARTIAL] The wireless scoring units exist and are in use — they are cited in
@@ -253,18 +253,130 @@ Evidence:
              holds.
 
 ================================================================================
-PILLAR 03 — INCLUSIVE
-"Room for everyone"
+PILLAR 03 — DATA-DRIVEN
+"Evidence, not instinct"
 ================================================================================
-The price of a salle should not decide who gets to fence. Fencing's barriers are
-mostly financial and logistical rather than physical, and almost all of them are
-removable by an organization willing to be inconvenienced: train in parks,
-borrow floor space, build the scoring equipment, lend the kit, and organize
-online so that no one is paying rent on a room that sits empty five days a week.
-Being online-first is not a marketing posture. It is the mechanism that makes
-the club affordable.
+Fencing generates data whether or not anybody writes it down. Every bout ends in
+a score, every touch has a cause, and every block of training either moves a
+number or does not. Most clubs discard all of it and coach from memory and feel.
+We record it, watch it back together, read what the sport-science literature
+actually says, and let what we find change the training plan. The commitment is
+not that the club is scientific — it is that a claim about a fencer, a drill or
+a season should be checkable against something other than a coach's impression.
 
---- Component 3.1 — Cost is engineered down, not discounted -------------------
+This pillar is where Open stops being comfortable. Publishing a result is easy
+when the result is a medal; publishing the number that says a drill we have run
+for two years does nothing is not. The two pillars are only worth having
+together.
+
+Two constraints come with this pillar and are treated as part of it rather than
+as small print. First, a member's competitive record is personal data: Taiwan's
+Personal Data Protection Act applies to it, and footage shown in a group meeting
+is a publication to an audience, so the media release (docs/media_release.txt)
+governs it exactly as it governs anything we post. Second, a number that only
+the coach sees is not evidence to the fencer it describes. Members see their own
+record.
+
+--- Component 3.1 — Every bout is scored, logged, and the fencer owns the record
+
+Bouts at open training and club night are scored and written down: date, weapon,
+opponent, score, and the actions that produced the touches. The log is the spine
+of the pillar — without it, video analysis has nothing to count against and the
+sports-science reading has nothing to test. Each member can see their own record
+in full, on request and without explaining why, and nobody's record is discussed
+with other members except in the analysis sessions they are also in.
+
+Evidence:
+  [PARTIAL]  Our wireless scoring units produce a result for every bout run on
+             them. Nothing currently captures that result beyond the box, so the
+             raw material exists and the record does not.
+  [NEED]     The bout log itself, in any durable form — a spreadsheet is enough
+             to begin. Until it exists and has a start date, this component is
+             an intention rather than a practice.
+  [NEED]     One redacted member record covering a full season, usable as a
+             sample of what a member is shown about themselves.
+  [NEED]     A written data statement: what is recorded, where it is held, how
+             long it is kept, who can see it, and how a member gets a copy or
+             asks for deletion. A consent line belongs on the membership form.
+  [HAVE]     The commitment is published on the site, which is itself evidence
+             of the standard we have set ourselves.
+
+--- Component 3.2 — Video analysis is a weekly meeting, not a private review ---
+
+Footage is reviewed as a group, on a scheduled call, and the meeting is open to
+every member rather than reserved for the squad. Two things follow from doing it
+together rather than one-to-one. A fencer hears their own bout discussed in the
+same register as everybody else's, which is what stops analysis feeling like a
+verdict. And a coach's reading of a bout is stated in front of people who can
+disagree with it, which is the only reliable check on it.
+
+Evidence:
+  [PARTIAL]  Bout footage is shot at open training and used for social posts; it
+             has not been organized into an archive that analysis can draw on.
+  [NEED]     Attendance record for the analysis call: date, who joined, what was
+             reviewed. This is what turns the word "weekly" into a fact.
+  [NEED]     One recorded session, with consent from everybody in it, usable as
+             a sample of how the meeting runs.
+  [NEED]     Signed media release for every fencer identifiable in footage shown
+             in a group session, with a guardian signature for anyone under 18.
+             Showing a bout to the membership is publication — see 1.1.
+  [NEED]     The standing call details published to members, so that "open to
+             every member" is verifiable rather than asserted.
+
+--- Component 3.3 — Sports science is read and discussed as a group ------------
+
+Current work on training load, recovery, reaction time, movement and skill
+acquisition is circulated and then discussed, with the discussion open to
+members and not only to coaches. The point of reading it as a group is that most
+of what is published is either not about fencing or not about people training
+four hours a week, and deciding which applies to us is a judgement that should
+be made out loud. A coach who says "the research says" without the group having
+read it has not raised the standard of the argument, only its volume.
+
+Evidence:
+  [NEED]     Reading list with dates: what was circulated, when, and what it
+             changed — or that it changed nothing, which is also a result.
+  [NEED]     A written summary of at least one session where the group concluded
+             a study did not transfer to us, and said why. That is the evidence
+             that the discussion is real and not a conclusion handed down.
+  [PARTIAL]  Coaching qualifications are the credential behind reading this
+             literature critically; they are tracked in docs/credentials.md and
+             are themselves still a gap on the public site (see 2.4).
+  [NEED]     A stated limit: the club is not a research body, makes no medical
+             or nutritional claims, and refers members to qualified clinicians.
+             This belongs in writing before the claim is promoted further.
+
+--- Component 3.4 — The plan changes on the evidence, including against us -----
+
+The test of the pillar is not that we collect numbers. It is that a drill, a
+block or a season plan has been changed because the record contradicted what we
+believed — and that this is written down when it happens. This is Component 1.2
+turned from a posture into a measurement: reviewing a loss openly is worth
+something only if the review is against a record, and if the plan can lose the
+argument.
+
+Evidence:
+  [NEED]     At least two documented cases of a training block or drill changed
+             because the record said so, with the figure before and after.
+  [NEED]     One documented case where the evidence contradicted a coach and the
+             coach's plan changed. Without one, the pillar is decoration.
+  [HAVE]     Debrief practice — coaches name what the coaching plan got wrong
+             before they name what the fencer got wrong — is the club's current
+             habit and is recorded under 1.2.
+
+================================================================================
+OTHER STANDING COMMITMENTS — NOT A PILLAR
+================================================================================
+Inclusive was one of the three pillars until version 1.1. It is no longer one,
+but the public site still makes every claim below — low cost in the hero copy,
+the loaner kit in the About section, the park sessions and the welcome to
+visiting fencers in the FAQ, six pistes in the published statistics — and the
+rule of this document is that a claim on the site is evidenced here or is not
+made. They are kept, in full, with their evidence and their gaps. Retiring the
+heading did not retire the commitments; if the club means to drop any of them,
+that is a separate decision and the public copy has to change with it.
+
+--- Component 4.1 — Cost is engineered down, not discounted -------------------
 
 We do not run a cheap version of an expensive club. The cost structure is
 different at the root: footwork and cross-training happen in public parks,
@@ -286,12 +398,12 @@ Evidence:
              unconventional floor, with releases.
   [NEED]     Written record of the venue partnerships and their terms.
 
---- Component 3.2 — Nobody is turned away for lack of kit ----------------------
+--- Component 4.2 — Nobody is turned away for lack of kit ----------------------
 
 A beginner needs nothing to start. Full loaner kit is provided, and guests from
 other clubs are lent whatever they are missing. Equipment is one of the two
 questions that stops a curious person from ever attending a first session; the
-other is not knowing whether they will be welcome, which Component 3.3 covers.
+other is not knowing whether they will be welcome, which Component 4.3 covers.
 
 Evidence:
   [HAVE]     Loaner kit commitment published on the site and in the FAQ.
@@ -303,7 +415,7 @@ Evidence:
              last tested and when it was taken out of service.
   [NEED]     Photograph of the loaner rack.
 
---- Component 3.3 — The door is open to every club, and to every background ----
+--- Component 4.3 — The door is open to every club, and to every background ----
 
 Our door is open to your fencers; we hope yours is open to ours. Guests train at
 open training, Friday club night and the park sessions on a LINE message, and
@@ -327,7 +439,7 @@ Evidence:
   [NEED]     Age and starting-level distribution of current members, to
              substantiate the late-starter claim honestly.
 
---- Component 3.4 — Large, open spaces, secured with partners ------------------
+--- Component 4.4 — Large, open spaces, secured with partners ------------------
 
 Inclusion has a floor-space requirement. Six pistes' worth of usable space is
 what lets a session take everyone who turns up rather than rationing strip time
@@ -348,23 +460,32 @@ GAP LIST — WHAT THIS DOCUMENT SAYS WE DO NOT YET HAVE
 ================================================================================
 Ordered by how exposed the claim is on the public site.
 
-  1. Coach profiles, qualifications and portraits (2.4). Currently "coming
+  1. The bout log (3.1). Nothing in Pillar 03 can be evidenced without it, and
+     it is the cheapest gap on this list to close.
+  2. Analysis-call attendance record and sports-science reading list (3.2, 3.3).
+     Both are stated on the site as current practice.
+  3. Written data statement and member consent for holding performance records
+     (3.1), plus signed media releases covering footage shown in group analysis
+     sessions (3.2). These are legal exposure, not just missing evidence.
+  4. Coach profiles, qualifications and portraits (2.4). Currently "coming
      soon" with initials. Highest-visibility gap.
-  2. Real member testimonials, signed for use (1.2, 2.1, 2.3, 3.3). All three
+  5. Real member testimonials, signed for use (1.2, 2.1, 2.3, 4.3). All three
      quotations on the site are samples and must be replaced or removed.
-  3. Real calendar events in js/events.js (2.2). Everything shown is sample data.
-  4. Real photography throughout: Instagram tiles, feed images, park sessions,
-     loaner rack, full-session wide shot (1.1, 3.1, 3.2, 3.4).
-  5. Public repository and published hardware specifications (1.3). Until these
+  6. Real calendar events in js/events.js (2.2). Everything shown is sample
+     data.
+  7. Real photography throughout: Instagram tiles, feed images, park sessions,
+     loaner rack, full-session wide shot (1.1, 4.1, 4.2, 4.4).
+  8. Public repository and published hardware specifications (1.3). Until these
      exist, "open-source" is intent and should be worded as intent.
-  6. Posting-cadence log and results-post archive (1.1, 1.2).
-  7. Deadline-reminder and missed-deadline record (2.2).
-  8. Beginner-to-first-tournament conversion figure (2.1).
-  9. Cost comparison against the Taipei market rate (3.1).
- 10. Kit inventory with safety inspection dates (3.2) — also required as
+  9. Posting-cadence log and results-post archive (1.1, 1.2).
+ 10. A documented case of the training plan changing against a coach (3.4).
+ 11. Deadline-reminder and missed-deadline record (2.2).
+ 12. Beginner-to-first-tournament conversion figure (2.1).
+ 13. Cost comparison against the Taipei market rate (4.1).
+ 14. Kit inventory with safety inspection dates (4.2) — also required as
      supporting evidence behind the liability waiver.
- 11. Guest and reciprocal-visit log (1.4, 3.3).
- 12. Dated substantiation for the published statistics: 240+ members, 2 weapons,
+ 15. Guest and reciprocal-visit log (1.4, 4.3).
+ 16. Dated substantiation for the published statistics: 240+ members, 2 weapons,
      6 pistes, 14 nationalities.
 
 ================================================================================
@@ -373,6 +494,16 @@ ADMINISTRATION
 Review: every six months, and whenever the public site's principles copy
 changes. The public copy and this document must not drift apart; if the site
 claims something this document cannot evidence, one of the two is wrong.
+
+Revisions:
+  1.1 · 16 Sep 2026  Pillar 03 changed from Inclusive to Data-driven,
+                      following the change to the public site's principles
+                      copy. Open and Competitive are unchanged. The four
+                      Inclusive components are kept in full under OTHER
+                      STANDING COMMITMENTS, because the site still makes every
+                      one of those claims; retiring the heading did not retire
+                      the commitments.
+  1.0 · 16 Sep 2026  First version.
 
 Consents: every photograph, video, audio recording or attributed quotation cited
 as evidence above requires a signed media release (docs/media_release.txt)
