@@ -1,0 +1,295 @@
+================================================================================
+EMBER TIDE FENCING CLUB · 焰潮擊劍會
+MINOR SAFEGUARDING POLICY AND PARENTAL CONSENT
+未成年人保護政策與家長同意書
+================================================================================
+Form reference: ETFC-MINOR v1.0 · 16 September 2026
+Required for every participant under 18, in addition to the liability waiver.
+未滿 18 歲之參加者，除免責同意書外，均須簽署本同意書。
+English and Traditional Chinese are one and the same document; a single
+signature covers both. In the event of a discrepancy, the Chinese text governs.
+中英文為同一份文件，簽署一次即涵蓋兩種語文。兩者如有歧異，以中文為準。
+
+--------------------------------------------------------------------------------
+ADMINISTRATIVE NOTES — REMOVE THIS BLOCK BEFORE PRINTING FOR SIGNATURE
+行政注意事項——列印供簽署前請刪除本段
+--------------------------------------------------------------------------------
+1. Part B is POLICY, not consent. It binds the club whether or not a guardian
+   signs anything, and it is not negotiable down for a particular family or a
+   particular coach. Part C is the consent: the specific activities a guardian
+   authorizes for their own child.
+2. This form exists because the club sells one-on-one private lessons to
+   children, organizes carpools and shared rooms on Discord for away events,
+   and runs sessions in public parks. Those are the three situations in which
+   an adult is alone with, or effectively in charge of, somebody else's child.
+   The model is USA Fencing's General Consent Form under the U.S. Center for
+   SafeSport's Minor Athlete Abuse Prevention Policies, which requires written
+   parental consent for exactly these activities and constrains how they are
+   conducted. Taiwan has no direct equivalent requirement for a private club;
+   we adopt the standard anyway.
+3. The rules in Part B are only real if the club can show it followed them.
+   Keep the session log in B.2, and record the exceptions — an unplanned
+   one-to-one, a last-minute lift home — at the time, not afterwards.
+4. Do not merge this with the liability waiver or the media release.
+5. Coach vetting (B.7) is a commitment the club is making. Do not print this
+   form until the club actually holds the documents it promises to hold.
+6. Retention: keep until the participant turns 18 plus the limitation period.
+7. Not reviewed by a lawyer qualified in Taiwan. Have it reviewed together with
+   the other two forms, and have the reviewer check it against the Protection
+   of Children and Youths Welfare and Rights Act (兒童及少年福利與權益保障法)
+   and its reporting duties.
+
+================================================================================
+PART A — THE CHILD AND THE GUARDIAN 兒童與法定代理人資料
+================================================================================
+Child's full name 兒童姓名: ________________________________________________
+
+Date of birth 出生年月日: ______ / ______ / ______   Age 年齡: __________
+
+Weapon(s) 劍種: [ ] Épée 銳劍  [ ] Saber 軍刀   Coach 指導教練: ____________
+
+Guardian's full name 法定代理人姓名: ______________________________________
+
+Relationship to child 與兒童之關係: _______________________________________
+
+Mobile 手機: _______________________  Email 電子郵件: _____________________
+
+Second contact (name and number) 第二聯絡人（姓名與電話）:
+____________________________________________________________________________
+
+Languages the guardian reads 法定代理人可閱讀之語文:
+  [ ] Chinese 中文   [ ] English 英文   [ ] Other 其他: ____________________
+
+Anyone NOT authorized to collect this child 不得接送本童之人員:
+____________________________________________________________________________
+
+================================================================================
+PART B — WHAT THE CLUB UNDERTAKES 俱樂部之承諾（政策，非同意事項）
+================================================================================
+These rules apply to every child at the club. They are not waived by signing
+this form, and no coach may set them aside.
+下列規則適用於本會所有兒童，不因簽署本同意書而免除，任何教練均不得逕予排除。
+
+B.1 OBSERVABLE AND INTERRUPTIBLE 可被看見、可被打斷
+
+EN  Any training session between an adult and a child takes place where it can
+    be observed and interrupted by another adult. Private lessons happen on an
+    open floor with others present, or in a room with the door open and a
+    second adult on the premises who knows the lesson is happening. A coach is
+    never alone with a child behind a closed door.
+
+ZH  成人與兒童之間的任何訓練，均須在其他成人得以看見並得以隨時進入打斷的
+    環境中進行。個人課應於有他人在場之開放場地進行，或於門保持開啟、且場內
+    另有知悉該堂課正在進行之成人時進行。教練不得於門戶關閉之空間單獨與兒童
+    相處。
+
+B.2 EXCEPTIONS ARE LOGGED 例外情形須紀錄
+
+EN  If a one-to-one situation happens that was not planned — a parent is late,
+    a session empties out, a child needs a lift — the coach moves to a public
+    space, contacts the guardian as soon as practicable, and records it in the
+    club log the same day: who, when, where, how long, and why.
+
+ZH  如發生非預期之一對一情形——家長遲到、課堂人員散去、兒童需要搭載——
+    教練應移至公共空間、儘速聯繫法定代理人，並於當日記錄於俱樂部紀錄簿：
+    何人、何時、何地、歷時多久、原因為何。
+
+B.3 ELECTRONIC COMMUNICATION 電子通訊
+
+EN  Club business with a child goes to a group channel, or to the guardian, or
+    to a channel that includes the guardian. Coaches and club adults do not
+    exchange private one-to-one messages with a child on LINE, Instagram,
+    Discord, WhatsApp or anywhere else, and do not communicate with a child on
+    a platform the guardian has not approved in Part D. Messages are sent at
+    reasonable hours. Nothing is deleted to hide it.
+
+ZH  俱樂部與兒童之聯繫，應透過群組頻道、逕向法定代理人，或使用包含法定代理人
+    之頻道進行。教練與俱樂部成人不得以 LINE、Instagram、Discord、WhatsApp 或
+    其他任何管道與兒童進行一對一私訊，亦不得使用法定代理人未於 D 部分同意之
+    平台與兒童聯繫。訊息應於合理時間發送，且不得為掩飾而刪除訊息紀錄。
+
+B.4 CHANGING AREAS AND RECORDING 更衣區域與錄影
+
+EN  No adult is alone with a child in a changing area. No camera or recording
+    function is used in a changing area, toilet, shower or any space being used
+    to change clothes, by anyone, with or without consent. Children change in a
+    designated area, and a coach who needs to speak to a child takes it
+    outside that area.
+
+ZH  成人不得於更衣區域內與兒童單獨相處。任何人於更衣區域、廁所、淋浴間，
+    或任何正供更衣使用之空間，均不得使用拍照或錄影功能，不論是否取得同意。
+    兒童應於指定區域更衣；教練如需與兒童談話，應於該區域外為之。
+
+B.5 PHYSICAL CONTACT IN COACHING 教學中之肢體接觸
+
+EN  Fencing coaching involves touch: correcting a guard, adjusting a grip,
+    fitting a mask or jacket, checking a bruise, applying first aid. Contact is
+    limited to what the coaching or the injury requires, is done in the open,
+    and is explained to the child first. A child may say no to being touched
+    and the coach will find another way to teach the point. The club does not
+    provide massage, rubdowns or physical therapy of any kind.
+
+ZH  擊劍教學涉及肢體接觸：修正實戰姿勢、調整握把、協助穿戴面罩或劍衣、
+    檢視瘀傷、施行急救等。接觸應以教學或傷處所必要者為限，於公開環境進行，
+    並事先向兒童說明。兒童得拒絕被碰觸，教練應改以其他方式教授該項技術。
+    本會不提供按摩、推拿或任何形式之物理治療。
+
+B.6 TRAVEL AND OVERNIGHT STAYS 交通與過夜
+
+EN  A child is not transported alone in a vehicle with one unrelated adult. At
+    away events, a child shares a room only with other children of similar age
+    and the same gender identity as the child and guardian have stated, never
+    with an adult who is not their own family. Room checks are done by two
+    adults, at the door.
+
+ZH  兒童不得與一名非親屬之成人單獨同車。於外地賽事，兒童僅得與年齡相近、
+    且性別認同與兒童及法定代理人所述相符之其他兒童同房，不得與其本人家屬
+    以外之成人同房。查房應由兩名成人共同於門口進行。
+
+B.7 WHO WORKS WITH CHILDREN 與兒童工作之人員
+
+EN  Every coach and every adult volunteer who works with children provides the
+    club with a police criminal record certificate (警察刑事紀錄證明書) before
+    starting and every three years after, and the club keeps it on file. The
+    club does not place an adult with children while a safeguarding concern
+    about them is unresolved.
+
+ZH  所有與兒童工作之教練與成人志工，均須於任職前及其後每三年，向俱樂部
+    提出警察刑事紀錄證明書，並由俱樂部存檔。凡涉及兒少保護疑慮尚未釐清者，
+    俱樂部不得安排其與兒童接觸。
+
+B.8 REPORTING 通報與申訴
+
+EN  A child, a guardian or any member may raise a concern with the designated
+    safeguarding contact below, who is not the coach on the floor. Concerns
+    raised in good faith carry no penalty of any kind. Where there is reason to
+    suspect a child has been harmed, the club reports to the authorities under
+    the Protection of Children and Youths Welfare and Rights Act, and does so
+    whether or not the guardian asks it to and whether or not the child is one
+    of ours.
+
+    Designated safeguarding contact 兒少保護指定窗口:
+      Name 姓名: ___________________________________________________________
+      Contact 聯絡方式: ____________________________________________________
+      Alternate (not the same person) 備位窗口（不得為同一人）:
+      ______________________________________________________________________
+    National reporting line 全國保護專線: 113
+
+ZH  兒童、法定代理人或任何會員，均得向下列兒少保護指定窗口反映；該窗口不得
+    為當時在場授課之教練。基於善意提出之反映，不生任何不利後果。凡有事實
+    足認兒童遭受傷害者，俱樂部應依兒童及少年福利與權益保障法通報主管機關；
+    不論法定代理人是否要求，亦不論該名兒童是否為本會學員，均應通報。
+
+================================================================================
+PART C — WHAT I CONSENT TO 本人同意之活動
+================================================================================
+Tick what you authorize for your own child. Leave blank what you do not. A
+blank box means NO, and the club will arrange the activity another way.
+請就您的子女勾選授權項目，不同意者留空。未勾選即視為不同意，俱樂部將以其他
+方式安排。
+
+  [ ] C.1 Private one-on-one lessons with a club coach, conducted under B.1
+          由本會教練依 B.1 規定進行之一對一個人課
+          Named coach(es) 指定教練: _______________________________________
+
+  [ ] C.2 Transport in a club-organized carpool to and from training or
+          competition, under B.6
+          依 B.6 規定，參加本會安排之共乘往返訓練或比賽
+          Approved drivers 同意之駕駛人: ___________________________________
+
+  [ ] C.3 Overnight stays at away competitions, in shared rooms under B.6
+          依 B.6 規定，於外地比賽過夜並與他人同房
+
+  [ ] C.4 First aid, including taping, icing and assistance with an injury
+          急救處置，包括貼紮、冰敷與傷處協助
+
+  [ ] C.5 Travelling with the club without me present, with the club acting as
+          the responsible adult for the duration
+          在本人未同行之情況下隨隊移動，由俱樂部於期間擔任負責成人
+
+  [ ] C.6 In an emergency where I cannot be reached, the club may depart from
+          C.1–C.5 as far as the child's safety requires, and must tell me what
+          it did as soon as it can
+          於無法聯繫本人之緊急情況下，俱樂部得於兒童安全所必要之範圍內
+          不受 C.1 至 C.5 之限制，並應儘速告知本人其處置經過
+
+Conditions or limits I want to add 本人另行加註之條件或限制:
+____________________________________________________________________________
+____________________________________________________________________________
+
+================================================================================
+PART D — COMMUNICATION 通訊方式
+================================================================================
+How the club may contact my child about club business, in line with B.3:
+依 B.3 規定，俱樂部得以下列方式就會務聯繫本人子女：
+
+  [ ] Only through me — do not contact my child directly
+      僅透過本人聯繫，不得直接聯繫子女
+  [ ] Group channel that includes me 包含本人之群組頻道
+      Platform 平台: ______________________  Handle 帳號: ________________
+  [ ] Group channel for the training squad, guardians able to join on request
+      訓練隊群組，法定代理人得要求加入
+      Platform 平台: ______________________  Handle 帳號: ________________
+
+My child's account handles, so the club can verify who it is talking to
+本人子女之帳號，供俱樂部確認聯繫對象:
+____________________________________________________________________________
+
+I understand that club adults will not send my child private one-to-one
+messages on any platform, and that if my child messages a coach privately the
+coach will move the conversation to a channel that includes me.
+本人了解俱樂部成人不會於任何平台向本人子女發送一對一私訊；本人子女如私訊
+教練，教練將把該對話移至包含本人之頻道。
+
+================================================================================
+PART E — SIGNATURE 簽署
+================================================================================
+
+EN  I am the parent or legal guardian of the child named in Part A. I have read
+    Part B and understand it is the club's policy regardless of what I sign. I
+    have made the choices in Parts C and D myself, and I may change them at any
+    time in writing. I understand that declining any of them does not affect my
+    child's place at the club, their training, or their selection for anything.
+
+ZH  本人為 A 部分所列兒童之父母或法定代理人。本人已閱讀 B 部分，並了解其為
+    俱樂部政策，不因本人簽署與否而改變。C 部分與 D 部分之選擇係由本人自行
+    決定，並得隨時以書面變更。本人了解不同意其中任何項目，均不影響本人子女
+    於俱樂部之名額、訓練內容或任何遴選資格。
+
+Guardian signature 法定代理人簽名: ________________________________________
+
+Printed name 正楷姓名: ______________________  Date 日期: ____ / ____ / ____
+
+Date this form was first given to the signer 交付本文件之日期: ____ / ____ / ____
+
+--------------------------------------------------------------------------------
+THE CHILD 兒童本人（年齡足以理解者請簽署）
+--------------------------------------------------------------------------------
+EN  Someone at the club explained these rules to me. I know I can say no to
+    being touched, that I can tell someone if anything makes me uncomfortable,
+    and who to tell.
+
+ZH  俱樂部有人向我說明過這些規則。我知道我可以拒絕被碰觸，如果有任何事讓我
+    覺得不舒服，我可以告訴別人，也知道可以告訴誰。
+
+Child's signature 兒童簽名: ______________________  Date 日期: ___ / ___ / ___
+
+Explained by 說明人: ______________________________________________________
+
+--------------------------------------------------------------------------------
+CLUB USE ONLY 俱樂部填寫
+--------------------------------------------------------------------------------
+Received by 收件人: ______________________  Date 日期: ____ / ____ / ____
+
+Liability waiver on file 免責同意書已存檔: [ ] Yes 是
+Media release on file 媒體使用同意書已存檔: [ ] Yes 是 [ ] Declined 未同意
+
+Safeguarding contact named on the form 已填列保護窗口: [ ] Yes 是
+Coach record certificates current 教練證明文件在期: [ ] Yes 是
+
+Copy given to guardian 已交付副本予法定代理人: [ ] Yes 是
+
+Original filed 正本歸檔位置: _______________________________________________
+
+Retain until 保存至: ____ / ____ / ____  (child turns 18 plus limitation period
+兒童年滿 18 歲後再加計法定時效期間)

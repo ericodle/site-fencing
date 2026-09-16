@@ -240,10 +240,17 @@ Evidence:
   [PLACEHOLDER] Both coach cards on the site read "Full profile coming soon" and
                 show initials in place of a portrait. This is the most visible
                 unevidenced claim on the public site.
-  [NEED]     Coaching qualifications and certifications, with issuing body and
-             date, for both coaches.
+  [PARTIAL]  Safety certification is held — CPR (Eric Odle) and a lifeguard
+             award (Yiling Ku) — but the issuing bodies, dates and expiries are
+             not yet recorded. Register: docs/credentials.md.
+  [NEED]     Fencing coaching qualifications and certifications, with issuing
+             body and date, for both coaches. CTFA C級教練證 is the credential
+             a Taiwanese parent recognizes; neither coach holds it yet.
   [NEED]     Competitive records, honestly scoped.
   [NEED]     Coach portraits, with releases.
+  [NEED]     警察刑事紀錄證明書 for both coaches, which Part B.7 of
+             docs/minor_safeguarding_consent.txt promises guardians the club
+             holds.
 
 ================================================================================
 PILLAR 03 — INCLUSIVE
@@ -290,7 +297,8 @@ Evidence:
   [HAVE]     Loaner kit commitment published on the site and in the FAQ.
   [NEED]     Inventory: sets held, by size, by weapon, with condition and last
              safety inspection date. This doubles as risk-management evidence
-             supporting the liability waiver (docs/liability_waiver.txt).
+             supporting the liability waiver (docs/liability_waiver.txt), and is
+             tracked for renewal in docs/credentials.md.
   [NEED]     Kit maintenance and retirement record — when a mask or jacket was
              last tested and when it was taken out of service.
   [NEED]     Photograph of the loaner rack.
@@ -375,3 +383,6 @@ Related documents:
   docs/mission_statement.zh-TW.txt   Traditional Chinese version of this file
   docs/liability_waiver.txt          Assumption of risk and release, bilingual
   docs/media_release.txt             Photo, video and media consent, bilingual
+  docs/minor_safeguarding_consent.txt  Policy and parental consent, under-18s
+  docs/credentials.md                Certifications, insurance, expiry dates
+  docs/forms_review_2026-09.md       Review of the forms against TW and US practice

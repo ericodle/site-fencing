@@ -3,7 +3,7 @@ EMBER TIDE FENCING CLUB · 焰潮擊劍會
 ASSUMPTION OF RISK, WAIVER AND RELEASE OF LIABILITY
 風險認知、責任免除與免責同意書
 ================================================================================
-Form reference: ETFC-WAIVER v1.0 · 16 September 2026
+Form reference: ETFC-WAIVER v1.1 · 16 September 2026
 English and Traditional Chinese are one and the same document; a single
 signature covers both. In the event of a discrepancy, the Chinese text governs.
 中英文為同一份文件，簽署一次即涵蓋兩種語文。兩者如有歧異，以中文為準。
@@ -20,17 +20,51 @@ ADMINISTRATIVE NOTES — REMOVE THIS BLOCK BEFORE PRINTING FOR SIGNATURE
    disadvantageous to the signer. This form is written to stay inside those
    limits: it does not purport to excuse our own gross negligence, and it must
    not be redrafted to try to.
-2. Because it is a standard-form contract offered to consumers, give the signer
-   a reasonable period to review it before signing — 30 days is the safe
-   benchmark — and never present it for the first time at the door of a session
-   the person has already paid for and traveled to.
-3. Keep the signed original for at least five years. Store scans with the
-   membership record, access restricted to club administration.
-4. A separate signature is required on the media release
-   (docs/media_release.txt). Do not merge the two forms: consent to be
-   photographed and acceptance of physical risk are different decisions, and
-   bundling them makes both easier to challenge.
-5. Retain the corresponding evidence that we take the stated precautions —
+
+2. WHAT CLAUSE 10 IS ACTUALLY WORTH. Do not let anyone at the club treat a
+   signed waiver as a shield. Under Article 7 of the Consumer Protection Act a
+   service provider owes the safety that current professional standards
+   reasonably support; liability to an injured consumer is joint and several,
+   and our own fault reduces damages rather than removing them. The
+   regulator-issued standard contract for fitness centers lists as a PROHIBITED
+   clause any term excluding or limiting the operator's liability for injury to
+   a consumer's body, health or property caused by its services or equipment,
+   and Taiwanese courts have held operators liable despite a signed waiver
+   where an obvious safety measure was missing. Against a member hurt by our
+   own shortfall, Clause 10 is close to inert. Its real value is evidentiary:
+   it proves the member was told what the risks were. Fix the equipment.
+
+3. REVIEW PERIOD. Article 11-1 of the Consumer Protection Act requires a
+   reasonable period, WITHIN thirty days, for the signer to read a standard-form
+   contract — thirty days is the ceiling, not the target, and a clause making
+   the signer waive the period is void. The nearest sector benchmark, the
+   fitness-center standard contract, sets at least three days. Give at least
+   three days, longer for anything tied to a paid course, never present this
+   form for the first time at the door of a session the person has already paid
+   for and traveled to, and always fill in the hand-over date in Part C — that
+   field is the only evidence that a period was given.
+
+4. COMPLETE THE INSURANCE DISCLOSURE IN CLAUSE 7 BEFORE PRINTING. If the club
+   carries no policy, the form must say so in those words. Leaving it blank, or
+   printing a form that only disclaims cover, is not acceptable: the Sports
+   Administration's standard for organized events is that the organizer
+   discloses the scope of its public liability insurance and tells participants
+   to arrange their own.
+
+5. RETENTION. Keep the signed original for at least five years for an adult
+   participant. For a participant under 18, keep it until they turn 18 plus the
+   limitation period — a minor's claim runs from majority, so a file closed at
+   five years can expire before the claim it exists to answer. Store scans with
+   the membership record, access restricted to club administration.
+
+6. SEPARATE FORMS. A separate signature is required on the media release
+   (docs/media_release.txt), and a third form — the minor safeguarding consent
+   (docs/minor_safeguarding_consent.txt) — is required for every participant
+   under 18. Do not merge them: physical risk, being photographed, and how the
+   club may be alone with a child are different decisions, and bundling them
+   makes all three easier to challenge.
+
+7. Retain the corresponding evidence that we take the stated precautions —
    equipment inventory and inspection dates, coach qualifications, incident log
    (see docs/mission_statement.txt, components 2.4 and 3.2). A waiver signed by
    a club that cannot show it maintained its masks is worth very little.
@@ -106,24 +140,51 @@ ZH  本人了解，無論俱樂部如何謹慎安排課程，擊劍仍存在無�
     既有傷病之惡化；心血管急症；永久失能；以及死亡。本人接受上述風險可能
     來自本人自身行為、其他參加者之行為、器材故障、場地狀況或一般意外。
 
-3. MY PHYSICAL CONDITION 本人身體狀況
+3. MY HEALTH 本人健康狀況
 
-EN  I confirm that I am physically fit to take part, that I have disclosed to
-    the club in writing any medical condition, injury, medication, allergy,
-    pregnancy or disability relevant to my safety or to the safety of others,
-    and that I will notify the club before the next session if any of that
-    changes. I have been advised to consult a physician before starting, and
-    it is my decision whether to do so.
+EN  Answer every line. A tick is not a bar to fencing — it is a conversation
+    with the coach before the first session. A line marked ▲ additionally
+    requires a physician's note confirming you may take part before you bout.
 
-ZH  本人確認身體狀況適合參與本活動；凡涉及本人或他人安全之疾病、傷勢、
-    用藥、過敏、懷孕或身心障礙情形，本人均已以書面告知俱樂部；上述情形如
-    有變動，本人將於下次上課前通知俱樂部。本人已被告知參與前宜先諮詢醫師，
-    是否諮詢由本人自行決定。
+ZH  請逐項填答。勾選並不代表不能擊劍，而是須於第一堂課前與教練討論。標示
+    ▲ 之項目，另須先取得醫師出具之可參與證明，始得進行對打。
 
-    Conditions disclosed 已告知之狀況:
+    [ ] ▲ Chest pain, tightness or palpitations, at rest or on exertion
+          靜止或運動時之胸痛、胸悶或心悸
+    [ ] ▲ Fainting, blackouts or dizziness on exertion
+          運動時昏厥、失去意識或頭暈
+    [ ] ▲ Diagnosed heart condition, murmur, or family history of sudden
+          cardiac death before 50  經診斷之心臟疾病、心雜音，或家族中 50 歲
+          前猝死病史
+    [ ] ▲ Epilepsy or a seizure disorder 癲癇或痙攣性疾病
+    [ ] ▲ Concussion or head injury in the last three months
+          最近三個月內之腦震盪或頭部外傷
+    [ ] ▲ Surgery or hospitalization in the last twelve months
+          最近十二個月內之手術或住院
+    [ ] ▲ Currently pregnant 目前懷孕
+    [ ] High blood pressure 高血壓
+    [ ] Asthma or other respiratory condition 氣喘或其他呼吸道疾病
+    [ ] Diabetes 糖尿病
+    [ ] Joint, back or tendon injury that is not fully recovered
+        尚未完全康復之關節、背部或肌腱傷害
+    [ ] Bleeding disorder or anticoagulant medication 凝血功能異常或服用抗凝血劑
+    [ ] Allergy requiring emergency treatment, including insect stings
+        需緊急處置之過敏，包括蟲螫過敏
+    [ ] Regular medication 長期服用藥物
+    [ ] None of the above 以上皆無
+
+    Details, including medication carried to sessions and where it is kept
+    詳細說明，包括隨身攜帶之藥物及存放位置:
     ________________________________________________________________________
     ________________________________________________________________________
-    [ ] None 無
+
+EN  I confirm the answers above are complete and accurate, that I am
+    physically fit to take part, and that I will tell the club before my next
+    session if any of it changes. I have been advised to consult a physician
+    before starting, and it is my decision whether to do so.
+
+ZH  本人確認上述填答完整且屬實，身體狀況適合參與，且如有變動將於下次上課前
+    告知俱樂部。本人已被告知參與前宜先諮詢醫師，是否諮詢由本人自行決定。
 
 4. RULES, EQUIPMENT AND CONDUCT 規則、裝備與行為
 
@@ -133,37 +194,120 @@ EN  I agree to: follow the instructions of coaches and session leaders at all
     including mask, jacket, glove, plastron where required, and chest
     protection where required; inspect my own equipment before use and report
     any damage; stop immediately when "halt" is called; never fence, handle a
-    blade or spar outside a coached session or without a mask; never take part
-    while under the influence of alcohol or drugs; treat every other
-    participant, including guests from other clubs, with respect. I understand
-    that the club may lend me equipment, that I must return it and report any
-    damage, and that borrowed equipment does not transfer responsibility for
-    my safe conduct to the club.
+    blade or spar outside a coached session or without a mask; never point a
+    blade at a person who is not masked; carry a blade with the point down and
+    never run with one; never put a mask on while holding a blade; fence at a
+    force appropriate to my opponent, with no hard hitting; and never take part
+    while under the influence of alcohol or drugs. I understand that the club
+    may lend me equipment, that I must return it and report any damage, and
+    that borrowed equipment does not transfer responsibility for my safe
+    conduct to the club.
 
 ZH  本人同意：全程遵守教練與課堂負責人之指示；僅於穿戴符合本會就該活動所
     要求標準之護具、且正確穿著並完整扣合之情況下擊劍，包括面罩、劍衣、
     手套、必要時之護腋（plastron）與護胸；使用前自行檢查裝備並回報任何
     毀損；聽到「停（halt）」時立即停止；不得於無教練指導之情況下、或未戴
-    面罩時擊劍、持劍或對練；不得於受酒精或藥物影響時參與活動；尊重所有其他
-    參加者，包括其他俱樂部之來訪劍手。本人了解俱樂部可能出借裝備，本人應
-    歸還並回報毀損，且借用裝備並不因此將本人安全行為之責任轉由俱樂部承擔。
+    面罩時擊劍、持劍或對練；不得將劍尖指向未戴面罩之人；持劍移動時劍尖
+    朝下，且不得持劍奔跑；不得於手持劍身時戴上面罩；出劍力道應與對手相稱，
+    不得重擊；不得於受酒精或藥物影響時參與活動。本人了解俱樂部可能出借
+    裝備，本人應歸還並回報毀損，且借用裝備並不因此將本人安全行為之責任
+    轉由俱樂部承擔。
 
-5. MEDICAL TREATMENT 緊急醫療
+5. HEAD INJURY AND RETURN TO PLAY 頭部傷害與復出
+
+EN  If I take a blow to the head or show signs of concussion — headache,
+    confusion, dizziness, nausea, memory loss, unsteadiness, sensitivity to
+    light, or any loss of consciousness however brief — I will be removed from
+    the session for the rest of that day. This is not my decision or my
+    coach's judgment call; it is a club rule, and it applies at training and at
+    competition. I will not return to fencing, including footwork drills
+    involving contact, until I provide the club with written clearance from a
+    physician. The club applies this rule to every participant, and a coach who
+    is unsure treats it as a concussion.
+
+ZH  本人如遭受頭部撞擊，或出現腦震盪徵象——頭痛、意識混亂、暈眩、噁心、
+    記憶喪失、步態不穩、畏光，或任何短暫之意識喪失——當日將立即停止該次
+    課程。此非本人或教練之裁量事項，而係俱樂部規則，於訓練與比賽均適用。
+    在向俱樂部提出醫師書面許可前，本人不得恢復擊劍，包括涉及接觸之步法
+    練習。本會對所有參加者一體適用本規則；教練如有疑義，一律以腦震盪處理。
+
+6. EMERGENCY MEDICAL TREATMENT 緊急醫療
 
 EN  If I am injured, I authorize the club, its coaches and event staff to
     arrange first aid and emergency medical transport and treatment on my
     behalf when I am unable to consent for myself, and I accept responsibility
-    for the cost of any such treatment and transport. I confirm I hold, or
-    accept full responsibility for not holding, my own medical and accident
-    insurance. The club's coverage, where it exists, does not extend to my
-    personal medical expenses.
+    for the cost of any such treatment and transport.
 
 ZH  本人如受傷，且於無法自行表示同意之情況下，茲授權俱樂部、其教練與活動
     工作人員代為安排急救、緊急醫療後送與治療，並由本人負擔相關治療與後送
-    費用。本人確認已自行投保醫療與意外保險，或自願承擔未投保之全部後果。
-    俱樂部之保險（如有）不涵蓋本人之個人醫療費用。
+    費用。
 
-6. WAIVER AND RELEASE 責任免除
+7. INSURANCE 保險
+
+EN  The club discloses the insurance it carries, so that I can decide what
+    cover I need for myself.
+
+    Public liability insurance held by the club 本會投保之公共意外責任險:
+      Insurer 保險公司: ____________________________________________________
+      Policy number 保單號碼: ______________________________________________
+      Period of cover 保險期間: ____________________________________________
+      Limits 保障額度: _____________________________________________________
+      What it covers, and what it does not 承保範圍與不保事項:
+      ______________________________________________________________________
+      [ ] The club currently holds no such policy 本會目前未投保此類保險
+
+    Cover at partner venues 合作場地之保險:
+      ______________________________________________________________________
+
+EN  This insurance, where it exists, covers the club's own liability. It is
+    not personal accident or medical cover for me. I confirm that I hold, or
+    accept full responsibility for not holding, my own accident and medical
+    insurance, and I understand the club recommends that every fencer carry it
+    and that competition entries may require it separately.
+
+ZH  上述保險（如有）係承保俱樂部本身之責任，並非本人之個人傷害或醫療保險。
+    本人確認已自行投保意外與醫療保險，或自願承擔未投保之全部後果，並了解
+    俱樂部建議每位劍手均應自行投保，且部分賽事報名可能另有保險要求。
+
+8. COMMUNICABLE DISEASE 傳染病
+
+EN  I understand that training in a shared space, with shared loaner equipment
+    and close contact, carries a risk of transmitting communicable disease. The
+    club follows the public health measures in force at the time but cannot
+    make a session risk-free. I will not attend while I have a fever or a
+    known transmissible infection.
+
+ZH  本人了解於共用空間訓練、使用共用借用裝備並近距離接觸，具有傳染疾病之
+    風險。俱樂部將遵循當時有效之公共衛生措施，惟無法使課程完全無風險。
+    本人發燒或已知罹患傳染性疾病期間，將不參加課程。
+
+9. CONDUCT, REPORTING AND REMOVAL 行為準則、申訴與退場
+
+EN  I will treat every other participant with respect, including guests from
+    other clubs, beginners, children and officials. Bullying, harassment,
+    sexual harassment, discrimination, deliberately unsafe fencing, and
+    fencing in anger are grounds for immediate removal from a session and, on
+    a repeat or serious instance, for termination of membership without refund.
+
+    If I have a concern about my safety, about another participant, or about a
+    coach, I can raise it with any coach, or directly with the club's
+    designated contact below, who is not the coach on the floor. A concern
+    raised in good faith will not disadvantage me. If it concerns a child, the
+    club will act on it whether or not the child's guardian raised it.
+
+    Designated contact 申訴窗口: __________________________________________
+    Contact details 聯絡方式: ______________________________________________
+
+ZH  本人將尊重所有其他參加者，包括其他俱樂部之來訪劍手、初學者、兒童與
+    賽事人員。霸凌、騷擾、性騷擾、歧視、故意之危險擊劍行為，以及帶著怒氣
+    擊劍，均構成立即離場之事由；情節重大或再犯者，得終止會籍且不予退費。
+
+    本人如對自身安全、其他參加者或教練有疑慮，得向任一教練反映，或逕向下列
+    俱樂部指定窗口反映；該窗口不得為當時在場授課之教練。基於善意提出之
+    反映，不會使本人受到任何不利待遇。涉及兒童者，無論是否由其法定代理人
+    提出，俱樂部均將處理。
+
+10. WAIVER AND RELEASE 責任免除
 
 EN  In consideration of being permitted to take part, I release Ember Tide
     Fencing Club, its coaches, officers, volunteers, members and partner venue
@@ -189,7 +333,7 @@ ZH  作為獲准參與本活動之對價，本人於中華民國法律所允許�
     或其他應適用法律不得預先免除之責任。本條之任一部分如經認定不得執行，
     其餘部分仍繼續有效。
 
-7. INDEMNITY 補償
+11. INDEMNITY 補償
 
 EN  If my own deliberate act, my gross negligence or my breach of the rules in
     Clause 4 causes injury to another person or damage to property, I accept
@@ -201,31 +345,44 @@ ZH  本人如因故意行為、重大過失，或違反第 4 條所定規則，�
     者，本人承擔其後果，並就因此對免責對象所生之請求負補償責任。本條不適用於
     擊劍過程中發生之一般意外。
 
-8. IMAGES 影像
+12. IMAGES 影像
 
 EN  This form does not give consent to be photographed or filmed. That is dealt
     with separately and voluntarily in the media release
     (docs/media_release.txt), and declining it has no effect on my
     participation.
 
+    One rule applies regardless of any consent: no one — coach, member,
+    parent or visitor — may use the camera or recording function of any device
+    in a changing area, toilet, shower or any space being used to change
+    clothes. This is an absolute club rule and it is not something anyone can
+    consent around.
+
 ZH  本同意書不包含攝影或錄影之同意。相關事項另以媒體使用同意書
     （docs/media_release.txt）處理，屬自願性質，不同意亦不影響本人參與活動。
 
-9. TERM AND WITHDRAWAL 有效期間與撤回
+    下列規則不因任何同意而改變：任何人——教練、會員、家長或訪客——均不得
+    於更衣區、廁所、淋浴間，或任何正供更衣使用之空間，使用任何裝置之拍照
+    或錄影功能。此為本會絕對規則，任何人均不得以同意方式排除其適用。
 
-EN  This form takes effect on the date I sign it and remains in effect for all
-    club activities I take part in until 31 December of the following calendar
-    year, or until I withdraw it in writing, whichever is earlier. Withdrawal
-    takes effect when the club receives it and ends my participation in club
-    activities from that point; it does not affect anything that happened
-    before. I may request a copy of this signed form at any time.
+13. TERM AND WITHDRAWAL 有效期間與撤回
 
-ZH  本同意書自本人簽署之日起生效，適用於本人參與之所有俱樂部活動，至次一
-    曆年之 12 月 31 日止，或至本人以書面撤回之日止，以較早者為準。撤回自
-    俱樂部收到時生效，本人自該時起停止參與俱樂部活動；撤回不影響撤回前已
-    發生之事項。本人得隨時索取本份已簽署文件之副本。
+EN  This form takes effect on the date I sign it and remains in effect for the
+    club activities I take part in for twelve months, or until the end of the
+    club's current membership year if the club aligns it there, or until I
+    withdraw it in writing, whichever comes first. The club will ask me to sign
+    a fresh form at renewal. Withdrawal takes effect when the club receives it
+    and ends my participation in club activities from that point; it does not
+    affect anything that happened before. I may request a copy of this signed
+    form at any time, and the club will give me one.
 
-10. GOVERNING LAW 準據法與管轄
+ZH  本同意書自本人簽署之日起生效，適用於本人所參與之俱樂部活動，有效期間為
+    十二個月；如俱樂部將其對齊當年度會籍年度者，至該會籍年度結束時止；或至
+    本人以書面撤回之日止，以最早屆至者為準。俱樂部將於續約時請本人重新簽署。
+    撤回自俱樂部收到時生效，本人自該時起停止參與俱樂部活動；撤回不影響撤回前
+    已發生之事項。本人得隨時索取本份已簽署文件之副本，俱樂部應提供。
+
+14. GOVERNING LAW 準據法與管轄
 
 EN  This form is governed by the laws of the Republic of China. Any dispute
     shall be discussed in good faith first; failing agreement, the parties
@@ -255,22 +412,33 @@ Participant signature 參加者簽名: _________________________________________
 Printed name 正楷姓名: ______________________  Date 日期: ____ / ____ / ____
 
 Date this form was first given to the signer 交付本文件之日期: ____ / ____ / ____
+(at least three days before signature 至少應早於簽署日三日)
 
 --------------------------------------------------------------------------------
 IF THE PARTICIPANT IS UNDER 18 參加者未滿 18 歲時填寫
 --------------------------------------------------------------------------------
 EN  I am the parent or legal guardian of the participant named in Part A. I
     have read and agreed to this document on their behalf and on my own
-    behalf. I confirm the participant is physically fit to take part, I accept
-    the risks described in Clause 2 on their behalf, and I authorize emergency
-    medical treatment under Clause 5. I understand that a minor's own
-    statutory rights cannot be signed away by me and that Clause 6 operates
-    only to the extent the law permits.
+    behalf. I confirm the health answers in Clause 3 are complete and accurate,
+    that the participant is physically fit to take part, I accept the risks
+    described in Clause 2 on their behalf, and I authorize emergency medical
+    treatment under Clause 6. I understand that a minor's own statutory rights
+    cannot be signed away by me and that Clause 10 operates only to the extent
+    the law permits.
+
+    I understand that a separate minor safeguarding consent
+    (docs/minor_safeguarding_consent.txt) is also required before the
+    participant takes a private lesson, travels with the club, or stays
+    overnight at an away event.
 
 ZH  本人為 A 部分所列參加者之父母或法定代理人，已代該參加者並以本人名義
-    閱讀並同意本文件。本人確認該參加者身體狀況適合參與，代其承擔第 2 條
-    所述風險，並依第 5 條授權緊急醫療處置。本人了解未成年人依法享有之權利
-    不得由本人代為拋棄，第 6 條僅於法律允許之範圍內發生效力。
+    閱讀並同意本文件。本人確認第 3 條之健康填答完整屬實、該參加者身體狀況
+    適合參與，代其承擔第 2 條所述風險，並依第 6 條授權緊急醫療處置。本人
+    了解未成年人依法享有之權利不得由本人代為拋棄，第 10 條僅於法律允許之
+    範圍內發生效力。
+
+    本人並了解，該參加者於上個人課、隨隊移動或於外地賽事過夜前，另須簽署
+    未成年人保護同意書（docs/minor_safeguarding_consent.txt）。
 
 Guardian signature 法定代理人簽名: ________________________________________
 
@@ -287,6 +455,16 @@ Received by 收件人: ______________________  Date 日期: ____ / ____ / ____
 
 Membership record updated 已更新會籍紀錄: [ ] Yes 是
 
+Health answers reviewed by coach 教練已檢視健康填答: [ ] Yes 是
+Physician's note required 需醫師證明: [ ] No 否 [ ] Yes 是 — on file 已存檔: [ ]
+
 Media release on file 媒體使用同意書已存檔: [ ] Yes 是  [ ] Declined 未同意
 
+Minor safeguarding consent on file 未成年人保護同意書已存檔:
+  [ ] Yes 是  [ ] Not applicable (18+) 不適用
+
+Copy given to signer 已交付副本予簽署人: [ ] Yes 是
+
 Original filed 正本歸檔位置: _______________________________________________
+
+Review date 複核到期日: ____ / ____ / ____

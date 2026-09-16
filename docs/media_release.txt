@@ -3,7 +3,7 @@ EMBER TIDE FENCING CLUB · 焰潮擊劍會
 MEDIA RELEASE AND CONSENT TO USE OF IMAGE
 肖像與媒體使用同意書
 ================================================================================
-Form reference: ETFC-MEDIA v1.0 · 16 September 2026
+Form reference: ETFC-MEDIA v1.1 · 16 September 2026
 English and Traditional Chinese are one and the same document; a single
 signature covers both. In the event of a discrepancy, the Chinese text governs.
 中英文為同一份文件，簽署一次即涵蓋兩種語文。兩者如有歧異，以中文為準。
@@ -28,15 +28,21 @@ ADMINISTRATIVE NOTES — REMOVE THIS BLOCK BEFORE PRINTING FOR SIGNATURE
    including a clip where the person is in the background of somebody else's
    bout. If a session is being filmed, say so at the start of the session and
    offer a place on the floor that is out of frame.
-5. Withdrawal is prospective. We must take material down from our own channels
+5. NO RECORDING IN CHANGING AREAS, EVER. This is a standing club rule, not a
+   consent question, and it binds coaches, members, parents and visitors alike.
+   No consent box on this form authorizes it and none can. It is the one media
+   rule that must be enforced without asking whether anybody minded.
+6. Withdrawal is prospective. We must take material down from our own channels
    promptly, and we must tell the person honestly what we cannot claw back —
    reshares, third-party reposts, printed matter already distributed, and
    search-engine or archive caches.
-6. Keep the signed original for as long as we use the material plus five
-   years. Maintain a media consent register keyed to membership records so
-   that anyone editing a post can check status in seconds; this is the only
-   way rule 4 survives contact with a Friday deadline.
-7. The club publishes bouts, lessons and results as a matter of principle
+7. Keep the signed original for as long as we use the material plus five
+   years. For a person under 18, keep it until they turn 18 plus the limitation
+   period: a consent signed for an eight-year-old outlives a five-year file.
+   Maintain a media consent register keyed to membership records so that anyone
+   editing a post can check status in seconds; this is the only way rule 4
+   survives contact with a Friday deadline.
+8. The club publishes bouts, lessons and results as a matter of principle
    (docs/mission_statement.txt, Pillar 01). That principle does not override
    anyone's decision on this form. Open means open about the club, not open
    with other people's faces.
@@ -108,10 +114,22 @@ EN  I grant Ember Tide Fencing Club a non-exclusive, royalty-free right to
     cropping, color correction, captioning, subtitling in English or Chinese,
     slow motion, and use of a still frame taken from video.
 
+    Scope of the grant: worldwide, because the platforms in Part B are
+    reachable everywhere; for as long as this consent stands and no longer,
+    ending when I withdraw it under Clause 4; and not sub-licensable by the
+    club, except for the license that a platform I ticked in Part B takes
+    automatically under its own terms when material is posted there, which
+    Clause 6 explains.
+
 ZH  本人授予焰潮擊劍會非專屬、無償之權利，就 B 部分所勾選之素材，於 B 部分
     所勾選之範圍內進行錄製、重製、剪輯、發布與展示，其目的為呈現俱樂部活動
     內容並進行推廣。本人了解剪輯可能包括裁切、調色、加字幕、中英文字幕、
     慢動作，以及自影片擷取靜止畫面使用。
+
+    授權範圍：地域為全球，因 B 部分所列平台於各地均可存取；期間為本同意
+    存續期間，至本人依第 4 條撤回時止，不再延續；俱樂部不得再授權他人，
+    惟本人於 B 部分所勾選之平台，於素材上傳時依其自身條款自動取得之授權
+    不在此限，其情形詳如第 6 條說明。
 
 2. NO PAYMENT 無報酬
 
@@ -158,19 +176,52 @@ EN  Separately from withdrawing consent altogether, I may ask the club to take
 ZH  除全部撤回同意外，本人亦得就個別素材（特定照片、片段或貼文）請求下架，
     俱樂部將逕予處理，不要求本人說明理由。
 
-6. HOW THE CLUB WILL NOT USE IT 使用限制
+6. HOW THE CLUB WILL NOT USE IT — AND WHAT THE PLATFORMS DO
+   俱樂部之使用限制——以及各平台的作法
 
 EN  The club will not use the material in a way that is defamatory, mocking,
     sexualized, or that presents me as endorsing a political party, candidate,
-    religion, or a commercial product unrelated to fencing. It will not sell or
-    license the material to third parties, and it will not supply it for
-    training artificial-intelligence systems.
+    religion, or a commercial product unrelated to fencing. The club will not
+    sell the material, will not license or supply it to third parties, and will
+    not use it or provide it for training artificial-intelligence systems.
+
+    What the club cannot promise: when material is posted to a platform I
+    ticked in Part B — Instagram, Facebook, LINE, YouTube, Threads, Discord,
+    WhatsApp — that platform takes a broad license under its own terms of
+    service to host, reproduce, adapt and sub-license what is uploaded, and
+    some of them use uploaded content to train their own systems. The club's
+    undertakings above bind the club. They do not bind those companies, and the
+    club cannot make them. If I do not want a platform to have that license, I
+    should not tick it in Part B; the club will honor the platforms I leave
+    blank, and material can be kept to the club website alone.
 
 ZH  俱樂部不得以誹謗、嘲弄、性化之方式使用該素材，亦不得使其呈現為本人為
-    政黨、候選人、宗教或與擊劍無關之商業產品背書。俱樂部不得將素材出售或
-    授權予第三方，亦不得提供作為人工智慧系統之訓練用途。
+    政黨、候選人、宗教或與擊劍無關之商業產品背書。俱樂部不得出售該素材，
+    不得授權或提供予第三方，亦不得將其用於或提供作為人工智慧系統之訓練。
 
-7. NO OBLIGATION EITHER WAY 雙方均無義務
+    俱樂部無法保證之事項：素材一經上傳至本人於 B 部分所勾選之平台——
+    Instagram、Facebook、LINE、YouTube、Threads、Discord、WhatsApp——該平台
+    即依其服務條款取得廣泛授權，得就上傳內容進行存放、重製、改作與再授權，
+    其中部分平台並將上傳內容用於訓練其自有系統。上述俱樂部之承諾拘束俱樂部
+    本身，並不拘束上述公司，俱樂部亦無從使其受拘束。本人如不願某一平台取得
+    該等授權，應於 B 部分不予勾選；俱樂部將尊重未勾選之平台，素材亦可僅限於
+    俱樂部網站使用。
+
+7. CHANGING AREAS — AN ABSOLUTE RULE 更衣區域之絕對規則
+
+EN  Regardless of anything ticked in Part B, no one — coach, member, parent or
+    visitor — may use the camera or recording function of any device in a
+    changing area, toilet, shower, or any space being used to change clothes.
+    No consent on this form authorizes it. Breaching this rule is grounds for
+    removal from the club and, depending on what happened, for a report to the
+    authorities.
+
+ZH  無論 B 部分勾選為何，任何人——教練、會員、家長或訪客——均不得於更衣
+    區域、廁所、淋浴間，或任何正供更衣使用之空間，使用任何裝置之拍照或
+    錄影功能。本同意書之任何同意均不構成此等行為之授權。違反本規則者，
+    得予退會處分；並視情節通報主管機關。
+
+8. NO OBLIGATION EITHER WAY 雙方均無義務
 
 EN  Signing this form does not oblige the club to use any material, and
     declining to sign it does not affect my membership, my place in any class,
@@ -179,7 +230,7 @@ EN  Signing this form does not oblige the club to use any material, and
 ZH  簽署本同意書不使俱樂部負有使用素材之義務；不簽署亦不影響本人之會籍、
     課程名額、訓練內容、任何遴選資格，或本人所受之任何待遇。
 
-8. TERM 有效期間
+9. TERM 有效期間
 
 EN  This consent applies to material recorded from the date of signature until
     I withdraw it. Material already published under it may remain published
@@ -188,7 +239,7 @@ EN  This consent applies to material recorded from the date of signature until
 ZH  本同意書適用於自簽署日起所拍攝之素材，至本人撤回為止。依本同意書業已
     發布之素材，於第 4 條撤回生效前得繼續發布。
 
-9. GOVERNING LAW 準據法與管轄
+10. GOVERNING LAW 準據法與管轄
 
 EN  Governed by the laws of the Republic of China; disputes to the Taiwan
     Taipei District Court as the court of first instance, without prejudice to
@@ -211,7 +262,8 @@ EN  Collector: Ember Tide Fencing Club (焰潮擊劍會), B1, No. 128, Section 4
     birth), images and recordings of the person, and fencing-related
     information such as weapon, level, results and years of participation.
     Period of use: for as long as the consent stands, plus five years for
-    record-keeping after it ends.
+    record-keeping after it ends; for a person under 18, until they reach 18
+    plus the applicable limitation period.
     Region: worldwide, because the platforms ticked in Part B are accessible
     internationally and store data outside Taiwan.
     Manner of use: publication and display on the channels ticked in Part B,
@@ -229,7 +281,8 @@ ZH  蒐集者：焰潮擊劍會，105 台北市松山區八德路四段 128 號 
     蒐集目的：俱樂部行政管理、會籍紀錄，以及 B 部分所述之活動推廣。
     個人資料類別：識別類個資（姓名、聯絡方式、出生年月日）、本人之影像與
     錄音錄影，以及劍種、程度、成績、習劍年資等擊劍相關資訊。
-    利用期間：本同意存續期間，另於同意終止後保存紀錄五年。
+    利用期間：本同意存續期間，另於同意終止後保存紀錄五年；當事人未滿 18 歲
+    者，保存至其年滿 18 歲後再加計法定時效期間。
     利用地區：全球。因 B 部分所勾選之平台可於國際間存取，並可能將資料儲存
     於我國境外。
     利用方式：於 B 部分所勾選之頻道發布與展示，以及內部紀錄保存。
@@ -262,7 +315,9 @@ EN  I am the parent or legal guardian of the person named in Part A. I have
     read this form, I have made the choices in Part B in their interest, and I
     consent on their behalf. I understand that I may withdraw this consent at
     any time, and that the child may ask for material to be taken down once
-    they are old enough to decide for themselves.
+    they are old enough to decide for themselves. This form is signed
+    separately from the minor safeguarding consent
+    (docs/minor_safeguarding_consent.txt); neither affects the other.
 
     For children, the club additionally undertakes: no full name published
     without this box ticked — [ ] full name may be used 可使用全名; no
@@ -273,7 +328,8 @@ EN  I am the parent or legal guardian of the person named in Part A. I have
 
 ZH  本人為 A 部分所列當事人之父母或法定代理人，已閱讀本同意書，並本於該
     當事人之利益完成 B 部分之勾選，代其表示同意。本人了解得隨時撤回本同意，
-    且該名兒童於具備自主判斷能力後，亦得請求下架相關素材。
+    且該名兒童於具備自主判斷能力後，亦得請求下架相關素材。本同意書與未成年人
+    保護同意書（docs/minor_safeguarding_consent.txt）分別簽署，互不影響。
 
     就兒童部分，俱樂部另承諾：未勾選前揭欄位者不發布全名；不揭露兒童就讀
     學校；不發布住址、上下學路線，或任何足以顯示兒童固定單獨行蹤之地點；
