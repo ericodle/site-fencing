@@ -25,6 +25,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/configure-pages@v5
+      # docs/ is internal administration — mission statement, waiver, media
+      # release. It lives in the repo but must never be served.
+      - run: rm -rf docs
       - uses: actions/upload-pages-artifact@v3
         with:
           path: .

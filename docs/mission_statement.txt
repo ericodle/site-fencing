@@ -1,0 +1,377 @@
+================================================================================
+EMBER TIDE FENCING CLUB · 焰潮擊劍會
+MISSION STATEMENT AND EVIDENCE REGISTER
+================================================================================
+Internal administrative document. Not for publication as written.
+Version 1.0 · 16 September 2026 · Owner: club administration
+Traditional Chinese version: docs/mission_statement.zh-TW.txt
+
+--------------------------------------------------------------------------------
+WHY THIS DOCUMENT EXISTS
+--------------------------------------------------------------------------------
+The public site states three principles in about forty words each. This is the
+long form behind them: what each pillar actually commits us to, broken into the
+components that carry the commitment, and — for every component — the evidence
+that lets us defend the claim to a prospective member, a parent, a partner
+venue, a sponsor, a federation officer or a journalist.
+
+A claim we cannot evidence is a claim we should stop making. Every component
+below therefore carries an evidence list with a status tag. Where the tag is
+not [HAVE], the claim is either softened on the public site or the evidence is
+queued for collection; the gap list at the end of this document tracks that work.
+
+EVIDENCE KEY
+  [HAVE]        Exists now, held by the club, producible on request.
+  [PARTIAL]     Exists but thin, undated, unreleased, or covering only part of
+                the period we claim.
+  [PLACEHOLDER] The public site currently shows sample or dummy material in
+                this slot. The claim is NOT yet evidenced. Replace before use.
+  [NEED]        Does not exist. To be created or collected.
+
+Every photograph, video or quotation listed below may only be published once
+the person in it has signed the media release (docs/media_release.txt). Minors
+require a guardian signature. No exceptions, including for footage shot in a
+public park.
+
+--------------------------------------------------------------------------------
+MISSION
+--------------------------------------------------------------------------------
+Ember Tide Fencing Club makes competitive épée and saber fencing available to
+anyone in Taipei who wants it: organized online, trained wherever we can secure
+floor space, and priced so that the cost of a salle never decides who gets to
+fence.
+
+We opened in December 2019 under Sagittarius, the archer. The name joins the two
+elements we train — ember for the attack you commit to entirely, tide for the
+defense that yields and returns. Everything below is an attempt to hold those
+two together in how the club is actually run.
+
+The three pillars are Open, Competitive and Inclusive, in the order they appear
+on the public site. They are not ranked. They constrain each other: being open
+about results is uncomfortable precisely because we are competitive, and being
+inclusive costs us money we could otherwise spend on facilities. When the three
+conflict, the conflict is resolved in the open, in writing, and the decision is
+recorded here at the next revision.
+
+================================================================================
+PILLAR 01 — OPEN
+"Nothing to hide"
+================================================================================
+Fencing is transparent by nature. Competitions happen in public, and secret
+strategies do not stay secret for long. Rather than treat that as a hazard, we
+treat it as the operating model: we publish what we do, including the parts that
+did not work, and we publish the tools we build so that another club does not
+have to build them again. A closed club protects a reputation. An open club
+builds one.
+
+--- Component 1.1 — Bouts, lessons and results are posted publicly -------------
+
+Training is recorded and posted rather than kept inside the room. Bouts from
+open training, drills from group lessons and results from every tournament our
+fencers enter go out on the club's public channels on a predictable rhythm, so
+that a stranger can judge the club by what it does on a normal Tuesday rather
+than by what its marketing says. This is also how an online-first club with no
+single home salle stays legible to people who have not yet walked into a
+session: the feed is the front door.
+
+Evidence:
+  [PLACEHOLDER] Instagram wall in the #social section of the site — the six
+                tiles are gradient placeholders linking to the profile. Replace
+                with real post images in assets/img/feed/.
+  [PLACEHOLDER] YouTube embed on the site still carries the literal string
+                REPLACE_WITH_YOUTUBE_ID as its data-video attribute.
+  [NEED]        Posting-cadence record: a simple log of what went out, on which
+                channel, on which date, for the trailing twelve months. This is
+                the single most convincing artifact for this component and it
+                does not exist yet.
+  [NEED]        Archive of bout video from open training, with releases on file
+                for every fencer identifiable in frame.
+  [HAVE]        The commitment is stated publicly on the site, which is itself
+                evidence of the standard we have set ourselves.
+
+--- Component 1.2 — Losses are reviewed as openly as wins ----------------------
+
+The Friday results post covers the whole card, not the podium. A fencer who went
+out in the pools is written up in the same format and at the same length as a
+fencer who medaled, because the alternative teaches members that a bad result is
+something to be hidden, which is exactly the instinct that stops people entering
+the next event. Coaches model this first: post-tournament debriefs name what the
+coaching plan got wrong before they name what the fencer got wrong.
+
+Evidence:
+  [PLACEHOLDER] The member testimonial from "Daniel C." — first ranking
+                tournament at forty-one, out in the pools, entered the next one
+                — is sample copy on the site, not a real quotation. It is
+                exactly the right story; find the real version of it and get it
+                signed.
+  [NEED]        Six to twelve archived results posts showing wins and losses in
+                the same format, as a demonstrable pattern rather than a claim.
+  [NEED]        One written post-tournament debrief, redacted, usable as a
+                sample of how the club handles a poor result.
+
+--- Component 1.3 — Open-source software, open hardware specifications ---------
+
+The club's software is released under an open-source license and the hardware
+specifications for our scoring equipment are published. The target is a fully
+DIY wireless reel and scoring box system built from off-the-shelf parts, with
+the bill of materials, firmware and enclosure files public, so that a school
+club or a group of students anywhere can put a scored piste on any flat floor
+for a fraction of the commercial price. This is the pillar where Open and
+Inclusive are the same commitment seen from two directions: the point of
+publishing the design is that cost stops being a barrier for somebody else too.
+
+Evidence:
+  [PARTIAL] The wireless scoring units exist and are in use — they are cited in
+            the site FAQ and in the Inclusive pillar as the reason we can run
+            scored bouts on any open floor.
+  [NEED]    Public repository for the firmware and the scoring software, with a
+            license file. Until this is public the word "open-source" is a
+            statement of intent, not a fact, and should be phrased that way.
+  [NEED]    Published bill of materials and build notes for one reel and one
+            scoring box, with a per-unit cost figure.
+  [NEED]    Photographs of the units in use at a session, and one photograph of
+            the internals for the build documentation.
+  [NEED]    Reliability record: sessions run on DIY units, failures, and what
+            was changed. Publishing the failures is the point.
+
+--- Component 1.4 — What we learn is shared with the community -----------------
+
+Coaching notes, refereeing explanations, rule changes and tournament logistics
+are written up for everyone, not circulated privately among members. The club
+treats the Taiwanese fencing community as the audience rather than the
+competition. In practice this is the tournament desk's by-product: once we have
+read an organizer's announcement closely enough to brief our own fencers, the
+briefing costs nothing to publish.
+
+Evidence:
+  [PARTIAL] The tournament desk exists and its scope is documented on the site:
+            federation announcements watched, eligibility and fees explained,
+            deadline reminders, registration and kit-check help, carpools.
+  [NEED]    Public archive of those briefings — the version other clubs' fencers
+            can read.
+  [NEED]    Record of the reciprocity pledge being honored in both directions:
+            visits received from other clubs, visits our fencers made elsewhere,
+            with dates.
+  [PLACEHOLDER] The testimonial from "Kuo H.", the guest from a Hsinchu club, is
+                sample copy. A real guest quotation is the strongest possible
+                evidence for this component.
+
+================================================================================
+PILLAR 02 — COMPETITIVE
+"Every fencer is expected to compete"
+================================================================================
+Competition is not the advanced track; it is the track. The beginner course is
+built backwards from a first tournament entry, and from then on a member always
+has a next event they are training toward. We do not require anyone to win
+anything. We require them to enter, because entering is what converts a hobby
+into a practice, and because a club whose members never compete slowly stops
+being able to teach competitive fencing at all.
+
+--- Component 2.1 — The beginner course ends competition-ready -----------------
+
+Adult and children's beginner group lessons are designed so that a graduate can
+walk into a domestic tournament and function: guard, distance, parries, attacks,
+and — the part most beginner courses omit — enough refereeing knowledge to
+follow a director's calls and to sit the strip when asked. "Competition-ready"
+is a testable claim, not a slogan: the test is that the graduate enters an event
+and is not lost there.
+
+Evidence:
+  [HAVE]     Course structure as published: adult beginner épée group lessons,
+             children's beginner épée and saber (ages 7–13), private lessons at
+             any level.
+  [NEED]     Written syllabus with the session-by-session progression and the
+             graduation criteria. This is the document a parent asks for.
+  [NEED]     Conversion figures: of the beginners who completed a course, how
+             many entered a tournament within six months. Even a small honest
+             number beats an unevidenced claim.
+  [PLACEHOLDER] "Daniel C." (first ranking tournament eight months in) and
+                "Sarah R." (training plan and a first Taiwanese tournament entry
+                within a month of arriving) are both sample testimonials.
+  [NEED]     Photographs of a beginner cohort at graduation and of a graduate at
+             their first event, with releases signed.
+
+--- Component 2.2 — The tournament desk tracks the season for the member -------
+
+Tracking the calendar is a membership service, not the member's homework. We
+watch federation and organizer announcements, read the rules, explain
+eligibility, categories and fees, post deadline reminders on LINE two weeks and
+three days out, help first-timers through registration and kit check, and
+organize carpools and shared rooms on Discord. The failure mode we are
+engineering against is specific and common: a fencer who was ready, wanted to
+go, and missed the entry deadline.
+
+Evidence:
+  [HAVE]     Scope of the service, published on the site.
+  [HAVE]     Club calendar infrastructure — events carry a registration object
+             and surface automatically in the tournament desk list (js/events.js).
+  [PLACEHOLDER] Every event currently in js/events.js is a sample. The real
+                season must replace them before the calendar evidences anything.
+  [NEED]     Deadline-reminder log: event, deadline, dates the two reminders
+             went out, number of members entered.
+  [NEED]     Missed-deadline count. If it is zero, that is the headline number
+             for this entire pillar. If it is not, we publish it anyway — see
+             Component 1.2.
+
+--- Component 2.3 — Training is planned around the member's next event ---------
+
+A member's training block is written against a specific date on the calendar.
+What we drill in the eight weeks before a ranking event differs from what we
+drill in an off-period, and the member knows which block they are in and why.
+Private lessons exist primarily to serve this: fix the weakness that the last
+competition exposed, in time for the next one.
+
+Evidence:
+  [NEED]     Two or three anonymized example training blocks, each tied to a
+             named event, showing the progression.
+  [NEED]     Coach's record of which members have a current target event.
+  [PLACEHOLDER] "Sarah R." testimonial (training plan within a month of joining).
+  [PARTIAL]  Private lesson offering is published; its role in competition
+             preparation is stated on the site.
+
+--- Component 2.4 — Coaching credibility --------------------------------------
+
+Two weapons, each led by a specialist: Eric Odle on épée, Yiling Ku on saber.
+The competitive pillar rests on the coaches being able to prepare a fencer for
+an actual competitive field, so their own records and qualifications are part of
+the evidence base for the claim, not biographical decoration.
+
+Evidence:
+  [PLACEHOLDER] Both coach cards on the site read "Full profile coming soon" and
+                show initials in place of a portrait. This is the most visible
+                unevidenced claim on the public site.
+  [NEED]     Coaching qualifications and certifications, with issuing body and
+             date, for both coaches.
+  [NEED]     Competitive records, honestly scoped.
+  [NEED]     Coach portraits, with releases.
+
+================================================================================
+PILLAR 03 — INCLUSIVE
+"Room for everyone"
+================================================================================
+The price of a salle should not decide who gets to fence. Fencing's barriers are
+mostly financial and logistical rather than physical, and almost all of them are
+removable by an organization willing to be inconvenienced: train in parks,
+borrow floor space, build the scoring equipment, lend the kit, and organize
+online so that no one is paying rent on a room that sits empty five days a week.
+Being online-first is not a marketing posture. It is the mechanism that makes
+the club affordable.
+
+--- Component 3.1 — Cost is engineered down, not discounted -------------------
+
+We do not run a cheap version of an expensive club. The cost structure is
+different at the root: footwork and cross-training happen in public parks,
+bouting happens at a partner venue and at pop-up sessions around Taipei, and
+scoring runs on units we built ourselves alongside conventional box-and-reel.
+Removing the permanent salle removes the single largest fixed cost in the
+sport, and that saving is what keeps membership reachable.
+
+Evidence:
+  [HAVE]     Park sessions published: Minsheng Park, Songshan, Wednesday and
+             Saturday mornings, open to anyone, rain plans posted on LINE by
+             6 a.m.
+  [HAVE]     Partner venue published: B1, No. 128, Section 4, Bade Road,
+             Songshan District, Taipei 105.
+  [PARTIAL]  DIY wireless scoring in service alongside box-and-reel.
+  [NEED]     The actual comparison: our per-month cost to a member against the
+             Taipei market rate. Without the number this component is a feeling.
+  [NEED]     Photographs of a park session and of a pop-up session on an
+             unconventional floor, with releases.
+  [NEED]     Written record of the venue partnerships and their terms.
+
+--- Component 3.2 — Nobody is turned away for lack of kit ----------------------
+
+A beginner needs nothing to start. Full loaner kit is provided, and guests from
+other clubs are lent whatever they are missing. Equipment is one of the two
+questions that stops a curious person from ever attending a first session; the
+other is not knowing whether they will be welcome, which Component 3.3 covers.
+
+Evidence:
+  [HAVE]     Loaner kit commitment published on the site and in the FAQ.
+  [NEED]     Inventory: sets held, by size, by weapon, with condition and last
+             safety inspection date. This doubles as risk-management evidence
+             supporting the liability waiver (docs/liability_waiver.txt).
+  [NEED]     Kit maintenance and retirement record — when a mask or jacket was
+             last tested and when it was taken out of service.
+  [NEED]     Photograph of the loaner rack.
+
+--- Component 3.3 — The door is open to every club, and to every background ----
+
+Our door is open to your fencers; we hope yours is open to ours. Guests train at
+open training, Friday club night and the park sessions on a LINE message, and
+the only thing asked in return is reciprocity. The same posture applies inside
+the club: members come from fourteen countries, the club runs bilingually in
+English and Chinese, and adults starting from zero in their forties are a normal
+part of a beginner cohort rather than an exception anyone remarks on.
+
+Evidence:
+  [HAVE]     Reciprocity pledge published on the site and in the FAQ.
+  [HAVE]     Bilingual operation — the entire public site carries both English
+             and Traditional Chinese for every string, and this mission
+             statement exists in both languages.
+  [PARTIAL]  "Members from 14 countries" is published as a club statistic; the
+             underlying membership records should be able to substantiate it on
+             request, and the figure needs a date attached.
+  [PLACEHOLDER] The "Kuo H." guest testimonial and the "Daniel C." late-starter
+                testimonial are both sample copy.
+  [NEED]     Guest log: visiting fencers received, their home clubs, dates; and
+             the reciprocal visits our members made.
+  [NEED]     Age and starting-level distribution of current members, to
+             substantiate the late-starter claim honestly.
+
+--- Component 3.4 — Large, open spaces, secured with partners ------------------
+
+Inclusion has a floor-space requirement. Six pistes' worth of usable space is
+what lets a session take everyone who turns up rather than rationing strip time
+to the most committed, and securing that space through partnerships rather than
+a lease is what keeps it affordable. Space is therefore treated as an inclusion
+issue and tracked as one.
+
+Evidence:
+  [PARTIAL]  Six pistes published as a club statistic; needs to be tied to a
+             specific venue and date to be meaningful.
+  [NEED]     Written partnership terms for each venue, including capacity.
+  [NEED]     Attendance-against-capacity record: how often a session ran at a
+             level where somebody had to wait.
+  [NEED]     Wide photograph of a full session showing the space in use.
+
+================================================================================
+GAP LIST — WHAT THIS DOCUMENT SAYS WE DO NOT YET HAVE
+================================================================================
+Ordered by how exposed the claim is on the public site.
+
+  1. Coach profiles, qualifications and portraits (2.4). Currently "coming
+     soon" with initials. Highest-visibility gap.
+  2. Real member testimonials, signed for use (1.2, 2.1, 2.3, 3.3). All three
+     quotations on the site are samples and must be replaced or removed.
+  3. Real calendar events in js/events.js (2.2). Everything shown is sample data.
+  4. Real photography throughout: Instagram tiles, feed images, park sessions,
+     loaner rack, full-session wide shot (1.1, 3.1, 3.2, 3.4).
+  5. Public repository and published hardware specifications (1.3). Until these
+     exist, "open-source" is intent and should be worded as intent.
+  6. Posting-cadence log and results-post archive (1.1, 1.2).
+  7. Deadline-reminder and missed-deadline record (2.2).
+  8. Beginner-to-first-tournament conversion figure (2.1).
+  9. Cost comparison against the Taipei market rate (3.1).
+ 10. Kit inventory with safety inspection dates (3.2) — also required as
+     supporting evidence behind the liability waiver.
+ 11. Guest and reciprocal-visit log (1.4, 3.3).
+ 12. Dated substantiation for the published statistics: 240+ members, 2 weapons,
+     6 pistes, 14 nationalities.
+
+================================================================================
+ADMINISTRATION
+================================================================================
+Review: every six months, and whenever the public site's principles copy
+changes. The public copy and this document must not drift apart; if the site
+claims something this document cannot evidence, one of the two is wrong.
+
+Consents: every photograph, video, audio recording or attributed quotation cited
+as evidence above requires a signed media release (docs/media_release.txt)
+before publication, and a guardian signature where the subject is under 18 —
+the age of majority in Taiwan since 1 January 2023.
+
+Related documents:
+  docs/mission_statement.zh-TW.txt   Traditional Chinese version of this file
+  docs/liability_waiver.txt          Assumption of risk and release, bilingual
+  docs/media_release.txt             Photo, video and media consent, bilingual
