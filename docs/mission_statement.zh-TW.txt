@@ -308,4 +308,3 @@
   docs/media_release.txt          肖像與媒體使用同意書（中英雙語）
   docs/minor_safeguarding_consent.txt  未成年人保護政策與家長同意書（中英雙語）
   docs/credentials.md             證照、保險與到期日登錄表
-  docs/forms_review_2026-09.md    各項文件與台美實務之比對檢討

@@ -11,7 +11,6 @@ long form behind the public copy, and the forms members sign.
 | `media_release.txt` | Consent to photographs, video and other media, bilingual, with the PDPA collection notice. |
 | `minor_safeguarding_consent.txt` | Required for every participant under 18, on top of the waiver. Part B is club policy — observable-and-interruptible lessons, no private one-to-one messaging, travel and overnight rules, coach vetting, reporting route. Part C is what the guardian authorizes. |
 | `credentials.md` | What the club and the coaches hold — certifications, insurance, police record certificates, equipment inspections — with expiry dates and what depends on each. |
-| `forms_review_2026-09.md` | Review of all of the above against Taiwanese law and sector standards and against US fencing and youth-sports practice. Fourteen findings, ordered by severity, with a recommended order of work. |
 
 All three forms carry an administrative notes block at the top. **Delete that
 block before printing a copy for signature.** None of them has been reviewed by

@@ -385,4 +385,3 @@ Related documents:
   docs/media_release.txt             Photo, video and media consent, bilingual
   docs/minor_safeguarding_consent.txt  Policy and parental consent, under-18s
   docs/credentials.md                Certifications, insurance, expiry dates
-  docs/forms_review_2026-09.md       Review of the forms against TW and US practice
