@@ -1,0 +1,5 @@
+# Chrome writes PDFs with enough printable content that git guesses text and
+# diffs them line by line: the first park_workouts commit carried 48k lines of
+# noise for seven files. These are build output, never merged and never read as
+# a diff.
+*.pdf binary
