@@ -29,45 +29,93 @@ sitemap.xml         one URL; update lastmod when the copy changes materially
 
 ## Palette
 
-A neutral dark base, with "jade cave" as the accent palette on top of it. Both
-are defined once as tokens at the top of `css/styles.css` and referenced
-everywhere else; nothing in the stylesheet hardcodes a brand hex.
+Black, gold and silver, with blue and green as accents. All of it is defined
+once as tokens at the top of `css/styles.css` and referenced everywhere else;
+nothing in the stylesheet hardcodes a brand hex.
 
-The base is what stops the page reading as one flat wash of green:
-
-| Token | Hex | Role |
-| --- | --- | --- |
-| `--ink-900` | `#0b0d0e` | page ground |
-| `--ink-800` … `--ink-600` | `#111416` → `#222829` | raised surfaces, in that order |
-| `--line` / `--line-strong` | white at 9% / 18% | borders, deliberately neutral |
-
-The four jade cave colors then sit on that base as accent:
+Black is the ground, kept neutral so the two metals read as metal on it:
 
 | Token | Hex | Role |
 | --- | --- | --- |
-| `--cave` | `#00201e` | jade-tinted depth, and the dark label on every bright fill |
-| `--slate` | `#3a5268` | the cold pole; secondary accent, never body text |
-| `--jade` | `#007f5f` | fills and structure, not text on the ground |
-| `--spark` | `#00e88a` | the bright edge; accents, hover, primary CTA |
+| `--ink-900` | `#0a0a0b` | page ground |
+| `--ink-800` … `--ink-600` | `#101012` → `#212125` | raised surfaces, in that order |
+| `--onyx` | `#0a0a0b` | the dark label that sits on every bright fill |
+| `--line` / `--line-strong` | white at 9% / 18% | borders |
 
-`--jade-soft`, `--jade-deep`, `--slate-soft` and `--slate-deep` are derived from
-those four.
+Gold is primary, silver secondary:
+
+| Token | Hex | Role |
+| --- | --- | --- |
+| `--gold` | `#d4af37` | the core gold |
+| `--gold-soft` / `--gold-bright` | `#e0c25e` / `#f2d98a` | lit ends of the gold range |
+| `--gold-deep` | `#8f7320` | **fills only** — 4.4:1 on the ground, under AA for text |
+| `--silver` | `#b9c0c7` | the core silver |
+| `--silver-soft` / `--silver-deep` | `#dfe4e8` / `#7d858c` | lit and shaded silver |
+
+Blue `#5aa9e6` and green `#52c98a` are accents, used only where they carry
+meaning — never as decoration. Green is success (`.reg-pill.open`,
+`.form-status.ok`). Both, with gold and silver, give the five calendar event
+types a real categorical spread: weekly silver, practice blue, tournament gold,
+inter-club green, social deep gold. `.form-status.err` stays warm on purpose:
+an error must not read as a success.
 
 Three rules the tokens exist to keep:
 
-- **`--jade` and `--slate` are too dark to carry text on `--ink-900`** (3.9:1 and
-  2.4:1). Text on the ground uses `--paper`, `--muted`, `--spark` or
-  `--slate-soft`; `--jade` and `--slate` are for fills, borders and icons.
+- **Silver is a light metal.** Anything sitting on a silver or gold fill takes
+  `--onyx`, not `--paper`. This is the inversion to watch when editing older
+  rules: the secondary color used to be dark and wanted light text on it.
+- **`--gold-deep` is the only token that cannot carry text on the ground.**
+  Everything else clears AA: silver 10.8:1, gold 9.4:1, green 9.5:1, blue 7.8:1.
 - **Gradients clipped to text, or sitting under a dark label, stay light end to
-  end.** That is what `--grad-spark` is for. `--grad-jade`, `--grad-slate` and
-  `--grad-cave` run into their dark stops and are decorative only.
-- **`.btn-line` is outlined, not filled.** LINE's `#06c755` is fixed by their
-  brand and lands about 47 units from `--jade-soft` in sRGB, so a filled LINE
-  button and a filled primary read as the same button. The border and glyph keep
-  the green; the fill does not. `.line-fab` stays solid — it floats alone.
+  end.** That is `--grad-lit`. `--grad-gold`, `--grad-silver` and `--grad-duo`
+  run into their dark stops and are decorative only.
 
-The one deliberate off-palette color is `.form-status.err`, which stays warm: an
-error must not read as a success in an all-green scheme.
+`.btn-line` is outlined rather than filled, so it reads as secondary to the gold
+primary beside it while keeping LINE's `#06c755` in the border and glyph.
+`.line-fab` stays solid — it floats alone.
+
+### Making it read as metal
+
+Fencing is a metal sport, so gold and silver are treated as surfaces rather than
+as colors. Three things do the work, and they are meant to be used together:
+
+- **Specular ramps.** `--grad-gold`, `--grad-silver` and `--grad-duo` alternate
+  bright and dark stops across the face instead of ramping smoothly from one
+  tone to another — that alternation is what the eye reads as a reflection
+  rolling off a curved surface. `--grad-lit` does the same but keeps every stop
+  light, so the dark label it carries still clears AA (worst stop 10.4:1).
+- **`--brushed`.** Fine directional striations, layered *over* a metal fill as a
+  second background layer: `background: var(--brushed), var(--grad-lit)`.
+- **`--bevel` / `--bevel-soft`.** Inset shadows that light the top edge and
+  shade the bottom, so a filled element reads as a machined plate rather than a
+  painted rectangle. `--bevel` is for large surfaces, `--bevel-soft` for chips
+  and small icon plates.
+
+Cards get the same idea more cheaply: a 1px lit line as the first layer of their
+background, which bevels the top edge without another pseudo-element (`.card`
+already uses `::after` for its hover border and `.pillar` uses `::before` for
+its accent bar).
+
+The arrow mark in `assets/logo.svg`, the favicon, the og card and the hero art
+all share one blade gradient — dark, bright, specular white band, bright, dark —
+so the shaft catches light the way a blade does.
+
+### The background
+
+Not flat black. Four layers, back to front:
+
+1. `body` background — `--ink-900`.
+2. `body::before` (z −3) — gold light from one corner, silver from the other,
+   black deepening at the bottom.
+3. `.starfield` (z −2) — `--mesh` and `--sheen` as a static background on the
+   wrapper, with the two drifting star layers as children on top. `--mesh` is a
+   pair of hairline rulings at a 9px pitch: a fencing mask is a fine wire grid,
+   and it is the one piece of metal every fencer looks through. `--sheen` is a
+   coarser brushed striation across the same plate. The wrapper is masked with a
+   radial gradient so the texture fades at the edges and reads as texture rather
+   than as a chart grid — it is masked on its own layer precisely so it does not
+   dim the corner glows underneath it.
+4. `body::after` (z −1) — film grain.
 
 ### The night sky
 
@@ -75,7 +123,8 @@ The club is named after a constellation, so the background is one. A fixed
 `.starfield` div holds two tiled layers — `assets/img/stars-far.svg` (dense,
 tiny, dim) and `assets/img/stars-near.svg` (sparse, brighter) — drifting in
 opposite directions at different speeds, so scrolling past reads as depth rather
-than wallpaper. Both tiles are generated, not hand-placed, and tile seamlessly.
+than wallpaper. Stars are white, silver and a few gold, so the sky belongs to
+the palette. Both tiles are generated, not hand-placed, and tile seamlessly.
 
 Stars are kept deliberately small and dim. A bright 2px dot next to a nav label
 reads as a stray period, which is why anything sitting over the sky — the nav,

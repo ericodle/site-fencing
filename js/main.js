@@ -1,7 +1,7 @@
 /* ---------------------------------------------------------------------------
    Sheshouzuo Fencing Club — main.js
    No framework, no build step, no dependencies. Runs as a classic script.
-   1 i18n · 2 header & nav · 3 scrollspy · 4 reveal & counters
+   1 i18n · 2 header & nav · 3 scrollspy · 4 reveal on scroll
    5 share · 6 deferred embeds · 7 calendar · 8 contact form · 9 misc
    --------------------------------------------------------------------------- */
 (function () {
@@ -174,30 +174,15 @@
     });
   }
 
-  /* 4 ── reveal on scroll + stat counters ────────────────────────────── */
+  /* 4 ── reveal on scroll ─────────────────────────────────────────────── */
 
   var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-  function countUp(el) {
-    var target = parseFloat(el.getAttribute("data-count"));
-    var suffix = el.getAttribute("data-suffix") || "";
-    if (isNaN(target) || reduced) { el.textContent = target + suffix; return; }
-    var start = performance.now();
-    var dur = 1100;
-    (function step(now) {
-      var p = Math.min(1, (now - start) / dur);
-      var eased = 1 - Math.pow(1 - p, 3);
-      el.textContent = Math.round(target * eased) + suffix;
-      if (p < 1) requestAnimationFrame(step);
-    })(start);
-  }
 
   if ("IntersectionObserver" in window) {
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (!entry.isIntersecting) return;
         entry.target.classList.add("is-in");
-        $$("[data-count]", entry.target).forEach(countUp);
         io.unobserve(entry.target);
       });
     }, { rootMargin: "0px 0px -12% 0px", threshold: 0.12 });
@@ -205,7 +190,6 @@
     $$(".reveal").forEach(function (el) { io.observe(el); });
   } else {
     $$(".reveal").forEach(function (el) { el.classList.add("is-in"); });
-    $$("[data-count]").forEach(countUp);
   }
 
   /* 5 ── share ───────────────────────────────────────────────────────── */
