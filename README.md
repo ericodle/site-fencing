@@ -21,7 +21,8 @@ css/styles.css      all styling
 js/config.js        the bits an owner edits — form endpoint, socials, language
 js/events.js        club calendar events, which also feed the tournament desk
 js/main.js          language switch, nav, reveals, share, embeds, calendar, contact form
-assets/             logo, favicon, social card, generated icons, star tiles
+assets/             logo, favicon, social card, generated icons
+tools/              generators for every drawing (see below)
 site.webmanifest    installable-app metadata
 sitemap.xml         one URL; update lastmod when the copy changes materially
 .github/workflows/  deploys the repo root to GitHub Pages on push to main
@@ -137,6 +138,52 @@ that was here before was the single clearest tell that the design came out of a
 kit. A transitional serif has a smaller x-height, so the whole scale is set a
 step larger than it would be for a sans — the base is `clamp(1.18rem, 1.08rem +
 0.4vw, 1.34rem)`.
+
+## The drawings are generated
+
+Every drawn asset — the four figures, the sky chart and the brand marks — comes
+out of `tools/`, not out of hand-edited path data. The source numbers are real
+and they live in one place so they stay editable.
+
+```
+tools/geometry.py   the numbers: Taiwan's coastline, the cities, the Tropic,
+                    Sagittarius in J2000 RA/Dec, the FIE piste dimensions
+tools/figures.py    the five drawings built from those numbers
+tools/marks.py      logo, favicon and the social card
+tools/build.py      regenerates everything and patches it into the markup
+tools/icons.py      renders the PNG rasters (needs cairosvg)
+```
+
+```bash
+python3 tools/build.py          # rewrite the assets, report what changed
+python3 tools/build.py --check  # exit 1 if anything is out of date
+python3 tools/icons.py          # then re-render the PNGs
+```
+
+`build.py` finds each figure in the markup by the class on its `<svg>`, so the
+surrounding captions, figure wrappers and bilingual attributes are never
+touched. To move a coastline point or add a city, edit `geometry.py` and run it.
+
+Two things the generators encode that are easy to lose:
+
+- The Taiwan map's viewBox carries a 120px gutter each side purely for city
+  labels. Without it the west-coast names anchor past the left edge and clip to
+  "NAN" and "SIUNG".
+- Do not use SVG `<mask>` in the brand marks. The PNG icons are rendered with
+  cairosvg, which does not apply masks the way a browser does — a knockout
+  version of the logo rendered as a solid silver square.
+
+### The mark
+
+The logo is the Sagittarius arrow crossing Taiwan: the sign the club is named
+for, over the ground it fences on. The island is drawn as **ground, not figure**
+— a dark fill with a silver coast, sitting behind the gold arrow. A mid-tone
+silhouette was tried first and read as a grey blob, because island and arrow
+shared a value.
+
+Below roughly 40px the coastline stops resolving and the mark falls back to the
+arrow alone, which is the honest limit of putting two forms in one square. The
+nav lockup is set at 44px for that reason; at the old 34px the island was noise.
 
 ## Running it locally
 
@@ -276,8 +323,8 @@ PY
 
 ## Accessibility and performance notes
 
-- Single stylesheet, single script, one web-font request, two small star
-  tiles. No trackers.
+- Single stylesheet, single script, one web-font request. Every drawing is
+  inline SVG, so there are no image requests at all. No trackers.
 - Everything reachable by keyboard; the mobile menu closes on `Escape`.
 - `prefers-reduced-motion` switches off the reveals, the floating arrow and
   smooth scrolling.

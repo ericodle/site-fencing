@@ -400,7 +400,9 @@ section[id] + section[id] { padding-top: clamp(3rem, 6vw, 5.5rem); }
   margin-right: auto;
   flex: none;
 }
-.brand img { width: 34px; height: 34px; }
+/* 34px is below the size at which the island in the mark reads; at 44 the
+   coastline resolves and the lockup carries Taiwan as well as the arrow. */
+.brand img { width: 44px; height: 44px; }
 .brand-name {
   font-family: var(--font-display);
   font-weight: 700;
