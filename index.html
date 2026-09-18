@@ -32,7 +32,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700&family=Sora:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Serif+TC:wght@400;600;700&display=swap">
 <link rel="stylesheet" href="css/styles.css">
 
 <script type="application/ld+json">
@@ -73,8 +73,9 @@
 </head>
 <body>
 
-<!-- night sky: two parallax star layers behind everything. Decorative only. -->
-<div class="starfield" aria-hidden="true"><span class="s-far"></span><span class="s-near"></span></div>
+<!-- Sagittarius, plotted from J2000 RA/Dec: the coordinate grid is drawn,
+     magnitudes are to scale and the Bayer designations are labelled. -->
+<div class="skychart" aria-hidden="true"><svg viewBox="0 0 560 528"><g class="grid"><path d="M515.3 694.9 L-193.8 694.9"/><path d="M515.3 561.1 L-193.8 561.1"/><path d="M515.3 427.4 L-193.8 427.4"/><path d="M515.3 293.6 L-193.8 293.6"/><path d="M515.3 159.9 L-193.8 159.9"/><path d="M515.3 26.1 L-193.8 26.1"/><path d="M515.3 -107.6 L-193.8 -107.6"/><path d="M444.4 -161.1 L444.4 748.4"/><path d="M267.1 -161.1 L267.1 748.4"/><path d="M89.8 -161.1 L89.8 748.4"/><path d="M-87.5 -161.1 L-87.5 748.4"/></g><g class="asterism"><path d="M410.1 305.0 L320.3 289.0"/><path d="M320.3 289.0 L301.6 410.9"/><path d="M320.3 289.0 L279.1 171.2"/><path d="M279.1 171.2 L174.6 213.1"/><path d="M174.6 213.1 L117.8 194.6"/><path d="M117.8 194.6 L48.8 231.3"/><path d="M48.8 231.3 L74.4 290.4"/><path d="M74.4 290.4 L301.6 410.9"/><path d="M74.4 290.4 L174.6 213.1"/><path d="M279.1 171.2 L363.1 54.4"/><path d="M301.6 410.9 L340.2 474.5"/><path d="M103.2 55.7 L62.2 72.7"/><path d="M62.2 72.7 L32.1 53.5"/></g><g class="stars"><circle cx="410.1" cy="305.0" r="1.49"/><circle cx="320.3" cy="289.0" r="1.7"/><circle cx="301.6" cy="410.9" r="2.33"/><circle cx="279.1" cy="171.2" r="1.62"/><circle cx="174.6" cy="213.1" r="1.35"/><circle cx="117.8" cy="194.6" r="2.18"/><circle cx="74.4" cy="290.4" r="1.78"/><circle cx="48.8" cy="231.3" r="1.24"/><circle cx="363.1" cy="54.4" r="1.0"/><circle cx="340.2" cy="474.5" r="1.4"/><circle cx="103.2" cy="55.7" r="1.1"/><circle cx="62.2" cy="72.7" r="1.0"/><circle cx="32.1" cy="53.5" r="1.56"/></g><g class="labels"><text class="bayer" x="415.6" y="301.0">γ</text><text class="starname" x="415.6" y="313.0">ALNASL</text><text class="bayer" x="326.0" y="285.0">δ</text><text class="starname" x="326.0" y="297.0">KAUS MEDIA</text><text class="bayer" x="307.9" y="406.9">ε</text><text class="starname" x="307.9" y="418.9">KAUS AUSTRALIS</text><text class="bayer" x="284.7" y="167.2">λ</text><text class="starname" x="284.7" y="179.2">KAUS BOREALIS</text><text class="bayer" x="179.9" y="209.1">φ</text><text class="bayer" x="124.0" y="190.6">σ</text><text class="starname" x="124.0" y="202.6">NUNKI</text><text class="bayer" x="80.2" y="286.4">ζ</text><text class="starname" x="80.2" y="298.4">ASCELLA</text><text class="bayer" x="54.0" y="227.3">τ</text><text class="bayer" x="368.1" y="50.4">μ</text><text class="bayer" x="345.6" y="470.5">η</text><text class="bayer" x="108.3" y="51.7">ξ</text><text class="bayer" x="67.2" y="68.7">ο</text><text class="bayer" x="37.7" y="49.5">π</text></g></svg></div>
 
 <a class="skip-link" href="#main" data-en="Skip to content" data-zh="跳至主要內容">Skip to content</a>
 
@@ -236,53 +237,6 @@
       </p>
     </div>
 
-    <div class="hero-art" aria-hidden="true">
-      <div class="halo"></div>
-      <svg viewBox="0 0 400 400" fill="none">
-        <defs>
-          <linearGradient id="h-head" x1="200" y1="40" x2="200" y2="360" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#fbf0c4"/><stop offset=".45" stop-color="#e0c25e"/><stop offset="1" stop-color="#9c7f26"/></linearGradient>
-          <linearGradient id="h-shaft" x1="60" y1="360" x2="340" y2="60" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#8f7320"/><stop offset=".28" stop-color="#d4af37"/><stop offset=".46" stop-color="#fbf0c4"/><stop offset=".62" stop-color="#d4af37"/><stop offset="1" stop-color="#a8862a"/></linearGradient>
-          <linearGradient id="h-steel" x1="150" y1="212" x2="196" y2="258" gradientUnits="userSpaceOnUse">
-            <stop offset="0" stop-color="#7d858c"/><stop offset=".45" stop-color="#ffffff"/><stop offset="1" stop-color="#8b9298"/>
-          </linearGradient>
-          <radialGradient id="h-glow" cx="200" cy="200" r="180" gradientUnits="userSpaceOnUse">
-            <stop offset="0" stop-color="#f2d98a" stop-opacity=".20"/><stop offset="1" stop-color="#f2d98a" stop-opacity="0"/>
-          </radialGradient>
-        </defs>
-
-        <circle cx="200" cy="200" r="180" fill="url(#h-glow)"/>
-        <!-- zodiac ring -->
-        <circle cx="200" cy="200" r="156" stroke="rgba(255,255,255,.12)" stroke-width="1"/>
-        <circle cx="200" cy="200" r="140" stroke="rgba(255,255,255,.07)" stroke-width="1" stroke-dasharray="3 9"/>
-        <!-- Sagittarius: the real Teapot asterism, plotted from J2000 RA/Dec.
-             Star size follows visual magnitude, so Kaus Australis and Nunki
-             read brightest, as they do in the sky. -->
-        <path d="M320.0 205.4 L260.4 194.7 M260.4 194.7 L247.9 276.5 M260.4 194.7 L233.0 115.5 M233.0 115.5 L163.6 143.7 M163.6 143.7 L125.8 131.2 M125.8 131.2 L80.0 155.9 M80.0 155.9 L97.0 195.6 M97.0 195.6 L247.9 276.5 M97.0 195.6 L163.6 143.7" stroke="rgba(242,217,138,.5)" stroke-width="1.2" fill="none"/>
-        <g fill="#f2d98a">
-          <circle cx="320.0" cy="205.4" r="1.2"/>
-          <circle cx="260.4" cy="194.7" r="1.32"/>
-          <circle cx="247.9" cy="276.5" r="1.68"/>
-          <circle cx="233.0" cy="115.5" r="1.28"/>
-          <circle cx="163.6" cy="143.7" r="1.12"/>
-          <circle cx="125.8" cy="131.2" r="1.6"/>
-          <circle cx="97.0" cy="195.6" r="1.36"/>
-          <circle cx="80.0" cy="155.9" r="1.06"/>
-        </g>
-
-        <!-- the arrow-blade -->
-        <g class="arrow-group">
-          <path class="draw" d="M96 304 L286 114" stroke="url(#h-shaft)" stroke-width="12" stroke-linecap="round"/>
-          <path class="draw" d="M214 114 H292 V192" stroke="url(#h-head)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-          <path class="draw" d="M150 212 L196 258" stroke="url(#h-steel)" stroke-width="10" stroke-linecap="round"/>
-          <circle cx="96" cy="304" r="13" fill="#7d858c"/>
-          <circle cx="96" cy="304" r="24" stroke="rgba(185,192,199,.35)" stroke-width="1.5"/>
-        </g>
-
-        <!-- cave strata -->
-        <path d="M40 330c40-8 68 8 104 0s68 8 104 0 68 8 112 0" stroke="rgba(185,192,199,.28)" stroke-width="2" fill="none"/>
-        <path d="M40 350c40-8 68 8 104 0s68 8 104 0 68 8 112 0" stroke="rgba(185,192,199,.16)" stroke-width="2" fill="none"/>
-      </svg>
-    </div>
   </div>
 </section>
 
@@ -309,6 +263,10 @@
         </div>
         <p class="pillar-kicker" data-en="Physical training" data-zh="身體訓練">Physical training</p>
         <h3 data-en="Classes, private lessons, and the park" data-zh="團體課、個別指導，還有公園">Classes, private lessons, and the park</h3>
+        <figure class="plate-fig">
+          <svg class="fig" viewBox="0 0 1100 140" aria-hidden="true"><clipPath id="pc"><rect x="90" y="40" width="920" height="48"/></clipPath><g class="hatch" clip-path="url(#pc)"><path d="M90 40 L108 88"/><path d="M100 40 L118 88"/><path d="M110 40 L128 88"/><path d="M120 40 L138 88"/><path d="M130 40 L148 88"/><path d="M140 40 L158 88"/><path d="M150 40 L168 88"/><path d="M160 40 L178 88"/><path d="M170 40 L188 88"/><path d="M180 40 L198 88"/><path d="M190 40 L208 88"/><path d="M200 40 L218 88"/><path d="M210 40 L228 88"/><path d="M220 40 L238 88"/><path d="M878 40 L896 88"/><path d="M888 40 L906 88"/><path d="M898 40 L916 88"/><path d="M908 40 L926 88"/><path d="M918 40 L936 88"/><path d="M928 40 L946 88"/><path d="M938 40 L956 88"/><path d="M948 40 L966 88"/><path d="M958 40 L976 88"/><path d="M968 40 L986 88"/><path d="M978 40 L996 88"/><path d="M988 40 L1006 88"/><path d="M998 40 L1016 88"/><path d="M1008 40 L1026 88"/></g><rect class="rule" x="90" y="40" width="920" height="48"/><path class="rule bold" d="M550 30 V98"/><path class="rule dash" d="M419 40 V88 M681 40 V88"/><path class="tick" d="M90 110 V118 M1010 110 V118 M90 114 H1010"/><text class="dim" x="550" y="132" text-anchor="middle">14 metres</text><text class="dim" x="550" y="24" text-anchor="middle">centre</text><text class="dim" x="419" y="24" text-anchor="middle">on guard</text><text class="dim" x="681" y="24" text-anchor="middle">on guard</text><text class="dim" x="156" y="24" text-anchor="middle">warning</text><text class="dim" x="944" y="24" text-anchor="middle">warning</text></svg>
+          <figcaption data-en="Fig. 1 — the piste, 14 m, with on-guard lines at 2 m and the warning zones marked" data-zh="圖一——劍道全長 14 公尺，兩側 2 公尺處為預備線，兩端警戒區已標示">Fig. 1 — the piste, 14 m, with on-guard lines at 2 m and the warning zones marked</figcaption>
+        </figure>
         <p class="pillar-lede" data-en="Group classes cover technique, footwork and bouting. Private lessons are one-on-one with an épée or saber coach, at any level — to fix a weakness, sharpen your game, or prepare for a tournament. Twice a week we train outdoors in Minsheng Park: Wednesday mornings for footwork, Saturday mornings for cross-training. Everything runs in English and Chinese." data-zh="團體課涵蓋技術、步法與實戰對打。個別指導為一對一，由銳劍或軍刀教練帶，任何程度皆可——補強弱點、打磨戰術，或備戰比賽。每週兩次在民生公園戶外訓練：週三早上練步法，週六早上練體能。所有課程皆以中文與英文進行。">Group classes cover technique, footwork and bouting. Private lessons are one-on-one with an épée or saber coach, at any level — to fix a weakness, sharpen your game, or prepare for a tournament. Twice a week we train outdoors in Minsheng Park: Wednesday mornings for footwork, Saturday mornings for cross-training. Everything runs in English and Chinese.</p>
         <ul class="pillar-list">
           <li><svg aria-hidden="true"><use href="#i-check"/></svg><span data-en="Group classes — technique, footwork, bouting" data-zh="團體課——技術、步法、實戰對打">Group classes — technique, footwork, bouting</span></li>
@@ -326,6 +284,10 @@
         </div>
         <p class="pillar-kicker" data-en="Mental training" data-zh="心理訓練">Mental training</p>
         <h3 data-en="Strategy, reflexes, and keeping your head" data-zh="戰略、反射，與穩住情緒">Strategy, reflexes, and keeping your head</h3>
+        <figure class="plate-fig">
+          <svg class="fig" viewBox="0 0 1100 150" aria-hidden="true"><text class="dim" x="150" y="52" text-anchor="end">attacker</text><text class="dim" x="150" y="114" text-anchor="end">defender</text><path class="rule faint" d="M170 48 H1010 M170 110 H1010"/><path class="rule bold" d="M230 48 H560"/><path class="rule bold" d="M560 110 H660"/><path class="rule bold" d="M660 110 H880"/><path class="tick" d="M230 40 V56 M560 40 V118 M660 102 V118 M880 102 V118"/><circle class="node" cx="230" cy="48" r="4"/><circle class="node" cx="560" cy="110" r="4"/><circle class="node" cx="880" cy="110" r="4"/><text class="dim" x="230" y="28" text-anchor="middle">initiate</text><text class="dim" x="560" y="28" text-anchor="middle">arrives</text><text class="dim" x="610" y="138" text-anchor="middle">parry</text><text class="dim" x="770" y="138" text-anchor="middle">riposte</text><path class="brace" d="M560 74 H660 M560 70 V78 M660 70 V78"/><text class="dim em" x="610" y="66" text-anchor="middle">one tempo</text></svg>
+          <figcaption data-en="Fig. 2 — right of way: the attack arrives, the parry answers within one tempo" data-zh="圖二——攻擊權：攻擊抵達，防守方須於一個節拍內完成格擋">Fig. 2 — right of way: the attack arrives, the parry answers within one tempo</figcaption>
+        </figure>
         <p class="pillar-lede" data-en="Bouts are decided by decisions. We drill strategy and tactical execution: reading the opponent, confirming the action before you commit, and the reflex cues that fire the right response without thinking. Every fencer trains toward a target outcome for the phrase, not just &ldquo;get a hit&rdquo;. Sessions include reaction-speed work. After a competition we watch your bouts back and go through what actually happened. The room stays positive: a bad result is not held against anyone." data-zh="對打的勝負取決於判斷。我們訓練戰略與戰術執行：讀懂對手、在出手前確認動作，以及讓正確反應不經思考就出手的反射提示。每位劍手都針對每個回合設定預期的目標結果，而不只是「刺中就好」。課堂中安排反應速度練習。比賽結束後，我們一起回看你的對打影片，逐一釐清當下究竟發生了什麼。場上氛圍保持正向：不會有人因為一次失利被記著。">Bouts are decided by decisions. We drill strategy and tactical execution: reading the opponent, confirming the action before you commit, and the reflex cues that fire the right response without thinking. Every fencer trains toward a target outcome for the phrase, not just &ldquo;get a hit&rdquo;. Sessions include reaction-speed work. After a competition we watch your bouts back and go through what actually happened. The room stays positive: a bad result is not held against anyone.</p>
         <ul class="pillar-list">
           <li><svg aria-hidden="true"><use href="#i-check"/></svg><span data-en="Strategy and tactical execution — reading the opponent, choosing the action" data-zh="戰略與戰術執行——讀懂對手，選定動作">Strategy and tactical execution — reading the opponent, choosing the action</span></li>
@@ -344,6 +306,10 @@
         </div>
         <p class="pillar-kicker" data-en="Data-driven" data-zh="數據導向">Data-driven</p>
         <h3 data-en="Online-first, and everything logged" data-zh="線上為主，一切留下紀錄">Online-first, and everything logged</h3>
+        <figure class="plate-fig">
+          <svg class="fig pool" viewBox="0 0 970 274" aria-hidden="true"><rect class="blank" x="190" y="34" width="150" height="44"/><rect class="blank" x="340" y="78" width="150" height="44"/><rect class="blank" x="490" y="122" width="150" height="44"/><rect class="blank" x="640" y="166" width="150" height="44"/><rect class="blank" x="790" y="210" width="150" height="44"/><path class="rule" d="M190 34 H940"/><path class="rule" d="M190 34 V254"/><path class="rule" d="M190 78 H940"/><path class="rule" d="M340 34 V254"/><path class="rule" d="M190 122 H940"/><path class="rule" d="M490 34 V254"/><path class="rule" d="M190 166 H940"/><path class="rule" d="M640 34 V254"/><path class="rule" d="M190 210 H940"/><path class="rule" d="M790 34 V254"/><path class="rule" d="M190 254 H940"/><path class="rule" d="M940 34 V254"/><text class="score" x="415" y="62" text-anchor="middle">V5</text><text class="score" x="565" y="62" text-anchor="middle">D3</text><text class="score" x="715" y="62" text-anchor="middle">V5</text><text class="score" x="865" y="62" text-anchor="middle">V5</text><text class="score" x="265" y="106" text-anchor="middle">D4</text><text class="score" x="565" y="106" text-anchor="middle">V5</text><text class="score" x="715" y="106" text-anchor="middle">D2</text><text class="score" x="865" y="106" text-anchor="middle">V5</text><text class="score" x="265" y="150" text-anchor="middle">V5</text><text class="score" x="415" y="150" text-anchor="middle">D2</text><text class="score" x="715" y="150" text-anchor="middle">V5</text><text class="score" x="865" y="150" text-anchor="middle">V5</text><text class="score" x="265" y="194" text-anchor="middle">D3</text><text class="score" x="415" y="194" text-anchor="middle">V5</text><text class="score" x="565" y="194" text-anchor="middle">D1</text><text class="score" x="865" y="194" text-anchor="middle">D4</text><text class="score" x="265" y="238" text-anchor="middle">D1</text><text class="score" x="415" y="238" text-anchor="middle">D3</text><text class="score" x="565" y="238" text-anchor="middle">D0</text><text class="score" x="715" y="238" text-anchor="middle">V5</text><text class="dim" x="176" y="60" text-anchor="end">Chen</text><text class="dim" x="265" y="22" text-anchor="middle">1</text><text class="dim" x="176" y="104" text-anchor="end">Odle</text><text class="dim" x="415" y="22" text-anchor="middle">2</text><text class="dim" x="176" y="148" text-anchor="end">Ku</text><text class="dim" x="565" y="22" text-anchor="middle">3</text><text class="dim" x="176" y="192" text-anchor="end">Lin</text><text class="dim" x="715" y="22" text-anchor="middle">4</text><text class="dim" x="176" y="236" text-anchor="end">Huang</text><text class="dim" x="865" y="22" text-anchor="middle">5</text></svg>
+          <figcaption data-en="Fig. 3 — a pool sheet: five fencers, victories and defeats, the diagonal struck out" data-zh="圖三——小組循環表：五名劍手，勝負紀錄，對角線劃除">Fig. 3 — a pool sheet: five fencers, victories and defeats, the diagonal struck out</figcaption>
+        </figure>
         <p class="pillar-lede" data-en="The club runs online first: schedules, footage and your own record are all there, wherever you happen to be training. Every bout is scored and logged, and each fencer can see their own numbers. The training plan changes when the numbers say it should. The software we use and the wireless scoring hardware we built are open source, with the specs published, so another club can build the same thing without starting over." data-zh="俱樂部以線上為主運作：課表、影片與你自己的紀錄都在線上，不論你在哪裡訓練都找得到。每一場對打都計分入檔，每位劍手都看得到自己的數字；數據顯示該調整，訓練就調整。我們使用的軟體與自製的無線計分硬體皆為開源，規格一併公開，讓其他俱樂部不必從零開始。">The club runs online first: schedules, footage and your own record are all there, wherever you happen to be training. Every bout is scored and logged, and each fencer can see their own numbers. The training plan changes when the numbers say it should. The software we use and the wireless scoring hardware we built are open source, with the specs published, so another club can build the same thing without starting over.</p>
         <ul class="pillar-list">
           <li><svg aria-hidden="true"><use href="#i-check"/></svg><span data-en="Online-first — schedules, footage and your record travel with you" data-zh="線上為主——課表、影片與你的紀錄，走到哪跟到哪">Online-first — schedules, footage and your record travel with you</span></li>

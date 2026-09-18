@@ -74,77 +74,55 @@ Three rules the tokens exist to keep:
 primary beside it while keeping LINE's `#06c755` in the border and glyph.
 `.line-fab` stays solid — it floats alone.
 
-### Making it read as metal
+### Line work, not light
 
-Fencing is a metal sport, so gold and silver are treated as surfaces rather than
-as colors. Three things do the work, and they are meant to be used together:
+The look is engraved rather than lit. There is no glow, no `backdrop-filter`, no
+radial atmosphere, no gradient-clipped text and no border radius anywhere in the
+stylesheet — depth comes from drawn geometry, hairline rules and overlap. Gold is
+ink, not a light source. `--rule` and `--rule-faint` are the two structural
+hairlines everything is drawn with.
 
-- **Specular ramps.** `--grad-gold`, `--grad-silver` and `--grad-duo` alternate
-  bright and dark stops across the face instead of ramping smoothly from one
-  tone to another — that alternation is what the eye reads as a reflection
-  rolling off a curved surface. `--grad-lit` does the same but keeps every stop
-  light, so the dark label it carries still clears AA (worst stop 10.4:1).
-- **`--brushed`.** Fine directional striations, layered *over* a metal fill as a
-  second background layer: `background: var(--brushed), var(--grad-lit)`.
-- **`--bevel` / `--bevel-soft`.** Inset shadows that light the top edge and
-  shade the bottom, so a filled element reads as a machined plate rather than a
-  painted rectangle. `--bevel` is for large surfaces, `--bevel-soft` for chips
-  and small icon plates.
+Cards are printed plates: a rule, plus a second rule set outside it with
+`outline-offset`, which costs nothing and reads as a plate border rather than a
+drop shadow. Buttons are flat ink with a hard edge.
 
-Cards get the same idea more cheaply: a 1px lit line as the first layer of their
-background, which bevels the top edge without another pseudo-element (`.card`
-already uses `::after` for its hover border and `.pillar` uses `::before` for
-its accent bar).
+The metal ramps (`--grad-gold`, `--grad-silver`, `--grad-duo`) survive only on
+thin rules and bars — a 2px edge with a specular ramp reads as a metal edge,
+where the same ramp across a button face reads as plastic.
 
-The arrow mark in `assets/logo.svg`, the favicon, the og card and the hero art
-all share one blade gradient — dark, bright, specular white band, bright, dark —
-so the shaft catches light the way a blade does.
+### The figures
 
-### The background
+Each principle carries the diagram that goes with it, drawn in hairlines, and
+this is why the plates run full width rather than in three columns: the figures
+label themselves at 9px in their own viewBox, which is unreadable at column
+width.
 
-Not flat black. Four layers, back to front:
+- **Fig. 1** — the piste to FIE proportion: 14 m, centre line, on-guard lines at
+  2 m either side, hatched warning zones, dimensioned.
+- **Fig. 2** — right of way as a tempo diagram: the attack initiates and
+  arrives, the parry answers, the riposte follows, with the one-tempo window
+  braced.
+- **Fig. 3** — a pool sheet: five fencers, V/D notation, the diagonal struck out.
 
-1. `body` background — `--ink-900`.
-2. `body::before` (z −3) — gold light from one corner, silver from the other,
-   black deepening at the bottom.
-3. `.starfield` (z −2) — `--mesh` and `--sheen` as a static background on the
-   wrapper, with the two drifting star layers as children on top. `--mesh` is a
-   pair of hairline rulings at a 9px pitch: a fencing mask is a fine wire grid,
-   and it is the one piece of metal every fencer looks through. `--sheen` is a
-   coarser brushed striation across the same plate. The wrapper is masked with a
-   radial gradient so the texture fades at the edges and reads as texture rather
-   than as a chart grid — it is masked on its own layer precisely so it does not
-   dim the corner glows underneath it.
-4. `body::after` (z −1) — film grain.
+Figure styling lives under `.fig` — `.rule`, `.tick`, `.hatch`, `.brace`,
+`.node`, `.dim`, `.score`. Strokes carry `vector-effect: non-scaling-stroke` so
+hairlines stay 1px at any render size.
 
-### The night sky
+### The sky
 
-The club is named after a constellation, so the background is one. A fixed
-`.starfield` div holds two tiled layers — `assets/img/stars-far.svg` (dense,
-tiny, dim) and `assets/img/stars-near.svg` (sparse, brighter) — drifting in
-opposite directions at different speeds, so scrolling past reads as depth rather
-than wallpaper. Stars are white, silver and a few gold, so the sky belongs to
-the palette. Both tiles are generated, not hand-placed, and tile seamlessly.
+`.skychart` is a fixed, drawn star chart, not a field of dots: Sagittarius
+plotted from J2000 right ascension and declination for thirteen stars, with the
+coordinate grid ruled, magnitudes to scale and the Bayer designations labelled.
+It replaced a drifting starfield, which was decorative where this is accurate.
+The page ground behind it is `--mesh`, a fencing-mask wire grid at a 9px pitch.
 
-Stars are kept deliberately small and dim. A bright 2px dot next to a nav label
-reads as a stray period, which is why anything sitting over the sky — the nav,
-the marquee, the hero kicker, every card — carries an opaque dark base rather
-than a translucent one.
+### Type
 
-The layering, back to front: `body` background (the ground), `body::before`
-(nebula glows, z −3), `.starfield` (z −2), `body::after` (film grain, z −1),
-then content.
-
-The constellation drawn in the hero art and again in the closing CTA band is the
-real thing: the Teapot asterism of Sagittarius, plotted from J2000 right
-ascension and declination for its eight main stars — Kaus Australis, Nunki, Kaus
-Media, Ascella, Kaus Borealis, Alnasl, Phi and Tau. Star size follows visual
-magnitude, so the brightest stars in the sky are the brightest on the page, and
-the connecting lines are the standard asterism. Both are inline SVG at true
-proportions; if you resize one, scale it, do not stretch it.
-
-`prefers-reduced-motion` stops the drift and the twinkle along with everything
-else, and the sky is hidden in print.
+Cinzel for display, EB Garamond for body, Noto Serif TC for Chinese. The sans
+that was here before was the single clearest tell that the design came out of a
+kit. A transitional serif has a smaller x-height, so the whole scale is set a
+step larger than it would be for a sans — the base is `clamp(1.18rem, 1.08rem +
+0.4vw, 1.34rem)`.
 
 ## Running it locally
 
