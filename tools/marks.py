@@ -16,6 +16,9 @@ import sys, os
 sys.path.insert(0, os.path.dirname(__file__))
 from geometry import tw_bounds, tw_outline
 
+# These mirror --grad-gold in css/styles.css, which is the palette's source of
+# truth. SVG gradient stops cannot read CSS custom properties, so the values are
+# restated here; if the palette moves, move both.
 GOLD_SHAFT = ('<stop offset="0" stop-color="#8f7320"/>'
               '<stop offset=".28" stop-color="#d4af37"/>'
               '<stop offset=".46" stop-color="#fbf0c4"/>'

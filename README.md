@@ -53,6 +53,12 @@ Gold is primary, silver secondary:
 | `--silver` | `#b9c0c7` | the core silver |
 | `--silver-soft` / `--silver-deep` | `#dfe4e8` / `#7d858c` | lit and shaded silver |
 
+The specular ramps reference these tokens for their named stops; only the
+in-between highlight and shade values are literals, because those have no token.
+`tools/marks.py` restates the gold values because SVG gradient stops cannot read
+CSS custom properties — that is the one place the palette is duplicated, and it
+is commented as such.
+
 Blue `#5aa9e6` and green `#52c98a` are accents, used only where they carry
 meaning — never as decoration. Green is success (`.reg-pill.open`,
 `.form-status.ok`). Both, with gold and silver, give the five calendar event
@@ -198,6 +204,11 @@ Attributes use the same pattern with the attribute name appended:
 `value`.
 
 `js/main.js` swaps them on load and when the EN / 中文 switch is pressed. The
+`<title>` and the meta description use the same pattern — `data-en`/`data-zh` on
+the title, `data-en-content`/`data-zh-content` on the meta — so the markup is
+the only place either string lives. They used to be restated inside `main.js`,
+which meant editing the messaging in two files and keeping them in sync by
+hand. The
 choice is remembered in `localStorage`, and `?lang=zh` forces one for a link you
 are sending to somebody. A first-time visitor gets Chinese if their browser asks
 for Chinese, English otherwise — change `defaultLang` in `js/config.js` to pin it.

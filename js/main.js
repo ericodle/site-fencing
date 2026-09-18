@@ -18,17 +18,9 @@
      follow the same pattern: data-en-placeholder, data-zh-aria-label, ...    */
 
   var LANGS = ["en", "zh"];
-  var ATTRS = ["placeholder", "aria-label", "title", "alt", "value"];
+  var ATTRS = ["placeholder", "aria-label", "title", "alt", "value", "content"];
 
   var STRINGS = {
-    docTitle: {
-      en: "Sheshouzuo Fencing Club · 射手座擊劍會 — Physical training, mental training, data-driven. Fencing in Taipei, Taiwan",
-      zh: "射手座擊劍會 Sheshouzuo Fencing Club — 台灣台北的擊劍會：身體訓練、心理訓練、數據導向"
-    },
-    metaDesc: {
-      en: "Sheshouzuo Fencing Club (射手座擊劍會) is an online-first épée and saber club in Taipei, Taiwan, built on three things: physical training, mental training, and data-driven coaching. Tracked bouts, video analysis, tournament support, guests from other clubs welcome.",
-      zh: "射手座擊劍會是台灣台北以線上為主的銳劍與軍刀俱樂部，立足於三件事：身體訓練、心理訓練，以及數據導向的指導。對打計分入檔、影片分析、賽事協助，歡迎其他俱樂部劍手。"
-    },
     copied: { en: "Link copied.", zh: "連結已複製。" },
     copyFail: { en: "Could not copy — long-press the address bar instead.", zh: "複製失敗，請改為長按網址列。" },
     shared: { en: "Thanks for sharing.", zh: "感謝分享。" },
@@ -103,9 +95,12 @@
       });
     });
 
-    doc.title = t("docTitle");
-    var desc = $('meta[name="description"]');
-    if (desc) desc.setAttribute("content", t("metaDesc"));
+    // <title> and the meta description carry data-en/data-zh like everything
+    // else, so the swap above has already handled them. document.title only
+    // needs re-reading because setting textContent on <title> does not always
+    // propagate in older engines.
+    var titleEl = $("title");
+    if (titleEl) doc.title = titleEl.textContent;
 
     $$("[data-set-lang]").forEach(function (btn) {
       btn.setAttribute("aria-pressed", String(btn.getAttribute("data-set-lang") === currentLang));

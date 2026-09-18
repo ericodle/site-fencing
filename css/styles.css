@@ -14,7 +14,6 @@
   --ink-900: #0a0a0b;
   --ink-800: #101012;
   --ink-700: #17171a;
-  --ink-600: #212125;
   --line: rgba(255, 255, 255, 0.10);
   --line-strong: rgba(255, 255, 255, 0.22);
   --rule: #3a3a40;        /* a drawn structural hairline */
@@ -45,9 +44,11 @@
      across its face rather than ramping smoothly from one tone to another, so
      these ramps do that — the bright stops are the highlights rolling off the
      curve of a blade. */
-  --grad-gold: linear-gradient(135deg, #8f7320 0%, #d4af37 16%, #fbf0c4 32%, #d4af37 46%, #9c7f26 62%, #eed690 80%, #a8862a 100%);
-  --grad-silver: linear-gradient(135deg, #6b7278 0%, #b9c0c7 16%, #ffffff 32%, #c6cdd3 46%, #7d858c 62%, #eef1f4 80%, #8b9298 100%);
-  --grad-duo: linear-gradient(100deg, #d4af37, #fbf0c4 18%, #a8862a 38%, #c6cdd3 62%, #ffffff 78%, #7d858c);
+  /* The named stops reference the tokens above; only the in-between highlight
+     and shade values are literals, because those have no token of their own. */
+  --grad-gold: linear-gradient(135deg, var(--gold-deep) 0%, var(--gold) 16%, #fbf0c4 32%, var(--gold) 46%, #9c7f26 62%, #eed690 80%, #a8862a 100%);
+  --grad-silver: linear-gradient(135deg, #6b7278 0%, var(--silver) 16%, #ffffff 32%, #c6cdd3 46%, var(--silver-deep) 62%, #eef1f4 80%, #8b9298 100%);
+  --grad-duo: linear-gradient(100deg, var(--gold), #fbf0c4 18%, #a8862a 38%, #c6cdd3 62%, #ffffff 78%, var(--silver-deep));
 
   /* A fencing mask is a fine wire grid — the most metal object in the sport, and
      the one every fencer looks through. Two hairline rulings at a 9px pitch,
@@ -83,7 +84,6 @@ html[data-lang="zh"] body {
   font-family: "Noto Sans TC", "Sora", system-ui, sans-serif;
   letter-spacing: 0.01em;
 }
-html[data-lang="zh"] .display,
 html[data-lang="zh"] h1,
 html[data-lang="zh"] h2,
 html[data-lang="zh"] h3 {
@@ -205,12 +205,6 @@ ul { margin: 0; padding: 0; list-style: none; }
 .skip-link:focus { top: 1rem; }
 [hidden] { display: none !important; }
 
-.visually-hidden {
-  position: absolute !important;
-  width: 1px; height: 1px;
-  margin: -1px; padding: 0;
-  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap;
-}
 
 /* 3 ── layout ------------------------------------------------------------- */
 .wrap {
@@ -257,7 +251,6 @@ section[id] + section[id] { padding-top: clamp(3rem, 6vw, 5.5rem); }
 .grid { display: grid; gap: clamp(1rem, 2vw, 1.6rem); }
 .grid-2 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); }
 .grid-3 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 17.5rem), 1fr)); }
-.grid-4 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 13.5rem), 1fr)); }
 
 /* 4 ── components --------------------------------------------------------- */
 .btn {
@@ -288,14 +281,6 @@ section[id] + section[id] { padding-top: clamp(3rem, 6vw, 5.5rem); }
 }
 .btn-gold:hover { color: var(--onyx); background: var(--gold-bright); }
 
-/* Silver is a light metal, so the label goes dark. The ramp closes on
-   --silver-deep, which still clears AA against that label at 5.3:1. */
-.btn-silver {
-  --btn-bg: transparent;
-  --btn-fg: var(--silver-soft);
-  border-color: var(--silver-deep);
-}
-.btn-silver:hover { color: var(--onyx); background: var(--silver-soft); border-color: var(--silver-soft); }
 
 /* LINE's green is fixed by their brand and lands ~47 units from --gold-soft in
    sRGB, so a filled LINE button and a filled primary read as the same button.
@@ -369,7 +354,6 @@ section[id] + section[id] { padding-top: clamp(3rem, 6vw, 5.5rem); }
    these run light end to end, unlike the decorative gradients above. */
 .gradient-text { color: var(--gold); }
 .gold-text { color: var(--gold); }
-.silver-text { color: var(--silver); }
 
 /* 5 ── page sections ------------------------------------------------------ */
 
@@ -536,10 +520,8 @@ section[id] + section[id] { padding-top: clamp(3rem, 6vw, 5.5rem); }
 .hero-grid { display: block; }
 .hero h1 { margin-bottom: 1rem; max-width: 15ch; }   /* stops short of the chart */
 .hero h1 .line { display: block; }
-.zh-br { display: none; }
 html[data-lang="zh"] .hero h1 .line { display: inline; }
-html[data-lang="zh"] .zh-br { display: inline; }
-.hero-kicker {
+html[data-lang="zh"] .hero-kicker {
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
