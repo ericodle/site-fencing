@@ -200,8 +200,8 @@ even with JavaScript off:
 ```
 
 Attributes use the same pattern with the attribute name appended:
-`data-en-placeholder`, `data-zh-aria-label`, and so on for `title`, `alt` and
-`value`.
+`data-en-placeholder`, `data-zh-aria-label`, and so on for `title`, `alt`,
+`value` and `content` — the full list is `ATTRS` at the top of `js/main.js`.
 
 `js/main.js` swaps them on load and when the EN / 中文 switch is pressed. The
 `<title>` and the meta description use the same pattern — `data-en`/`data-zh` on

@@ -145,7 +145,7 @@ body::before {
 .skychart .asterism path { stroke: var(--gold-deep); stroke-width: 1; fill: none; vector-effect: non-scaling-stroke; }
 .skychart .stars circle { fill: var(--paper); }
 .skychart .bayer { fill: var(--gold); font: italic 11px var(--font-body); }
-.skychart .starname { fill: #565660; font: 8.5px var(--font-display); letter-spacing: 0.14em; }
+.skychart .starname { fill: #7b7c84;  /* 4.8:1 on the ground; the chart stays recessive via its own opacity */ font: 8.5px var(--font-display); letter-spacing: 0.14em; }
 
   to   { transform: translate3d(-520px, 260px, 0); }
 }
