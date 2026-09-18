@@ -54,7 +54,16 @@
      barely above the black. */
   --mesh: repeating-linear-gradient(0deg, rgba(223, 228, 232, 0.030) 0 1px, transparent 1px 9px),
           repeating-linear-gradient(90deg, rgba(223, 228, 232, 0.030) 0 1px, transparent 1px 9px);
-
+  /* Silver streaks: long diagonal hairlines drawn across the ground, like blade
+     traces or the grain of brushed steel. Five rulings at coprime pitches and
+     mixed weights, so the set never resolves into an obvious repeat and the
+     surface reads as drawn rather than tiled. */
+  --streaks:
+    repeating-linear-gradient(104deg, transparent 0 231px, rgba(255, 255, 255, 0.075) 231px 233px, transparent 233px 521px),
+    repeating-linear-gradient(104deg, transparent 0 149px, rgba(223, 228, 232, 0.105) 149px 150px, transparent 150px 331px),
+    repeating-linear-gradient(104deg, transparent 0 86px,  rgba(185, 192, 199, 0.080) 86px 87px,  transparent 87px 211px),
+    repeating-linear-gradient(104deg, transparent 0 59px,  rgba(223, 228, 232, 0.055) 59px 60px,  transparent 60px 157px),
+    repeating-linear-gradient(104deg, transparent 0 23px,  rgba(223, 228, 232, 0.030) 23px 24px,  transparent 24px 41px);
 
   --font-display: "Cinzel", "Noto Serif TC", Georgia, serif;
   --font-head: "Cinzel", "Noto Serif TC", Georgia, serif;
@@ -111,7 +120,7 @@ body::before {
   position: fixed;
   inset: 0;
   z-index: -3;
-  background: var(--mesh), var(--ink-900);
+  background: var(--streaks), var(--mesh), var(--ink-900);
 }
 /* 2b ── the sky chart ------------------------------------------------------ */
 /* The sky is a chart, not a sprinkle of dots: Sagittarius plotted from J2000

@@ -114,7 +114,13 @@ hairlines stay 1px at any render size.
 plotted from J2000 right ascension and declination for thirteen stars, with the
 coordinate grid ruled, magnitudes to scale and the Bayer designations labelled.
 It replaced a drifting starfield, which was decorative where this is accurate.
-The page ground behind it is `--mesh`, a fencing-mask wire grid at a 9px pitch.
+
+The ground behind it is two drawn textures. `--mesh` is a fencing-mask wire grid
+at a 9px pitch. `--streaks` lays silver hairlines diagonally across it, like
+blade traces or the grain of brushed steel — five rulings at coprime pitches
+(231/521, 149/331, 86/211, 59/157, 23/41) and mixed weights, so the set never
+resolves into an obvious repeat. Plates sit on an opaque `--ink-800`, so the
+streaks read in the open space between them and never behind body copy.
 
 ### Type
 
