@@ -1,7 +1,8 @@
 # Internal administration docs
 
 Not published with the site. These are the club's own working documents: the
-long form behind the public copy, and the forms members sign.
+long form behind the public copy, the forms members sign, and the training
+sessions we run when we cannot secure floor space.
 
 | File | What it is |
 | --- | --- |
@@ -11,6 +12,7 @@ long form behind the public copy, and the forms members sign.
 | `media_release.txt` | Consent to photographs, video and other media, bilingual, with the PDPA collection notice. |
 | `minor_safeguarding_consent.txt` | Required for every participant under 18, on top of the waiver. Part B is club policy — observable-and-interruptible lessons, no private one-to-one messaging, travel and overnight rules, coach vetting, reporting route. Part C is what the guardian authorizes. |
 | `credentials.md` | What the club and the coaches hold — certifications, insurance, police record certificates, equipment inspections — with expiry dates and what depends on each. |
+| `park_workouts/` | Six 60-minute cross-training sessions — calisthenics, agility, plyometrics and footwork — written to the minute and runnable in a public park with a bench, a bar and chalk. Each one is a Markdown source and a print-ready A4 PDF built from it by `tools/workout_pdfs.py`. See the directory's own README for the weekly ordering. |
 
 All three forms carry an administrative notes block at the top. **Delete that
 block before printing a copy for signature.** None of them has been reviewed by
