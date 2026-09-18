@@ -104,14 +104,6 @@ width.
   arrives, the parry answers, the riposte follows, with the one-tempo window
   braced.
 - **Fig. 3** — a pool sheet: five fencers, V/D notation, the diagonal struck out.
-- **Fig. 4** — Taiwan, drawn from a coarse coastline, with the Tropic of Cancer
-  (23°26′N, which really does cross the island) ruled across it and the cities
-  our fencers compete in marked. Taipei carries a ringed gold node; the rest are
-  silver. It sits beside the open-door pledge, which is the one place the club
-  speaks to the whole island rather than to Taipei.
-
-The map's viewBox carries a 120px gutter on each side purely for city labels —
-without it "Tainan" and "Kaohsiung" clip to "NAN" and "SIUNG".
 
 Figure styling lives under `.fig` — `.rule`, `.tick`, `.hatch`, `.brace`,
 `.node`, `.dim`, `.score`. Strokes carry `vector-effect: non-scaling-stroke` so
@@ -141,14 +133,14 @@ step larger than it would be for a sans — the base is `clamp(1.18rem, 1.08rem 
 
 ## The drawings are generated
 
-Every drawn asset — the four figures, the sky chart and the brand marks — comes
+Every drawn asset — the three figures, the sky chart and the brand marks — comes
 out of `tools/`, not out of hand-edited path data. The source numbers are real
 and they live in one place so they stay editable.
 
 ```
-tools/geometry.py   the numbers: Taiwan's coastline, the cities, the Tropic,
+tools/geometry.py   the numbers: Taiwan's coastline (for the mark),
                     Sagittarius in J2000 RA/Dec, the FIE piste dimensions
-tools/figures.py    the five drawings built from those numbers
+tools/figures.py    the four drawings built from those numbers
 tools/marks.py      logo, favicon and the social card
 tools/build.py      regenerates everything and patches it into the markup
 tools/icons.py      renders the PNG rasters (needs cairosvg)
@@ -162,16 +154,12 @@ python3 tools/icons.py          # then re-render the PNGs
 
 `build.py` finds each figure in the markup by the class on its `<svg>`, so the
 surrounding captions, figure wrappers and bilingual attributes are never
-touched. To move a coastline point or add a city, edit `geometry.py` and run it.
+touched. To reshape the island in the mark, edit `COASTLINE` and run it.
 
-Two things the generators encode that are easy to lose:
-
-- The Taiwan map's viewBox carries a 120px gutter each side purely for city
-  labels. Without it the west-coast names anchor past the left edge and clip to
-  "NAN" and "SIUNG".
-- Do not use SVG `<mask>` in the brand marks. The PNG icons are rendered with
-  cairosvg, which does not apply masks the way a browser does — a knockout
-  version of the logo rendered as a solid silver square.
+One thing the generators encode that is easy to lose: do not use SVG `<mask>`
+in the brand marks. The PNG icons are rendered with cairosvg, which does not
+apply masks the way a browser does — a knockout version of the logo rendered as
+a solid silver square.
 
 ### The mark
 

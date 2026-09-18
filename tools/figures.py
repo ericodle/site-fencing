@@ -1,13 +1,12 @@
-"""The drawn figures: the piste, right of way, a pool sheet, the island, and
-the Sagittarius chart.
+"""The drawn figures: the piste, right of way, a pool sheet, and the
+Sagittarius chart.
 
 Each one is generated from the real numbers in geometry.py rather than drawn by
 hand, so the shapes stay editable. build.py patches the output into index.html.
 """
 import sys, os
 sys.path.insert(0, os.path.dirname(__file__))
-from geometry import (COASTLINE, CITIES, TROPIC_OF_CANCER, tw_project, tw_bounds,
-                      tw_outline, STARS, ASTERISM, sgr_project, star_radius,
+from geometry import (STARS, ASTERISM, sgr_project, star_radius,
                       PISTE_LENGTH_M, ON_GUARD_FROM_CENTRE_M, WARNING_ZONE_M)
 
 
@@ -88,43 +87,6 @@ def pool_sheet():
                     f'text-anchor="middle">{i + 1}</text>')
     return (f'<svg class="fig pool" viewBox="0 0 {ox + n * cw + 30} {oy + n * ch + 20}" '
             f'aria-hidden="true">{"".join(cells)}{"".join(text)}</svg>')
-
-
-# The gutter is not decorative: without it the west-coast labels anchor past the
-# left edge and clip to "NAN" and "SIUNG".
-MAP_LABEL_GUTTER = 120.0
-
-
-def taiwan_map(island_height=520.0):
-    """Fig. 4 — the island, the Tropic, and the cities we compete in."""
-    x0, x1, y0, y1 = tw_bounds()
-    iw = island_height * (x1 - x0) / (y1 - y0)
-    w = round(iw + 2 * MAP_LABEL_GUTTER)
-    g = MAP_LABEL_GUTTER
-
-    def to(x, y):
-        return (round(g + (x - x0) / (x1 - x0) * iw, 1),
-                round((y - y0) / (y1 - y0) * island_height, 1))
-
-    outline = tw_outline(to)
-    ty = to(*tw_project(120.0, TROPIC_OF_CANCER))[1]
-    marks, labels = [], []
-    for name, lon, lat, home in CITIES:
-        px, py = to(*tw_project(lon, lat))
-        marks.append(f'<circle class="{"node" if home else "city"}" cx="{px}" cy="{py}" '
-                     f'r="{3.6 if home else 2.4}"/>')
-        if home:
-            marks.append(f'<circle class="ring" cx="{px}" cy="{py}" r="8.5"/>')
-        east = lon > 120.8
-        dx = (14 if home else 11) if east else -11
-        labels.append(f'<text class="dim{" em" if home else ""}" x="{round(px + dx, 1)}" '
-                      f'y="{round(py + 3.5, 1)}" text-anchor="{"start" if east else "end"}">{name}</text>')
-    return (f'<svg class="fig map" viewBox="0 0 {w} {island_height:.0f}" aria-hidden="true">'
-            f'<path class="tick" d="M{g - 46:.0f} {ty} H{w - (g - 46):.0f}"/>'
-            f'<text class="dim" x="{g - 46:.0f}" y="{round(ty - 9, 1)}">'
-            f'23°26′N · Tropic of Cancer</text>'
-            f'<path class="rule coast" d="{outline}"/>'
-            f'{"".join(marks)}{"".join(labels)}</svg>')
 
 
 def sky_chart(width=560.0):

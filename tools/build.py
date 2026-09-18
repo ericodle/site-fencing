@@ -44,7 +44,6 @@ def main():
     html = swap(html, r'<svg class="fig" viewBox="0 0 1100 140".*?</svg>', figures.piste())
     html = swap(html, r'<svg class="fig" viewBox="0 0 1100 150".*?</svg>', figures.right_of_way())
     html = swap(html, r'<svg class="fig pool".*?</svg>', figures.pool_sheet())
-    html = swap(html, r'<svg class="fig map".*?</svg>', figures.taiwan_map())
     html = swap(html, r'(?<=<div class="skychart" aria-hidden="true">)<svg viewBox.*?</svg>',
                 figures.sky_chart())
     write("index.html", html, changed)

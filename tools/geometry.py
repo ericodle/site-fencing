@@ -9,6 +9,7 @@ import math
 # ── Taiwan ───────────────────────────────────────────────────────────────────
 # Coarse coastline, clockwise from the northern cape (Fugui) round to the
 # north-west. 29 points: enough to be recognisably Taiwan, not a survey.
+# Used by the brand mark in marks.py.
 COASTLINE = [
     (121.53, 25.30), (121.65, 25.28), (121.92, 25.13), (121.86, 24.98),
     (121.83, 24.60), (121.78, 24.35), (121.65, 24.05), (121.52, 23.75),
@@ -20,16 +21,6 @@ COASTLINE = [
     (121.38, 25.28),
 ]
 
-# Cities our fencers compete in. `home` marks the club's own.
-CITIES = [
-    ("Taipei",    121.565, 25.033, True),
-    ("Hsinchu",   120.968, 24.804, False),
-    ("Taichung",  120.685, 24.148, False),
-    ("Tainan",    120.213, 22.993, False),
-    ("Kaohsiung", 120.302, 22.627, False),
-]
-
-TROPIC_OF_CANCER = 23 + 26 / 60.0   # 23°26′N — it really does cross the island
 _TW_LAT0 = math.radians(23.6)
 
 
