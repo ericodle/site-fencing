@@ -145,12 +145,9 @@ body::before {
 .skychart .asterism path { stroke: var(--gold-deep); stroke-width: 1; fill: none; vector-effect: non-scaling-stroke; }
 .skychart .stars circle { fill: var(--paper); }
 .skychart .bayer { fill: var(--gold); font: italic 11px var(--font-body); }
-.skychart .starname { fill: #7b7c84;  /* 4.8:1 on the ground; the chart stays recessive via its own opacity */ font: 8.5px var(--font-display); letter-spacing: 0.14em; }
-
-  to   { transform: translate3d(-520px, 260px, 0); }
-}
-  50%      { opacity: 0.45; }
-}
+/* 4.8:1 on the ground; the chart recedes through its own opacity, not by
+   making its labels unreadable. */
+.skychart .starname { fill: #7b7c84; font: 8.5px var(--font-display); letter-spacing: 0.14em; }
 
 body::after {
   content: "";
@@ -521,7 +518,7 @@ section[id] + section[id] { padding-top: clamp(3rem, 6vw, 5.5rem); }
 .hero h1 { margin-bottom: 1rem; max-width: 15ch; }   /* stops short of the chart */
 .hero h1 .line { display: block; }
 html[data-lang="zh"] .hero h1 .line { display: inline; }
-html[data-lang="zh"] .hero-kicker {
+.hero-kicker {
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
@@ -1128,7 +1125,9 @@ form.contact-form { display: grid; gap: 1rem; }
   background: rgba(255, 255, 255, 0.03);
   color: var(--paper);
   font: inherit;
-  font-size: 0.95rem;
+  /* iOS Safari zooms the page when a focused control is under 16px, so this is
+     a floor rather than a preference. */
+  font-size: max(16px, 0.95rem);
   transition: border-color 0.2s, background 0.2s;
 }
 .field select { padding-right: 2.4rem; }
@@ -1261,19 +1260,74 @@ footer.site {
   to { transform: translateX(-50%); }
 }
 
+/* Scroll reveal. 36 elements carry .reveal and js/main.js adds .is-in through
+   an IntersectionObserver; without these rules the class is inert. */
+.reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.7s cubic-bezier(.2,.7,.3,1), transform 0.7s cubic-bezier(.2,.7,.3,1); }
+.reveal.is-in { opacity: 1; transform: none; }
+.reveal-2 { transition-delay: 0.08s; }
+.reveal-3 { transition-delay: 0.16s; }
+.reveal-4 { transition-delay: 0.24s; }
 
-
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+}
 
 /* 7 ── responsive --------------------------------------------------------- */
 @media (max-width: 1180px) {
   .rail { display: none; }
 }
 
+@media (max-width: 1020px) {
+  /* The figures label themselves at 9px in their own viewBox. Below about this
+     width those labels stop resolving, so the prose goes single-column and the
+     figure is given the full measure rather than half of it. */
+  .pillar-lede, .pillar-list { columns: 1; column-rule: none; }
+}
+
 @media (max-width: 900px) {
   .hero h1 { max-width: none; }
-  
+  .tourney-grid { grid-template-columns: 1fr; }
+  .coach-grid .coach { grid-template-columns: minmax(0, 1fr); }
+  .coach-grid .coach > *,
+  .coach-grid .coach .portrait { grid-column: 1; grid-row: auto; }
+  .coach-grid .coach .portrait { margin-bottom: 0.9rem; }
+
+  /* the chart is a background at this width, not a companion to the type */
+  .skychart svg { width: 128vw; right: -42vw; top: 8vh; opacity: 0.4; }
+
+  .nav {
+    position: fixed;
+    inset: var(--nav-h) 0 auto;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 0.75rem var(--pad-x) 1.5rem;
+    background: var(--ink-900);
+    border-bottom: 1px solid var(--rule);
+    transform: translateY(-12px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.22s, transform 0.22s;
+    max-height: calc(100svh - var(--nav-h));
+    overflow-y: auto;
+  }
+  .nav-open .nav { opacity: 1; transform: none; pointer-events: auto; }
+  .nav a { padding: 0.85rem 0.4rem; border-bottom: 1px solid var(--line); font-size: 1rem; }
+  .burger { display: grid; }
+  [data-desktop-cta] { display: none; }
+  .nav .nav-cta { display: inline-flex; margin-top: 1.1rem; border-bottom: 0; color: var(--onyx); }
+  .line-fab { display: inline-flex; bottom: 16px; }
+  .to-top { bottom: 74px; right: 18px; }
+}
 
 @media (max-width: 560px) {
+  body { font-size: 1.08rem; }
   .hero-kicker { font-size: 0.76rem; }
   .cal-bar { padding: 0 0.2rem; font-size: 0.6rem; }
   .cal-nav { gap: 0.4rem; }
@@ -1286,8 +1340,20 @@ footer.site {
   .coach-grid .coach { padding: 1rem; }
   .coach .role { font-size: 0.72rem; letter-spacing: 0.06em; }
   .event-status { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem; text-align: left; }
-  
 
+  /* the plate's second rule costs 5px of gutter it cannot spare on a phone */
+  .card { outline: 0; padding: 1.1rem; }
+
+  /* The diagrams carry 9px labels in a 1100-unit viewBox. Squeezed into a
+     phone they become unreadable smudges, so they keep their real size and
+     scroll sideways instead — the detail is the point of them. */
+  .plate-fig { overflow-x: auto; overscroll-behavior-x: contain; }
+  .plate-fig .fig { min-width: 560px; }
+  .plate-fig .pool { min-width: 620px; }
+  .plate-fig figcaption { position: sticky; left: 0; }
+  .plate-fig { margin: 1.1rem 0 1.2rem; }
+  .cta-constellation { display: none; }
+}
 @media print {
   body::before, body::after, .skychart, .topbar, .rail, .to-top, .line-fab, .marquee { display: none !important; }
   body { background: #fff; color: #111; }

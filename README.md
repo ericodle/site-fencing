@@ -328,3 +328,24 @@ PY
 - `prefers-reduced-motion` switches off the reveals, the floating arrow and
   smooth scrolling.
 - The FAQ is native `<details>`, so it works before JavaScript runs.
+- Form controls are floored at 16px, because iOS Safari zooms the page when a
+  focused control is smaller than that.
+
+### On a phone
+
+Four breakpoints, and two of them exist for reasons specific to this design:
+
+- **1180px** — the fixed social rail goes.
+- **1020px** — the plate prose and index drop to one column. The figures carry
+  9px labels inside their own viewBox, and below roughly this width a
+  half-measure figure stops resolving them.
+- **900px** — the nav collapses to the burger, and the sky chart becomes a
+  background rather than a companion to the type.
+- **560px** — buttons go full width, the plate's outer rule is dropped because
+  it costs 5px of gutter a phone cannot spare, and the CTA constellation is
+  hidden.
+
+The figures do not shrink to fit a phone. They keep their real size and scroll
+sideways inside `.plate-fig`, with the caption pinned via `position: sticky`,
+because the labelled detail is the whole point of them — a piste diagram
+squeezed to 350px is a smudge.
