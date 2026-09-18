@@ -1,5 +1,5 @@
 /* ---------------------------------------------------------------------------
-   Ember Tide Fencing Club — club calendar
+   Sheshouzuo Fencing Club — club calendar
    Every event on the calendar, and the tournament list under it, comes from
    this file. Add an object, save, reload. There is no database yet.
 
@@ -316,7 +316,7 @@ window.CLUB_EVENTS = [
     end: "2026-11-29 17:00",
     featured: true,
     title: { en: "Inter-club friendly bouts", zh: "跨館友誼賽" },
-    place: { en: "Hosted by Ember Tide · Bade Road venue", zh: "焰潮主辦・八德路場地" },
+    place: { en: "Hosted by Sheshouzuo · Bade Road venue", zh: "射手座主辦・八德路場地" },
     map: "No. 128, Section 4, Bade Road, Taipei",
     registration: { status: "open", en: "Sign up on LINE", zh: "請以 LINE 報名" },
     details: {

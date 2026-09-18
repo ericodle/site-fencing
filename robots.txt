@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://embertide.tw/sitemap.xml
+Sitemap: https://sheshouzuo.tw/sitemap.xml

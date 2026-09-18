@@ -1,12 +1,12 @@
 {
-  "name": "Ember Tide Fencing Club · 焰潮擊劍會",
-  "short_name": "Ember Tide",
-  "description": "Competitive, open, inclusive fencing in Taipei — épée and saber.",
+  "name": "Sheshouzuo Fencing Club · 射手座擊劍會",
+  "short_name": "Sheshouzuo",
+  "description": "Physical training, mental training, data-driven — online-first épée and saber in Taipei.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
-  "background_color": "#06080d",
-  "theme_color": "#06080d",
+  "background_color": "#0b0d0e",
+  "theme_color": "#0b0d0e",
   "lang": "en",
   "icons": [
     { "src": "assets/img/icon-192.png", "sizes": "192x192", "type": "image/png" },

@@ -1,16 +1,13 @@
-# Ember Tide Fencing Club · 焰潮擊劍會
+# Sheshouzuo Fencing Club · 射手座擊劍會
 
-Marketing site for **Ember Tide Fencing Club** — an online-first, open, competitive,
-data-driven fencing club in Taipei. Épée and saber, at regular venues and pop-up practices all over the city.
+Marketing site for **Sheshouzuo Fencing Club** — an online-first fencing club in
+Taipei. Three pillars: **physical training**, **mental training**, **data-driven**.
+Épée and saber, taught in English and Chinese, at regular venues and pop-up
+practices all over the city.
 
-> 箭出如火，劍走如水。 The arrow flies like fire. The blade flows like water.
-
-The name joins the two elements the club trains — **ember** for the attack you
-commit to entirely, **tide** for the defense that yields and returns — under
-Sagittarius, the archer, the sign the club opened beneath in December 2019. The
-Chinese name 焰潮 carries the same pair, and the logo is the archer's arrow, half
-flame and half water. There is a pun hiding in it: 箭 (arrow) and 劍 (sword) are
-both *jiàn*.
+**射手座** is Sagittarius, the archer — the sign the club opened beneath in
+December 2019 — and the logo is that archer's arrow. There is a pun in the name:
+箭 (arrow) and 劍 (sword) are both *jiàn*.
 
 ## Stack
 
@@ -24,11 +21,81 @@ css/styles.css      all styling
 js/config.js        the bits an owner edits — form endpoint, socials, language
 js/events.js        club calendar events, which also feed the tournament desk
 js/main.js          language switch, nav, reveals, share, embeds, calendar, contact form
-assets/             logo, favicon, social card, generated icons
+assets/             logo, favicon, social card, generated icons, star tiles
 site.webmanifest    installable-app metadata
 sitemap.xml         one URL; update lastmod when the copy changes materially
 .github/workflows/  deploys the repo root to GitHub Pages on push to main
 ```
+
+## Palette
+
+A neutral dark base, with "jade cave" as the accent palette on top of it. Both
+are defined once as tokens at the top of `css/styles.css` and referenced
+everywhere else; nothing in the stylesheet hardcodes a brand hex.
+
+The base is what stops the page reading as one flat wash of green:
+
+| Token | Hex | Role |
+| --- | --- | --- |
+| `--ink-900` | `#0b0d0e` | page ground |
+| `--ink-800` … `--ink-600` | `#111416` → `#222829` | raised surfaces, in that order |
+| `--line` / `--line-strong` | white at 9% / 18% | borders, deliberately neutral |
+
+The four jade cave colors then sit on that base as accent:
+
+| Token | Hex | Role |
+| --- | --- | --- |
+| `--cave` | `#00201e` | jade-tinted depth, and the dark label on every bright fill |
+| `--slate` | `#3a5268` | the cold pole; secondary accent, never body text |
+| `--jade` | `#007f5f` | fills and structure, not text on the ground |
+| `--spark` | `#00e88a` | the bright edge; accents, hover, primary CTA |
+
+`--jade-soft`, `--jade-deep`, `--slate-soft` and `--slate-deep` are derived from
+those four.
+
+Three rules the tokens exist to keep:
+
+- **`--jade` and `--slate` are too dark to carry text on `--ink-900`** (3.9:1 and
+  2.4:1). Text on the ground uses `--paper`, `--muted`, `--spark` or
+  `--slate-soft`; `--jade` and `--slate` are for fills, borders and icons.
+- **Gradients clipped to text, or sitting under a dark label, stay light end to
+  end.** That is what `--grad-spark` is for. `--grad-jade`, `--grad-slate` and
+  `--grad-cave` run into their dark stops and are decorative only.
+- **`.btn-line` is outlined, not filled.** LINE's `#06c755` is fixed by their
+  brand and lands about 47 units from `--jade-soft` in sRGB, so a filled LINE
+  button and a filled primary read as the same button. The border and glyph keep
+  the green; the fill does not. `.line-fab` stays solid — it floats alone.
+
+The one deliberate off-palette color is `.form-status.err`, which stays warm: an
+error must not read as a success in an all-green scheme.
+
+### The night sky
+
+The club is named after a constellation, so the background is one. A fixed
+`.starfield` div holds two tiled layers — `assets/img/stars-far.svg` (dense,
+tiny, dim) and `assets/img/stars-near.svg` (sparse, brighter) — drifting in
+opposite directions at different speeds, so scrolling past reads as depth rather
+than wallpaper. Both tiles are generated, not hand-placed, and tile seamlessly.
+
+Stars are kept deliberately small and dim. A bright 2px dot next to a nav label
+reads as a stray period, which is why anything sitting over the sky — the nav,
+the marquee, the hero kicker, every card — carries an opaque dark base rather
+than a translucent one.
+
+The layering, back to front: `body` background (the ground), `body::before`
+(nebula glows, z −3), `.starfield` (z −2), `body::after` (film grain, z −1),
+then content.
+
+The constellation drawn in the hero art and again in the closing CTA band is the
+real thing: the Teapot asterism of Sagittarius, plotted from J2000 right
+ascension and declination for its eight main stars — Kaus Australis, Nunki, Kaus
+Media, Ascella, Kaus Borealis, Alnasl, Phi and Tau. Star size follows visual
+magnitude, so the brightest stars in the sky are the brightest on the page, and
+the connecting lines are the standard asterism. Both are inline SVG at true
+proportions; if you resize one, scale it, do not stretch it.
+
+`prefers-reduced-motion` stops the drift and the twinkle along with everything
+else, and the sky is hidden in print.
 
 ## Running it locally
 
@@ -68,11 +135,11 @@ Placeholder details are scattered through `index.html`. Search and replace:
 
 | Placeholder | Where |
 | --- | --- |
-| `embertide.tw` | canonical link, Open Graph URLs, JSON-LD, `robots.txt`, `sitemap.xml` |
-| `@embertidefencing` | social rail, social cards, footer, coach links, JSON-LD `sameAs` |
-| `@embertide` (LINE) | every `line.me` link, plus `js/config.js` |
+| `sheshouzuo.tw` | canonical link, Open Graph URLs, JSON-LD, `robots.txt`, `sitemap.xml` |
+| `@sheshouzuofencing` | social rail, social cards, footer, coach links, JSON-LD `sameAs` |
+| `@sheshouzuo` (LINE) | every `line.me` link, plus `js/config.js` |
 | `+886 2 2762 1234` | contact list, footer, WhatsApp link, JSON-LD |
-| `hello@embertide.tw` | `#contact` channels, footer, `js/config.js` (contact form inbox) |
+| `hello@sheshouzuo.tw` | `#contact` channels, footer, `js/config.js` (contact form inbox) |
 | Address and coordinates | `#visit` section, JSON-LD `address` / `geo`, map `data-q` |
 | `REPLACE_WITH_YOUTUBE_ID` | `data-video` on the YouTube embed in `#social` |
 | Coach bios and photos | `#coaches` |
@@ -168,7 +235,8 @@ PY
 
 ## Accessibility and performance notes
 
-- Single stylesheet, single script, one web-font request. No trackers.
+- Single stylesheet, single script, one web-font request, two small star
+  tiles. No trackers.
 - Everything reachable by keyboard; the mobile menu closes on `Escape`.
 - `prefers-reduced-motion` switches off the reveals, the floating arrow and
   smooth scrolling.

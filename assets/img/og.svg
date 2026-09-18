@@ -1,20 +1,20 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
-    <linearGradient id="fire" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#ffd166"/><stop offset="0.5" stop-color="#ff6b1f"/><stop offset="1" stop-color="#e2372b"/>
+    <linearGradient id="shaft" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#007f5f"/><stop offset="0.55" stop-color="#00a06e"/><stop offset="1" stop-color="#00e88a"/>
     </linearGradient>
-    <linearGradient id="tide" x1="0" y1="1" x2="1" y2="0">
-      <stop offset="0" stop-color="#0e6b8a"/><stop offset="0.55" stop-color="#1fb6c9"/><stop offset="1" stop-color="#7ef0ff"/>
+    <linearGradient id="head" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#00e88a"/><stop offset="1" stop-color="#00a06e"/>
     </linearGradient>
     <radialGradient id="g1" cx="0.12" cy="0.05" r="0.7">
-      <stop offset="0" stop-color="#ff6b1f" stop-opacity="0.38"/><stop offset="1" stop-color="#ff6b1f" stop-opacity="0"/>
+      <stop offset="0" stop-color="#3a5268" stop-opacity="0.55"/><stop offset="1" stop-color="#3a5268" stop-opacity="0"/>
     </radialGradient>
     <radialGradient id="g2" cx="0.92" cy="0.95" r="0.75">
-      <stop offset="0" stop-color="#1fb6c9" stop-opacity="0.38"/><stop offset="1" stop-color="#1fb6c9" stop-opacity="0"/>
+      <stop offset="0" stop-color="#007f5f" stop-opacity="0.45"/><stop offset="1" stop-color="#007f5f" stop-opacity="0"/>
     </radialGradient>
   </defs>
 
-  <rect width="1200" height="630" fill="#06080d"/>
+  <rect width="1200" height="630" fill="#0b0d0e"/>
   <rect width="1200" height="630" fill="url(#g1)"/>
   <rect width="1200" height="630" fill="url(#g2)"/>
 
@@ -23,20 +23,20 @@
     <circle r="185" fill="none" stroke="#ffffff" stroke-opacity="0.10" stroke-width="1.5"/>
     <circle r="160" fill="none" stroke="#ffffff" stroke-opacity="0.06" stroke-width="1.5" stroke-dasharray="4 12"/>
     <g stroke-linecap="round" stroke-linejoin="round" fill="none">
-      <path d="M-110 110 L100 -100" stroke="url(#tide)" stroke-width="16"/>
-      <path d="M20 -100 H106 V-14" stroke="url(#fire)" stroke-width="16"/>
-      <path d="M-48 8 L2 58" stroke="url(#fire)" stroke-width="13"/>
+      <path d="M-110 110 L100 -100" stroke="url(#shaft)" stroke-width="16"/>
+      <path d="M20 -100 H106 V-14" stroke="url(#head)" stroke-width="16"/>
+      <path d="M-48 8 L2 58" stroke="#879ba5" stroke-width="13"/>
     </g>
-    <circle cx="-110" cy="110" r="15" fill="url(#tide)"/>
+    <circle cx="-110" cy="110" r="15" fill="#3a5268"/>
   </g>
 
   <g font-family="DejaVu Sans, sans-serif">
-    <text x="90" y="214" fill="#ffc861" font-size="26" letter-spacing="7">TAIPEI  ·  ONLINE-FIRST  ·  EST. 2019</text>
-    <text x="90" y="300" fill="#eef3f8" font-size="66" font-weight="bold" letter-spacing="1">EMBER TIDE</text>
-    <text x="90" y="374" fill="#eef3f8" font-size="66" font-weight="bold" letter-spacing="1">FENCING CLUB</text>
-    <text x="90" y="440" fill="#7ef0ff" font-size="40" font-family="Droid Sans Fallback, sans-serif">焰潮擊劍會</text>
-    <text x="90" y="508" fill="#9aabbd" font-size="27">Competitive · Open · Inclusive</text>
-    <text x="90" y="548" fill="#9aabbd" font-size="27" font-family="Droid Sans Fallback, sans-serif">競技・開放・包容・銳劍　軍刀</text>
+    <text x="90" y="214" fill="#00e88a" font-size="26" letter-spacing="7">TAIPEI  ·  ONLINE-FIRST  ·  EST. 2019</text>
+    <text x="90" y="300" fill="#e6f4ef" font-size="66" font-weight="bold" letter-spacing="1">SHESHOUZUO</text>
+    <text x="90" y="374" fill="#e6f4ef" font-size="66" font-weight="bold" letter-spacing="1">FENCING CLUB</text>
+    <text x="90" y="440" fill="#879ba5" font-size="40" font-family="Droid Sans Fallback, sans-serif">射手座擊劍會</text>
+    <text x="90" y="508" fill="#99abb2" font-size="27">Physical · Mental · Data-driven</text>
+    <text x="90" y="548" fill="#99abb2" font-size="27" font-family="Droid Sans Fallback, sans-serif">身體・心理・數據導向・銳劍　軍刀</text>
   </g>
-  <rect x="0" y="614" width="1200" height="16" fill="url(#fire)"/>
+  <rect x="0" y="614" width="1200" height="16" fill="url(#shaft)"/>
 </svg>

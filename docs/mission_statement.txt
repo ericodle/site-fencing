@@ -1,10 +1,36 @@
 ================================================================================
-EMBER TIDE FENCING CLUB · 焰潮擊劍會
+SHESHOUZUO FENCING CLUB · 射手座擊劍會
 MISSION STATEMENT AND EVIDENCE REGISTER
 ================================================================================
 Internal administrative document. Not for publication as written.
 Version 1.1 · 16 September 2026 · Owner: club administration
 Traditional Chinese version: docs/mission_statement.zh-TW.txt
+
+--------------------------------------------------------------------------------
+STATUS — OUT OF DATE AS OF 18 SEPTEMBER 2026
+--------------------------------------------------------------------------------
+The public site now states three pillars: Physical training, Mental training
+and Data-driven.
+This register is still written against the previous three — Open, Competitive
+and Data-driven — and has NOT been restructured to match.
+
+What that means in practice:
+
+  - The new Data-driven pillar is broader than the old one of the same name: it
+    now absorbs Competitive (every fencer is expected to enter tournaments) and
+    Open (results, losses, source code and hardware specs are published). All
+    three old pillars' components and evidence lists below still apply and can
+    be moved across more or less intact — but they now sit under one heading.
+  - Physical training and Mental training are NEW claims. Nothing below
+    evidences them. Both need components written and evidence collected from
+    scratch, and until that happens the site is making two claims this register
+    cannot defend. Two items are specific and checkable and should be evidenced
+    first: that classes and lessons run in English as well as Chinese, and that
+    reaction-speed work and post-competition video review actually happen on the
+    cadence the site implies.
+
+Restructuring this document is the next revision's job. Do not cite it as the
+long form of the public site until that is done.
 
 --------------------------------------------------------------------------------
 WHY THIS DOCUMENT EXISTS
@@ -36,15 +62,15 @@ public park.
 --------------------------------------------------------------------------------
 MISSION
 --------------------------------------------------------------------------------
-Ember Tide Fencing Club makes competitive épée and saber fencing available to
+Sheshouzuo Fencing Club makes competitive épée and saber fencing available to
 anyone in Taipei who wants it: organized online, trained wherever we can secure
 floor space, and priced so that the cost of a salle never decides who gets to
 fence.
 
-We opened in December 2019 under Sagittarius, the archer. The name joins the two
-elements we train — ember for the attack you commit to entirely, tide for the
-defense that yields and returns. Everything below is an attempt to hold those
-two together in how the club is actually run.
+We opened in December 2019 under Sagittarius, the archer, and took the sign's
+name: 射手座. An arrow is aimed before it is loosed, and once loosed it does not
+argue with itself. Everything below is an attempt to hold the club to that —
+deliberate about where it is pointed, and committed once it commits.
 
 The three pillars are Open, Competitive and Data-driven, in the order they
 appear on the public site. They are not ranked. They constrain each other: being

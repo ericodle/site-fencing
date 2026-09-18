@@ -1,5 +1,5 @@
 /* ---------------------------------------------------------------------------
-   Ember Tide Fencing Club — main.js
+   Sheshouzuo Fencing Club — main.js
    No framework, no build step, no dependencies. Runs as a classic script.
    1 i18n · 2 header & nav · 3 scrollspy · 4 reveal & counters
    5 share · 6 deferred embeds · 7 calendar · 8 contact form · 9 misc
@@ -22,12 +22,12 @@
 
   var STRINGS = {
     docTitle: {
-      en: "Ember Tide Fencing Club · 焰潮擊劍會 — Online-first, open, data-driven fencing in Taipei",
-      zh: "焰潮擊劍會 Ember Tide Fencing Club — 台北線上為主、開放、數據導向的擊劍會"
+      en: "Sheshouzuo Fencing Club · 射手座擊劍會 — Physical training, mental training, data-driven. Fencing in Taipei",
+      zh: "射手座擊劍會 Sheshouzuo Fencing Club — 台北的擊劍會：身體訓練、心理訓練、數據導向"
     },
     metaDesc: {
-      en: "Ember Tide Fencing Club (焰潮擊劍會) is an online-first, competitive épée and saber club in Taipei. Tracked bouts, video analysis, tournament support, guests from other clubs welcome.",
-      zh: "焰潮擊劍會是台北以線上為主的競技銳劍與軍刀俱樂部。對打計分入檔、影片分析、賽事協助，歡迎其他俱樂部劍手。"
+      en: "Sheshouzuo Fencing Club (射手座擊劍會) is an online-first épée and saber club in Taipei, built on three things: physical training, mental training, and data-driven coaching. Tracked bouts, video analysis, tournament support, guests from other clubs welcome.",
+      zh: "射手座擊劍會是台北以線上為主的銳劍與軍刀俱樂部，立足於三件事：身體訓練、心理訓練，以及數據導向的指導。對打計分入檔、影片分析、賽事協助，歡迎其他俱樂部劍手。"
     },
     copied: { en: "Link copied.", zh: "連結已複製。" },
     copyFail: { en: "Could not copy — long-press the address bar instead.", zh: "複製失敗，請改為長按網址列。" },
@@ -303,7 +303,7 @@
         }
         node = frame(
           "https://www.youtube-nocookie.com/embed/" + encodeURIComponent(id) + "?autoplay=1&rel=0&modestbranding=1",
-          "YouTube — Ember Tide Fencing Club"
+          "YouTube — Sheshouzuo Fencing Club"
         );
         node.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share";
       } else if (kind === "facebook") {
@@ -313,14 +313,14 @@
           "https://www.facebook.com/plugins/page.php?href=" + pageUrl +
           "&tabs=timeline&width=500&height=520&small_header=false&adapt_container_width=true" +
           "&hide_cover=false&show_facepile=true&locale=" + (currentLang === "zh" ? "zh_TW" : "en_US"),
-          "Facebook — Ember Tide Fencing Club"
+          "Facebook — Sheshouzuo Fencing Club"
         );
       } else if (kind === "map") {
         // OpenStreetMap needs no key and sets no advertising cookies.
         var bbox = "121.5546,25.0428,121.5666,25.0528";
         node = frame(
           "https://www.openstreetmap.org/export/embed.html?bbox=" + bbox + "&layer=mapnik&marker=25.0478,121.5606",
-          "Map — Ember Tide Fencing Club"
+          "Map — Sheshouzuo Fencing Club"
         );
       }
 
@@ -650,7 +650,7 @@
 
   var form = $("#contact-form");
   var formStatus = $("#form-status");
-  var inbox = CFG.email || "hello@embertide.tw";
+  var inbox = CFG.email || "hello@sheshouzuo.tw";
 
   if (form) {
     form.addEventListener("submit", function (e) {
