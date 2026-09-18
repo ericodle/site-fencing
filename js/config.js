@@ -25,7 +25,7 @@ window.CLUB = {
 
   /* Text that gets shared when someone taps the share buttons. */
   shareTitle: "Sheshouzuo Fencing Club · 射手座擊劍會",
-  shareText: "Physical training, mental training, data-driven — épée and saber in Taipei, guests from other clubs welcome. 身體訓練、心理訓練、數據導向：台北的銳劍與軍刀，歡迎其他俱樂部劍手。",
+  shareText: "Physical training, mental training, data-driven — épée and saber in Taipei, Taiwan, guests from other clubs welcome. 身體訓練、心理訓練、數據導向：台灣台北的銳劍與軍刀，歡迎其他俱樂部劍手。",
 
   /* Default language when a visitor has no saved preference:
      "auto" follows the browser, or force it with "en" / "zh".                */

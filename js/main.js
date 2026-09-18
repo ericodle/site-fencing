@@ -22,12 +22,12 @@
 
   var STRINGS = {
     docTitle: {
-      en: "Sheshouzuo Fencing Club · 射手座擊劍會 — Physical training, mental training, data-driven. Fencing in Taipei",
-      zh: "射手座擊劍會 Sheshouzuo Fencing Club — 台北的擊劍會：身體訓練、心理訓練、數據導向"
+      en: "Sheshouzuo Fencing Club · 射手座擊劍會 — Physical training, mental training, data-driven. Fencing in Taipei, Taiwan",
+      zh: "射手座擊劍會 Sheshouzuo Fencing Club — 台灣台北的擊劍會：身體訓練、心理訓練、數據導向"
     },
     metaDesc: {
-      en: "Sheshouzuo Fencing Club (射手座擊劍會) is an online-first épée and saber club in Taipei, built on three things: physical training, mental training, and data-driven coaching. Tracked bouts, video analysis, tournament support, guests from other clubs welcome.",
-      zh: "射手座擊劍會是台北以線上為主的銳劍與軍刀俱樂部，立足於三件事：身體訓練、心理訓練，以及數據導向的指導。對打計分入檔、影片分析、賽事協助，歡迎其他俱樂部劍手。"
+      en: "Sheshouzuo Fencing Club (射手座擊劍會) is an online-first épée and saber club in Taipei, Taiwan, built on three things: physical training, mental training, and data-driven coaching. Tracked bouts, video analysis, tournament support, guests from other clubs welcome.",
+      zh: "射手座擊劍會是台灣台北以線上為主的銳劍與軍刀俱樂部，立足於三件事：身體訓練、心理訓練，以及數據導向的指導。對打計分入檔、影片分析、賽事協助，歡迎其他俱樂部劍手。"
     },
     copied: { en: "Link copied.", zh: "連結已複製。" },
     copyFail: { en: "Could not copy — long-press the address bar instead.", zh: "複製失敗，請改為長按網址列。" },

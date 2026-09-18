@@ -103,6 +103,14 @@ width.
   arrives, the parry answers, the riposte follows, with the one-tempo window
   braced.
 - **Fig. 3** — a pool sheet: five fencers, V/D notation, the diagonal struck out.
+- **Fig. 4** — Taiwan, drawn from a coarse coastline, with the Tropic of Cancer
+  (23°26′N, which really does cross the island) ruled across it and the cities
+  our fencers compete in marked. Taipei carries a ringed gold node; the rest are
+  silver. It sits beside the open-door pledge, which is the one place the club
+  speaks to the whole island rather than to Taipei.
+
+The map's viewBox carries a 120px gutter on each side purely for city labels —
+without it "Tainan" and "Kaohsiung" clip to "NAN" and "SIUNG".
 
 Figure styling lives under `.fig` — `.rule`, `.tick`, `.hatch`, `.brace`,
 `.node`, `.dim`, `.score`. Strokes carry `vector-effect: non-scaling-stroke` so
