@@ -1,5 +1,5 @@
 /* ---------------------------------------------------------------------------
-   Sheshouzuo Fencing Club — main.js
+   Kuou Fencing Club — main.js
    No framework, no build step, no dependencies. Runs as a classic script.
    1 i18n · 2 header & nav · 3 scrollspy · 4 reveal on scroll
    5 share · 6 deferred embeds · 7 calendar · 8 contact form
@@ -283,7 +283,7 @@
         }
         node = frame(
           "https://www.youtube-nocookie.com/embed/" + encodeURIComponent(id) + "?autoplay=1&rel=0&modestbranding=1",
-          "YouTube — Sheshouzuo Fencing Club"
+          "YouTube — Kuou Fencing Club"
         );
         node.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share";
       } else if (kind === "facebook") {
@@ -293,14 +293,14 @@
           "https://www.facebook.com/plugins/page.php?href=" + pageUrl +
           "&tabs=timeline&width=500&height=520&small_header=false&adapt_container_width=true" +
           "&hide_cover=false&show_facepile=true&locale=" + (currentLang === "zh" ? "zh_TW" : "en_US"),
-          "Facebook — Sheshouzuo Fencing Club"
+          "Facebook — Kuou Fencing Club"
         );
       } else if (kind === "map") {
         // OpenStreetMap needs no key and sets no advertising cookies.
         var bbox = "121.5546,25.0428,121.5666,25.0528";
         node = frame(
           "https://www.openstreetmap.org/export/embed.html?bbox=" + bbox + "&layer=mapnik&marker=25.0478,121.5606",
-          "Map — Sheshouzuo Fencing Club"
+          "Map — Kuou Fencing Club"
         );
       }
 
@@ -630,7 +630,7 @@
 
   var form = $("#contact-form");
   var formStatus = $("#form-status");
-  var inbox = CFG.email || "hello@sheshouzuo.tw";
+  var inbox = CFG.email || "hello@kuou.tw";
 
   if (form) {
     form.addEventListener("submit", function (e) {

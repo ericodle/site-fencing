@@ -41,7 +41,7 @@ def island_path(height, cx, cy, ndigits=1):
     return tw_outline(to_px), w
 
 
-def logo(size=64, aria="Sheshouzuo Fencing Club"):
+def logo(size=64, aria="Kuou Fencing Club"):
     island, _ = island_path(height=size * 0.81, cx=size * 0.50, cy=size * 0.50)
     return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {size} {size}" role="img" aria-label="{aria}">
   <defs>
@@ -113,9 +113,9 @@ def social_card():
 
   <g font-family="DejaVu Sans, sans-serif">
     <text x="90" y="214" fill="#d4af37" font-size="26" letter-spacing="7">TAIPEI, TAIWAN  ·  EST. 2019</text>
-    <text x="90" y="300" fill="#ecedef" font-size="66" font-weight="bold" letter-spacing="1">SHESHOUZUO</text>
+    <text x="90" y="300" fill="#ecedef" font-size="66" font-weight="bold" letter-spacing="1">KUOU</text>
     <text x="90" y="374" fill="#ecedef" font-size="66" font-weight="bold" letter-spacing="1">FENCING CLUB</text>
-    <text x="90" y="440" fill="#b9c0c7" font-size="40" font-family="Droid Sans Fallback, sans-serif">射手座擊劍會</text>
+    <text x="90" y="440" fill="#b9c0c7" font-size="40" font-family="Droid Sans Fallback, sans-serif">擊劍會</text>
     <text x="90" y="508" fill="#a8aeb5" font-size="27">Physical · Mental · Data-driven</text>
     <text x="90" y="548" fill="#a8aeb5" font-size="27" font-family="Droid Sans Fallback, sans-serif">身體・心理・數據導向・銳劍　軍刀</text>
   </g>

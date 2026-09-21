@@ -1,12 +1,12 @@
 /* ---------------------------------------------------------------------------
-   Sheshouzuo Fencing Club — site configuration
+   Kuou Fencing Club — site configuration
    Everything an owner is likely to change lives here. Edit, save, reload.
    (Links inside index.html — nav, footer, social cards — are plain <a> tags
    and are edited there.)
    --------------------------------------------------------------------------- */
 window.CLUB = {
-  name: "Sheshouzuo Fencing Club",
-  nameZh: "射手座擊劍會",
+  name: "Kuou Fencing Club",
+  nameZh: "Kuou 擊劍會",
 
   /* The contact form sends email without leaving the page.
      - formEndpoint "" (empty) → posts through FormSubmit (formsubmit.co) to
@@ -16,7 +16,7 @@ window.CLUB = {
        that accepts a POST of JSON.
      `email` is a placeholder — swap in the real inbox before launch.         */
   formEndpoint: "",
-  email: "hello@sheshouzuo.tw",
+  email: "hello@kuou.tw",
 
   /* Where the member app lives. The "Member login" links in the header and
      the footer point at it, and js/main.js rewrites their href from this on
@@ -27,12 +27,12 @@ window.CLUB = {
   appUrl: "https://app.kuou.tw",
 
   /* Social handles used by the share buttons and embeds. */
-  line: "https://line.me/R/ti/p/@sheshouzuo",
-  instagram: "https://www.instagram.com/sheshouzuofencing",
-  facebookPage: "sheshouzuofencing",
+  line: "https://line.me/R/ti/p/@kuoufencing",
+  instagram: "https://www.instagram.com/kuoufencing",
+  facebookPage: "kuoufencing",
 
   /* Text that gets shared when someone taps the share buttons. */
-  shareTitle: "Sheshouzuo Fencing Club · 射手座擊劍會",
+  shareTitle: "Kuou Fencing Club",
   shareText: "Physical training, mental training, data-driven — épée and saber in Taipei, Taiwan, guests from other clubs welcome. 身體訓練、心理訓練、數據導向：台灣台北的銳劍與軍刀，歡迎其他俱樂部劍手。",
 
   /* Default language when a visitor has no saved preference:

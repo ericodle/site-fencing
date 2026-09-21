@@ -1,13 +1,17 @@
-# Sheshouzuo Fencing Club · 射手座擊劍會
+# Kuou Fencing Club
 
-Marketing site for **Sheshouzuo Fencing Club** — an online-first fencing club in
+Marketing site for **Kuou Fencing Club** — an online-first fencing club in
 Taipei. Three pillars: **physical training**, **mental training**, **data-driven**.
 Épée and saber, taught in English and Chinese, at regular venues and pop-up
 practices all over the city.
 
-**射手座** is Sagittarius, the archer — the sign the club opened beneath in
-December 2019 — and the logo is that archer's arrow. There is a pun in the name:
-箭 (arrow) and 劍 (sword) are both *jiàn*.
+The mark is an archer's arrow crossing Taiwan, and `.skychart` plots
+Sagittarius — the sign the club opened beneath in December 2019. Both are older
+than the club's current name and are kept as its visual identity, not as an
+explanation of it. The Chinese name is not settled: the zh strings currently
+read **Kuou 擊劍會**, which is a normal way for a club with a Latin name to
+write itself here. When the characters are decided, that string is the only
+thing to change.
 
 ## Stack
 
@@ -170,8 +174,8 @@ a solid silver square.
 
 ### The mark
 
-The logo is the Sagittarius arrow crossing Taiwan: the sign the club is named
-for, over the ground it fences on. The island is drawn as **ground, not figure**
+The logo is the Sagittarius arrow crossing Taiwan: the constellation the club
+opened beneath, over the ground it fences on. The island is drawn as **ground, not figure**
 — a dark fill with a silver coast, sitting behind the gold arrow. A mid-tone
 silhouette was tried first and read as a grey blob, because island and arrow
 shared a value.
@@ -223,11 +227,10 @@ Placeholder details are scattered through `index.html`. Search and replace:
 
 | Placeholder | Where |
 | --- | --- |
-| `sheshouzuo.tw` | canonical link, Open Graph URLs, JSON-LD, `robots.txt`, `sitemap.xml` |
-| `@sheshouzuofencing` | social rail, social cards, footer, coach links, JSON-LD `sameAs` |
-| `@sheshouzuo` (LINE) | every `line.me` link, plus `js/config.js` |
+| `kuou.tw` | canonical link, Open Graph URLs, JSON-LD, `robots.txt`, `sitemap.xml` |
+| `@kuoufencing` | social rail, social cards, footer, coach links, JSON-LD `sameAs`, every `line.me` link, plus `js/config.js` |
 | `+886 2 2762 1234` | contact list, footer, WhatsApp link, JSON-LD |
-| `hello@sheshouzuo.tw` | `#contact` channels, footer, `js/config.js` (contact form inbox) |
+| `hello@kuou.tw` | `#contact` channels, footer, `js/config.js` (contact form inbox) |
 | Address and coordinates | `#visit` section, JSON-LD `address` / `geo`, map `data-q` |
 | `REPLACE_WITH_YOUTUBE_ID` | `data-video` on the YouTube embed in `#social` |
 | Coach bios and photos | `#coaches` |

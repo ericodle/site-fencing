@@ -361,7 +361,7 @@ td:last-child, th:last-child { padding-right: 0; }
         font: 8pt "DejaVu Sans", sans-serif; color: #7b8189; }
 """
 
-FOOT = ("Sheshouzuo Fencing Club · 射手座擊劍會 · internal training document · "
+FOOT = ("Kuou Fencing Club · internal training document · "
         "source: docs/park_workouts/%s")
 
 
