@@ -297,6 +297,29 @@ section[id] + section[id] { padding-top: clamp(3rem, 6vw, 5.5rem); }
 }
 .btn-ghost:hover { border-color: var(--gold-bright); background: rgba(242, 217, 138, 0.08); }
 
+/* Member login — the app, not the site. Silver rather than gold, because the
+   gold button is what a *visitor* is here for and this one is for somebody who
+   already joined: two metals, two jobs. Silver is a light metal, so the filled
+   hover state takes --onyx, not --paper — the same inversion that catches
+   people out everywhere else in this palette. */
+.btn-silver {
+  --btn-bg: transparent;
+  --btn-fg: var(--silver-soft);
+  border-color: var(--silver-deep);
+}
+.btn-silver:hover {
+  color: var(--onyx);
+  background: var(--silver);
+  border-color: var(--silver);
+}
+
+/* Compact in the header bar, which already carries the language switch and the
+   primary CTA. The two copies follow the same desktop/mobile split as the
+   Contact CTA above them: .nav-login sits in .nav-tools and .nav-login-m
+   inside the collapsed menu, so exactly one is ever visible. */
+.nav-login { padding: 0.62rem 1.05rem; font-size: 0.88rem; }
+.nav-login-m { display: none; }
+
 .btn-row { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; }
 
 .card {
@@ -1322,6 +1345,16 @@ footer.site {
   .burger { display: grid; }
   [data-desktop-cta] { display: none; }
   .nav .nav-cta { display: inline-flex; margin-top: 1.1rem; border-bottom: 0; color: var(--onyx); }
+  .nav-login { display: none; }
+  /* `.nav a` gives every menu row a bottom hairline, which would eat this
+     button's own border. Re-assert it in the button's color rather than
+     zeroing it as .nav-cta does — that one is a filled button and has no
+     border to lose. */
+  .nav .nav-login-m {
+    display: inline-flex;
+    margin-top: 1.1rem;
+    border-bottom: 1px solid var(--silver-deep);
+  }
   .line-fab { display: inline-flex; bottom: 16px; }
   .to-top { bottom: 74px; right: 18px; }
 }

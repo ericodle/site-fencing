@@ -18,7 +18,8 @@ package manager. Open `index.html` in a browser and it works.
 index.html          the whole page
 404.html            not-found page
 css/styles.css      all styling
-js/config.js        the bits an owner edits — form endpoint, socials, language
+js/config.js        the bits an owner edits — form endpoint, socials, language,
+                    and the member app's address
 js/events.js        club calendar events, which also feed the tournament desk
 js/main.js          language switch, nav, reveals, share, embeds, calendar, contact form
 assets/             logo, favicon, social card, generated icons
@@ -232,6 +233,7 @@ Placeholder details are scattered through `index.html`. Search and replace:
 | Coach bios and photos | `#coaches` |
 | Calendar events (samples) | `js/events.js` — also feeds the `#tournaments` list |
 | Park meeting point (Minsheng Park) | `#faq`, `#visit`, `js/events.js` |
+| `app.kuou.tw` | `appUrl` in `js/config.js`, plus the fallback `href` on each `[data-app-link]` |
 
 Coach portraits are gradient placeholders showing initials. Drop a photo in and
 it takes over:
@@ -277,6 +279,24 @@ If sending fails, the visitor is told to email the address directly or use LINE.
 
 There is a honeypot field bots fill in and people never see; those submissions
 are dropped silently.
+
+## The member app
+
+The club runs a separate app — attendance polls, bouts, competition results — at
+its own subdomain. Three links point at it: one in the header on desktop, one in
+the collapsed menu on a phone, and one in the footer under **Club**. All three
+carry `data-app-link`, and `js/main.js` rewrites their `href` from `appUrl` in
+`js/config.js` on load, so the address is set in one place.
+
+The literal `href` in `index.html` is the no-JS fallback and is what a visitor
+with JavaScript off follows, so it has to stay in step with `appUrl` — or just
+change `appUrl` and let the rewrite handle the rest.
+
+`data-app-link`'s value is the path to append, so a second link elsewhere can
+point at `/signup` or `/calendar` without touching the script.
+
+The button is silver rather than gold on purpose. Gold is for what a *visitor*
+came to do — get in touch — and this one is for somebody who already joined.
 
 ## The calendar
 

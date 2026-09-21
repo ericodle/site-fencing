@@ -2,7 +2,8 @@
    Sheshouzuo Fencing Club — main.js
    No framework, no build step, no dependencies. Runs as a classic script.
    1 i18n · 2 header & nav · 3 scrollspy · 4 reveal on scroll
-   5 share · 6 deferred embeds · 7 calendar · 8 contact form · 9 misc
+   5 share · 6 deferred embeds · 7 calendar · 8 contact form
+   9 member-app links, misc
    --------------------------------------------------------------------------- */
 (function () {
   "use strict";
@@ -686,7 +687,24 @@
     });
   }
 
-  /* 9 ── back to top, scroll wiring ──────────────────────────────────── */
+  /* 9 ── member-app links, back to top, scroll wiring ────────────────── */
+
+  /* The member app is a separate thing on its own subdomain, and its address
+     is a deployment detail rather than page content — so it is set once in
+     js/config.js and stamped onto every [data-app-link] here.
+
+     The markup still carries a literal href, because this site works with
+     JavaScript switched off and a login link that does not is not a login
+     link. The attribute's value is the path to append, defaulting to /login,
+     which is what lets the same wiring serve a "sign up" or "my bookings"
+     link later without touching this code. */
+  var appBase = String(CFG.appUrl || "").replace(/\/+$/, "");
+  if (appBase) {
+    $$("[data-app-link]").forEach(function (a) {
+      a.href = appBase + (a.getAttribute("data-app-link") || "/login");
+    });
+  }
+
 
   var toTop = $("#to-top");
   if (toTop) {

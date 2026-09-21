@@ -18,6 +18,14 @@ window.CLUB = {
   formEndpoint: "",
   email: "hello@sheshouzuo.tw",
 
+  /* Where the member app lives. The "Member login" links in the header and
+     the footer point at it, and js/main.js rewrites their href from this on
+     load — so the address is set once here rather than in three places in the
+     markup. The literal href in index.html is the no-JS fallback; keep the two
+     in step, or change this and let the rewrite do it.
+     No trailing slash.                                                       */
+  appUrl: "https://app.kuou.tw",
+
   /* Social handles used by the share buttons and embeds. */
   line: "https://line.me/R/ti/p/@sheshouzuo",
   instagram: "https://www.instagram.com/sheshouzuofencing",
