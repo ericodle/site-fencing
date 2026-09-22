@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://kuou.tw/sitemap.xml
+Sitemap: https://www.kuou.dev/sitemap.xml

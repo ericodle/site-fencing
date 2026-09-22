@@ -79,7 +79,7 @@ MATERIAL 素材類型
   [ ] Group photographs in which I appear 本人入鏡之合照
 
 WHERE IT MAY BE USED 使用範圍
-  [ ] The club website (kuou.tw) 俱樂部網站
+  [ ] The club website (www.kuou.dev) 俱樂部網站
   [ ] Instagram          [ ] Facebook          [ ] LINE official account
   [ ] YouTube            [ ] Threads           [ ] Discord
   [ ] WhatsApp           [ ] Other social platforms the club later uses
@@ -271,7 +271,7 @@ EN  Collector: Kuou Fencing Club, B1, No. 128, Section 4,
     Your rights: you may ask to review your data, obtain a copy, correct or
     supplement it, or require the club to stop collecting, processing or using
     it, or to delete it. Exercise any of these by contacting
-    hello@kuou.tw or the club's LINE account @kuoufencing. There is no
+    hello@kuou.dev or the club's LINE account @kuoufencing. There is no
     charge, and exercising these rights will not disadvantage you in any way.
     Consequence of not providing data: none for images — the club will simply
     not record or publish material of you. Basic contact details are still
@@ -287,7 +287,7 @@ ZH  蒐集者：Kuou 擊劍會，105 台北市松山區八德路四段 128 號 B
     於我國境外。
     利用方式：於 B 部分所勾選之頻道發布與展示，以及內部紀錄保存。
     當事人權利：您得請求查詢、閱覽或製給複製本，請求補充或更正，並得請求
-    停止蒐集、處理或利用，或請求刪除。請以 hello@kuou.tw 或 LINE 帳號
+    停止蒐集、處理或利用，或請求刪除。請以 hello@kuou.dev 或 LINE 帳號
     @kuoufencing 聯繫行使上述權利。行使權利不收取費用，亦不會使您受到任何
     不利待遇。
     不提供資料之影響：就影像部分並無不利影響——俱樂部僅不會拍攝或發布您的

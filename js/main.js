@@ -630,7 +630,7 @@
 
   var form = $("#contact-form");
   var formStatus = $("#form-status");
-  var inbox = CFG.email || "hello@kuou.tw";
+  var inbox = CFG.email || "hello@kuou.dev";
 
   if (form) {
     form.addEventListener("submit", function (e) {

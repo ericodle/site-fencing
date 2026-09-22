@@ -227,16 +227,15 @@ Placeholder details are scattered through `index.html`. Search and replace:
 
 | Placeholder | Where |
 | --- | --- |
-| `kuou.tw` | canonical link, Open Graph URLs, JSON-LD, `robots.txt`, `sitemap.xml` |
 | `@kuoufencing` | social rail, social cards, footer, coach links, JSON-LD `sameAs`, every `line.me` link, plus `js/config.js` |
 | `+886 2 2762 1234` | contact list, footer, WhatsApp link, JSON-LD |
-| `hello@kuou.tw` | `#contact` channels, footer, `js/config.js` (contact form inbox) |
+| `hello@kuou.dev` | `#contact` channels, footer, `js/config.js` (contact form inbox) |
 | Address and coordinates | `#visit` section, JSON-LD `address` / `geo`, map `data-q` |
 | `REPLACE_WITH_YOUTUBE_ID` | `data-video` on the YouTube embed in `#social` |
 | Coach bios and photos | `#coaches` |
 | Calendar events (samples) | `js/events.js` — also feeds the `#tournaments` list |
 | Park meeting point (Minsheng Park) | `#faq`, `#visit`, `js/events.js` |
-| `app.kuou.tw` | `appUrl` in `js/config.js`, plus the fallback `href` on each `[data-app-link]` |
+| `app.kuou.dev` | `appUrl` in `js/config.js`, plus the fallback `href` on each `[data-app-link]` |
 
 Coach portraits are gradient placeholders showing initials. Drop a photo in and
 it takes over:
@@ -322,8 +321,27 @@ special events. The field reference is at the top of the file.
 
 Pushing to `main` deploys to GitHub Pages via `.github/workflows/deploy.yml`.
 Enable it once under **Settings → Pages → Build and deployment → Source: GitHub
-Actions**. For a custom domain, add a `CNAME` file containing the domain and
-point the DNS at GitHub.
+Actions**.
+
+The site is served at `www.kuou.dev`. The `CNAME` file in the repository root
+holds that name — the workflow uploads the root as the artifact, so the file has
+to be in the repo for the custom domain to survive a deploy. Set the same domain
+under **Settings → Pages → Custom domain** so GitHub issues the certificate, and
+leave **Enforce HTTPS** on.
+
+DNS lives at Cloudflare:
+
+| Type | Name | Content | Proxy |
+| --- | --- | --- | --- |
+| CNAME | `www` | `ericodle.github.io` | DNS only, until the certificate is issued |
+| CNAME | `@` | `ericodle.github.io` | Proxied — Cloudflare flattens it at the apex |
+
+A redirect rule sends `kuou.dev/*` to `https://www.kuou.dev/$1` so only one
+hostname is canonical. Keep SSL/TLS on **Full (strict)**: GitHub Pages serves a
+valid certificate, and `.dev` is HSTS-preloaded, so plain HTTP is never an
+option. Turning the orange cloud on for `www` before GitHub has finished issuing
+the certificate makes the validation fail — wait for the green check, then proxy
+it if you want Cloudflare in front.
 
 Any other static host works too — there is nothing to build, so
 `netlify deploy`, `wrangler pages deploy .` or an rsync to a VPS all work on the

@@ -16,7 +16,7 @@ window.CLUB = {
        that accepts a POST of JSON.
      `email` is a placeholder — swap in the real inbox before launch.         */
   formEndpoint: "",
-  email: "hello@kuou.tw",
+  email: "hello@kuou.dev",
 
   /* Where the member app lives. The "Member login" links in the header and
      the footer point at it, and js/main.js rewrites their href from this on
@@ -24,7 +24,7 @@ window.CLUB = {
      markup. The literal href in index.html is the no-JS fallback; keep the two
      in step, or change this and let the rewrite do it.
      No trailing slash.                                                       */
-  appUrl: "https://app.kuou.tw",
+  appUrl: "https://app.kuou.dev",
 
   /* Social handles used by the share buttons and embeds. */
   line: "https://line.me/R/ti/p/@kuoufencing",
