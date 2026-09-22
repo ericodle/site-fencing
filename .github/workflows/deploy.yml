@@ -1,6 +1,7 @@
-# Publishes the site to GitHub Pages on every push to main.
-# Nothing is built — the repository root is the site.
-name: Deploy to GitHub Pages
+# Publishes the site to Cloudflare Workers on every push to main.
+# Nothing is built — the repository root is the site, and `.assetsignore`
+# decides what stays out of the upload.
+name: Deploy to Cloudflare Workers
 
 on:
   push:
@@ -9,27 +10,18 @@ on:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
-  group: pages
+  group: deploy
   cancel-in-progress: true
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/configure-pages@v5
-      # docs/ is internal administration — mission statement, waiver, media
-      # release. It lives in the repo but must never be served.
-      - run: rm -rf docs
-      - uses: actions/upload-pages-artifact@v3
+      - uses: cloudflare/wrangler-action@v3
         with:
-          path: .
-      - id: deployment
-        uses: actions/deploy-pages@v4
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          wranglerVersion: "4.136.2"

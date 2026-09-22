@@ -6,3 +6,8 @@ Thumbs.db
 node_modules/
 __pycache__/
 *.pyc
+
+# Cloudflare credentials and the local wrangler state directory.
+.env
+.env.*
+.wrangler/

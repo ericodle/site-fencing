@@ -1,0 +1,28 @@
+/* Cloudflare Workers — the site is served straight off the static asset
+   store, so there is no `main` and no Worker code to run. Requests never
+   invoke a Worker, which keeps this inside the free tier no matter how
+   much traffic arrives.
+
+   The asset directory is the repository root: nothing is built, so the
+   repo *is* the site. `.assetsignore` next to this file lists what stays
+   out of the upload (docs/, tools/, the git plumbing).
+
+   Deploy with `wrangler deploy` — credentials come from the gitignored
+   .env, described in the README. */
+{
+  "name": "kuou-site",
+  "compatibility_date": "2026-09-22",
+
+  "assets": {
+    "directory": ".",
+    /* An unknown path serves 404.html rather than a bare Cloudflare 404. */
+    "not_found_handling": "404-page"
+  },
+
+  /* Wrangler creates the DNS record and the certificate for this hostname
+     on the first deploy. The apex redirect to www is a Cloudflare redirect
+     rule, not something this file can express — see README. */
+  "routes": [
+    { "pattern": "www.kuou.dev", "custom_domain": true }
+  ]
+}

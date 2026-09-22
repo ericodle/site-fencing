@@ -1,0 +1,18 @@
+# Everything in this repository is served as-is, except the following.
+# gitignore syntax; the file itself is never uploaded.
+
+.git
+.github
+.gitattributes
+.gitignore
+.env*
+
+# Internal administration — mission statement, waiver, media release.
+# It lives in the repo but must never be served.
+docs
+
+# The generator for the workout sheets, not part of the site.
+tools
+
+README.md
+wrangler.jsonc

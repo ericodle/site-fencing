@@ -30,7 +30,9 @@ assets/             logo, favicon, social card, generated icons
 tools/              generators for every drawing (see below)
 site.webmanifest    installable-app metadata
 sitemap.xml         one URL; update lastmod when the copy changes materially
-.github/workflows/  deploys the repo root to GitHub Pages on push to main
+wrangler.jsonc      Cloudflare Workers config — domain, 404 handling
+.assetsignore       what the deploy leaves out (docs/, tools/, git plumbing)
+.github/workflows/  deploys the repo root to Cloudflare Workers on push to main
 ```
 
 ## Palette
@@ -319,33 +321,68 @@ special events. The field reference is at the top of the file.
 
 ## Deploying
 
-Pushing to `main` deploys to GitHub Pages via `.github/workflows/deploy.yml`.
-Enable it once under **Settings → Pages → Build and deployment → Source: GitHub
-Actions**.
+The site is served by **Cloudflare Workers** at `www.kuou.dev`, straight off
+the Workers static asset store. There is no `main` in `wrangler.jsonc` and no
+Worker code: a request for a file that exists is answered by Cloudflare's asset
+store without a Worker ever running, so traffic costs nothing and there is no
+cold start. A request for a path that does not exist gets `404.html`.
 
-The site is served at `www.kuou.dev`. The `CNAME` file in the repository root
-holds that name — the workflow uploads the root as the artifact, so the file has
-to be in the repo for the custom domain to survive a deploy. Set the same domain
-under **Settings → Pages → Custom domain** so GitHub issues the certificate, and
-leave **Enforce HTTPS** on.
+The asset directory is the repository root — nothing is built, so the repo *is*
+the site. `.assetsignore` is what keeps `docs/` (internal administration: the
+mission statement, waiver and media release), `tools/` and the git plumbing out
+of the upload. Anything added to the repo that must not be served has to be
+listed there. To see exactly what a deploy would publish:
 
-DNS lives at Cloudflare:
+```bash
+WRANGLER_LOG=debug npx wrangler@4 deploy --dry-run 2>&1 | grep 'Ignoring asset'
+```
 
-| Type | Name | Content | Proxy |
-| --- | --- | --- | --- |
-| CNAME | `www` | `ericodle.github.io` | DNS only, until the certificate is issued |
-| CNAME | `@` | `ericodle.github.io` | Proxied — Cloudflare flattens it at the apex |
+### Credentials
 
-A redirect rule sends `kuou.dev/*` to `https://www.kuou.dev/$1` so only one
-hostname is canonical. Keep SSL/TLS on **Full (strict)**: GitHub Pages serves a
-valid certificate, and `.dev` is HSTS-preloaded, so plain HTTP is never an
-option. Turning the orange cloud on for `www` before GitHub has finished issuing
-the certificate makes the validation fail — wait for the green check, then proxy
-it if you want Cloudflare in front.
+`wrangler` reads `CLOUDFLARE_ACCOUNT_ID` and `CLOUDFLARE_API_TOKEN` from a
+`.env` file in the repository root. It is gitignored and is the only place
+either value lives on this machine — nothing about the account is baked into a
+tracked file, which is why a fresh clone has to write it:
 
-Any other static host works too — there is nothing to build, so
-`netlify deploy`, `wrangler pages deploy .` or an rsync to a VPS all work on the
-directory as it stands.
+```bash
+cat > .env <<'EOF'
+CLOUDFLARE_ACCOUNT_ID=...   # dashboard → Workers & Pages → right-hand sidebar
+CLOUDFLARE_API_TOKEN=...    # My Profile → API Tokens → "Edit Cloudflare Workers"
+EOF
+npx wrangler@4 deploy
+```
+
+Scope the token to this account and the `kuou.dev` zone.
+
+`npx wrangler@4 login` works instead of a token for a one-off deploy from this
+machine, but CI needs the token either way.
+
+### Continuous deploys
+
+Pushing to `main` deploys via `.github/workflows/deploy.yml`, which runs the
+same `wrangler deploy`. It needs the same two values as repository secrets —
+**Settings → Secrets and variables → Actions** → `CLOUDFLARE_ACCOUNT_ID` and
+`CLOUDFLARE_API_TOKEN`. (Cloudflare's own Workers Builds can watch the repo
+instead, from the dashboard, if you would rather not keep a token on GitHub.)
+
+### DNS
+
+`wrangler.jsonc` claims `www.kuou.dev` as a custom domain, so the first deploy
+creates the DNS record and orders the certificate by itself — there is no
+record to add by hand, and no CNAME file. The zone just has to already be in
+the Cloudflare account.
+
+The apex is the one piece that lives in the dashboard. Add a proxied `AAAA`
+record for `@` pointing at `100::` (the discard address — it exists only to
+give Cloudflare something to intercept), then **Rules → Redirect Rules** with
+hostname `kuou.dev` → dynamic redirect to
+`concat("https://www.kuou.dev", http.request.uri.path)`, 301. Keep SSL/TLS on
+**Full (strict)**; `.dev` is HSTS-preloaded, so plain HTTP is never an option
+anyway.
+
+Any other static host still works — there is nothing to build, so a Netlify
+deploy, GitHub Pages or an rsync to a VPS all work on the directory as it
+stands.
 
 ## Regenerating images
 
