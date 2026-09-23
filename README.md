@@ -233,7 +233,7 @@ Placeholder details are scattered through `index.html`. Search and replace:
 | --- | --- |
 | `@kuoufencing` | social rail, social cards, footer, coach links, JSON-LD `sameAs`, every `line.me` link, plus `js/config.js` |
 | `+886 2 2762 1234` | contact list, footer, WhatsApp link, JSON-LD |
-| `hello@kuou.dev` | `#contact` channels, footer, `js/config.js` (contact form inbox) |
+| `kuoufencingclub@protonmail.com` | `#contact` channels, footer, `js/config.js` (contact form inbox) |
 | Address and coordinates | `#visit` section, JSON-LD `address` / `geo`, map `data-q` |
 | `REPLACE_WITH_YOUTUBE_ID` | `data-video` on the YouTube embed in `#social` |
 | Coach bios and photos | `#coaches` |

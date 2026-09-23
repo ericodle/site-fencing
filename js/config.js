@@ -14,9 +14,9 @@ window.CLUB = {
        click it once and every later message is delivered.
      - or a Formspree URL (https://formspree.io/f/xxxxxxxx), or any endpoint
        that accepts a POST of JSON.
-     `email` is a placeholder — swap in the real inbox before launch.         */
+     The first FormSubmit message needs its activation link clicked once. */
   formEndpoint: "",
-  email: "hello@kuou.dev",
+  email: "kuoufencingclub@protonmail.com",
 
   /* Where the member app lives. The "Member login" links in the header and
      the footer point at it, and js/main.js rewrites their href from this on
