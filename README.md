@@ -5,10 +5,9 @@ Taipei. Three pillars: **physical training**, **mental training**, **data-driven
 Épée and saber, taught in English and Chinese, at regular venues and pop-up
 practices all over the city.
 
-The mark is an archer's arrow crossing Taiwan, and `.skychart` plots
-Sagittarius — the sign the club opened beneath in December 2019. Both are older
-than the club's current name and are kept as its visual identity, not as an
-explanation of it. The Chinese name is not settled: the zh strings currently
+The emblem is the club's crest — crossed épée and saber over Taiwan, KUOU
+interlaced across them — and `.skychart` plots Sagittarius, the sign the club
+opened beneath in December 2019. The Chinese name is not settled: the zh strings currently
 read **Kuou 擊劍會**, which is a normal way for a club with a Latin name to
 write itself here. When the characters are decided, that string is the only
 thing to change.
@@ -26,7 +25,7 @@ js/config.js        the bits an owner edits — form endpoint, socials, language
                     and the member app's address
 js/events.js        club calendar events, which also feed the tournament desk
 js/main.js          language switch, nav, reveals, share, embeds, calendar, contact form
-assets/             logo, favicon, social card, generated icons
+assets/             emblem (artwork, trace, raster), favicon, social card, icons
 tools/              generators for every drawing (see below)
 site.webmanifest    installable-app metadata
 sitemap.xml         one URL; update lastmod when the copy changes materially
@@ -146,17 +145,19 @@ step larger than it would be for a sans — the base is `clamp(1.18rem, 1.08rem 
 
 ## The drawings are generated
 
-Every drawn asset — the three figures, the sky chart and the brand marks — comes
-out of `tools/`, not out of hand-edited path data. The source numbers are real
+Every drawn asset — the three figures, the sky chart, the emblem and the social
+card — comes out of `tools/`, not out of hand-edited path data. The source numbers are real
 and they live in one place so they stay editable.
 
 ```
-tools/geometry.py   the numbers: Taiwan's coastline (for the mark),
-                    Sagittarius in J2000 RA/Dec, the FIE piste dimensions
+tools/geometry.py   the numbers: Sagittarius in J2000 RA/Dec, the FIE piste
+                    dimensions
 tools/figures.py    the four drawings built from those numbers
-tools/marks.py      logo, favicon and the social card
+tools/marks.py      the social card
 tools/build.py      regenerates everything and patches it into the markup
-tools/icons.py      renders the PNG rasters (needs cairosvg)
+tools/logo.py       traces the emblem artwork into assets/logo.svg
+                    (needs numpy, pillow, vtracer)
+tools/icons.py      renders the rasters (needs cairosvg, pillow)
 ```
 
 ```bash
@@ -167,24 +168,27 @@ python3 tools/icons.py          # then re-render the PNGs
 
 `build.py` finds each figure in the markup by the class on its `<svg>`, so the
 surrounding captions, figure wrappers and bilingual attributes are never
-touched. To reshape the island in the mark, edit `COASTLINE` and run it.
+touched.
 
-One thing the generators encode that is easy to lose: do not use SVG `<mask>`
-in the brand marks. The PNG icons are rendered with cairosvg, which does not
-apply masks the way a browser does — a knockout version of the logo rendered as
-a solid silver square.
+### The emblem
 
-### The mark
+The artwork is `assets/logo-2.png`: an engraving in black ink on paper, with
+gold hilts. The site is dark, so `tools/logo.py` traces it inverted into
+`assets/logo.svg` — light linework, gold kept — rather than knocking out the
+paper, which would leave black ink on a black page. Its docstring has the
+tracing trade-offs. The source PNG is not deployed.
 
-The logo is the Sagittarius arrow crossing Taiwan: the constellation the club
-opened beneath, over the ground it fences on. The island is drawn as **ground, not figure**
-— a dark fill with a silver coast, sitting behind the gold arrow. A mid-tone
-silhouette was tried first and read as a grey blob, because island and arrow
-shared a value.
+The pages show `assets/logo.webp`, rendered from the SVG by `tools/icons.py`,
+not the SVG itself: the trace is 670 KB of engraving, and at 60–120px a raster
+is indistinguishable from it. The emblem carries the club's name, so the header
+and footer show it alone, with no text lockup beside it. The member app uses
+the same files, copied into its `public/`.
 
-Below roughly 40px the coastline stops resolving and the mark falls back to the
-arrow alone, which is the honest limit of putting two forms in one square. The
-nav lockup is set at 44px for that reason; at the old 34px the island was noise.
+Change the artwork, then:
+
+```bash
+python3 tools/logo.py && python3 tools/icons.py
+```
 
 ## Running it locally
 
@@ -384,24 +388,11 @@ Any other static host still works — there is nothing to build, so a Netlify
 deploy, GitHub Pages or an rsync to a VPS all work on the directory as it
 stands.
 
-## Regenerating images
-
-`assets/img/og.png` and the app icons come from the SVGs next to them:
-
-```bash
-python3 - <<'PY'
-import cairosvg
-cairosvg.svg2png(url="assets/img/og.svg", write_to="assets/img/og.png", output_width=1200, output_height=630)
-for size in (180, 192, 512):
-    name = "apple-touch-icon" if size == 180 else f"icon-{size}"
-    cairosvg.svg2png(url="assets/favicon.svg", write_to=f"assets/img/{name}.png", output_width=size, output_height=size)
-PY
-```
-
 ## Accessibility and performance notes
 
 - Single stylesheet, single script, one web-font request. Every drawing is
-  inline SVG, so there are no image requests at all. No trackers.
+  inline SVG; the only image the page requests is the emblem, at 35 KB. No
+  trackers.
 - Everything reachable by keyboard; the mobile menu closes on `Escape`.
 - `prefers-reduced-motion` switches off the reveals, the floating arrow and
   smooth scrolling.

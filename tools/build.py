@@ -53,8 +53,6 @@ def main():
     html404 = swap(html404, r'(?<=<div class="skychart" aria-hidden="true">)<svg viewBox.*?</svg>', chart)
     write("404.html", html404, changed)
 
-    write("assets/logo.svg", marks.logo(), changed)
-    write("assets/favicon.svg", marks.favicon(), changed)
     write("assets/img/og.svg", marks.social_card(), changed)
 
     if CHECK:

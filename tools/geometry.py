@@ -1,49 +1,10 @@
 """Shared source data for everything drawn on the site.
 
-The site's figures are not decoration — the coastline, the star positions and
-the piste dimensions are real, and this module is where those numbers live so
+The site's figures are not decoration — the star positions and the piste
+dimensions are real, and this module is where those numbers live so
 they stay editable. Nothing here writes files; see build.py.
 """
 import math
-
-# ── Taiwan ───────────────────────────────────────────────────────────────────
-# Coarse coastline, clockwise from the northern cape (Fugui) round to the
-# north-west. 29 points: enough to be recognisably Taiwan, not a survey.
-# Used by the brand mark in marks.py.
-COASTLINE = [
-    (121.53, 25.30), (121.65, 25.28), (121.92, 25.13), (121.86, 24.98),
-    (121.83, 24.60), (121.78, 24.35), (121.65, 24.05), (121.52, 23.75),
-    (121.44, 23.40), (121.40, 23.10), (121.25, 22.80), (121.05, 22.55),
-    (120.92, 22.25), (120.86, 21.92), (120.75, 22.05), (120.62, 22.30),
-    (120.45, 22.50), (120.28, 22.65), (120.18, 22.90), (120.10, 23.20),
-    (120.08, 23.55), (120.14, 23.85), (120.35, 24.12), (120.52, 24.35),
-    (120.75, 24.62), (120.92, 24.85), (121.05, 25.05), (121.20, 25.15),
-    (121.38, 25.28),
-]
-
-_TW_LAT0 = math.radians(23.6)
-
-
-def tw_project(lon, lat):
-    """Equirectangular, scaled by cos(lat) so the island is not stretched."""
-    return ((lon - 120.0) * math.cos(_TW_LAT0), -(lat - 25.5))
-
-
-def tw_bounds(pad=0.10):
-    pts = [tw_project(*c) for c in COASTLINE]
-    xs = [p[0] for p in pts]
-    ys = [p[1] for p in pts]
-    return min(xs) - pad, max(xs) + pad, min(ys) - pad, max(ys) + pad
-
-
-def tw_outline(to_px):
-    """Closed path for the coastline, given a projected->pixel mapper."""
-    parts = []
-    for i, c in enumerate(COASTLINE):
-        x, y = to_px(*tw_project(*c))
-        parts.append(f"{'M' if i == 0 else 'L'}{x} {y}")
-    return " ".join(parts) + " Z"
-
 
 # ── Sagittarius ──────────────────────────────────────────────────────────────
 # J2000 right ascension (hours), declination (degrees), visual magnitude,

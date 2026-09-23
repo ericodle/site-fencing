@@ -16,3 +16,6 @@ tools
 
 README.md
 wrangler.jsonc
+
+# The emblem artwork; the pages use the trace and its raster (tools/logo.py).
+assets/logo-2.png
