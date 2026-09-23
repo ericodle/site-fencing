@@ -7,10 +7,8 @@ practices all over the city.
 
 The emblem is the club's crest — crossed épée and saber over Taiwan, KUOU
 interlaced across them — and `.skychart` plots Sagittarius, the sign the club
-opened beneath in December 2019. The Chinese name is not settled: the zh strings currently
-read **Kuou 擊劍會**, which is a normal way for a club with a Latin name to
-write itself here. When the characters are decided, that string is the only
-thing to change.
+opened beneath in December 2019. The Chinese name is **古歐擊劍會**, and
+**古歐** alone wherever the English says just "Kuou".
 
 ## Stack
 

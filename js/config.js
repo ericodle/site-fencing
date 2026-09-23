@@ -6,7 +6,7 @@
    --------------------------------------------------------------------------- */
 window.CLUB = {
   name: "Kuou Fencing Club",
-  nameZh: "Kuou 擊劍會",
+  nameZh: "古歐擊劍會",
 
   /* The contact form sends email without leaving the page.
      - formEndpoint "" (empty) → posts through FormSubmit (formsubmit.co) to

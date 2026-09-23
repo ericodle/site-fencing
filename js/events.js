@@ -316,7 +316,7 @@ window.CLUB_EVENTS = [
     end: "2026-11-29 17:00",
     featured: true,
     title: { en: "Inter-club friendly bouts", zh: "跨館友誼賽" },
-    place: { en: "Hosted by Kuou · Bade Road venue", zh: "Kuou 主辦・八德路場地" },
+    place: { en: "Hosted by Kuou · Bade Road venue", zh: "古歐主辦・八德路場地" },
     map: "No. 128, Section 4, Bade Road, Taipei",
     registration: { status: "open", en: "Sign up on LINE", zh: "請以 LINE 報名" },
     details: {
