@@ -49,9 +49,9 @@ def main():
     write("index.html", html, changed)
 
     chart = figures.sky_chart()
-    html404 = read("404.html")
-    html404 = swap(html404, r'(?<=<div class="skychart" aria-hidden="true">)<svg viewBox.*?</svg>', chart)
-    write("404.html", html404, changed)
+    for page in ("404.html", "workouts.html"):
+        text = swap(read(page), r'(?<=<div class="skychart" aria-hidden="true">)<svg viewBox.*?</svg>', chart)
+        write(page, text, changed)
 
     write("assets/img/og.svg", marks.social_card(), changed)
 

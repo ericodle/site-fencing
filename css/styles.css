@@ -34,6 +34,9 @@
   /* accents, used sparingly: categories and status, not decoration */
   --blue: #5aa9e6;
   --green: #52c98a;
+  /* off-palette on purpose: an error or an overrun must not read as a success
+     in a green scheme */
+  --warn: #ff8f6b;
 
   /* type */
   --paper: #ecedef;
@@ -1148,8 +1151,7 @@ form.contact-form { display: grid; gap: 1rem; }
 .form-note { font-size: 0.83rem; color: var(--muted-dim); }
 .form-status { font-size: 0.9rem; min-height: 1.4em; }
 .form-status.ok { color: var(--green); }
-/* off-palette on purpose: an error must not read as a success in a green scheme */
-.form-status.err { color: #ff8f6b; }
+.form-status.err { color: var(--warn); }
 
 /* 5.15 cta banner */
 .cta-band {
@@ -1258,6 +1260,160 @@ footer.site {
 }
 .line-fab svg { width: 18px; height: 18px; }
 
+/* 5.17 workouts */
+/* workouts.html has no hero, so its first section clears the fixed bar itself */
+section[id].page-top { padding-top: calc(var(--nav-h) + clamp(2rem, 5vw, 3.5rem)); }
+
+.wk-card { display: flex; flex-direction: column; align-items: flex-start; gap: 0.8rem; }
+.wk-card h3,
+.wk-card p { margin: 0; }
+.wk-card .wk-card-meta { color: var(--muted-dim); font-size: 0.92rem; }
+.wk-card .btn { margin-top: auto; }
+.wk-card.is-current { border-color: var(--gold-deep); }
+.section-head .wk-needs { font-size: 1.04rem; }
+.wk-needs b,
+.wk-next b,
+.wk-totals dt,
+.wk-block {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted-dim);
+}
+.wk-needs b { margin-right: 0.4rem; }
+
+/* What each step is, carried as one accent: gold for work, blue for the easy
+   warm-up and cool-down, silver for rest. Rest is drawn hatched rather than
+   solid wherever steps sit side by side, as on the printed sheets. */
+.k-work { --wk-accent: var(--gold); }
+.k-easy { --wk-accent: var(--blue); }
+.k-rest { --wk-accent: var(--silver); }
+.wk-strip .k-rest,
+.k-rest .wk-swatch { background: repeating-linear-gradient(135deg, var(--silver) 0 1px, transparent 1px 4px); }
+
+.wk-layout { display: grid; grid-template-columns: minmax(0, 27rem) minmax(0, 1fr); gap: clamp(1.5rem, 3vw, 2.75rem); align-items: start; }
+
+.wk-timer {
+  --wk-accent: var(--gold);
+  position: sticky;
+  top: calc(var(--nav-h) + 1rem);
+  display: grid;
+  gap: 0.5rem;
+  /* on a short screen the panel scrolls inside itself rather than losing its
+     foot below the fold */
+  max-height: calc(100svh - var(--nav-h) - 2rem);
+  overflow-y: auto;
+}
+.wk-timer[data-kind="easy"] { --wk-accent: var(--blue); }
+.wk-timer[data-kind="rest"] { --wk-accent: var(--silver); }
+.wk-timer[data-kind="done"] { --wk-accent: var(--green); }
+.wk-timer::before { content: ""; position: absolute; inset: 0 0 auto; height: 3px; background: var(--wk-accent); }
+.wk-now-top { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.wk-kind {
+  padding: 0.16rem 0.65rem;
+  background: var(--wk-accent);
+  color: var(--onyx);
+  font: 700 0.74rem/1.4 var(--font-display);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.wk-round { color: var(--muted); font-size: 0.95rem; }
+.wk-block { margin: 0.4rem 0 0; }
+.wk-step { margin: 0; font-size: clamp(1.35rem, 1.15rem + 0.9vw, 1.8rem); }
+/* two lines held open, so a one-line cue does not jolt the clock upward */
+.wk-cue { margin: 0; min-height: 3.2em; color: var(--muted); font-size: 1.02rem; line-height: 1.55; }
+.wk-clock {
+  font: 500 clamp(4rem, 3.4rem + 2.4vw, 5.4rem)/1 var(--font-body);
+  font-variant-numeric: lining-nums tabular-nums;
+  letter-spacing: 0.01em;
+}
+.wk-clock.is-over { color: var(--warn); }
+.wk-bar { height: 3px; background: var(--rule-faint); }
+.wk-bar span { display: block; width: 0; height: 100%; background: var(--wk-accent); transition: width 0.1s linear; }
+.wk-next { margin: 0.2rem 0 0; color: var(--muted); font-size: 1rem; }
+.wk-next b { margin-right: 0.4rem; }
+
+.wk-controls { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 0.6rem; margin-top: 0.5rem; }
+.wk-go { width: 100%; padding-block: 1.05rem; font-size: 1.2rem; letter-spacing: 0.06em; }
+.wk-go.is-stop { --btn-bg: transparent; --btn-fg: var(--gold-bright); }
+.wk-go.is-stop:hover { background: rgba(212, 175, 55, 0.12); color: var(--gold-bright); }
+.wk-skip {
+  width: 3.4rem;
+  border: 1px solid var(--line-strong);
+  background: transparent;
+  color: var(--paper);
+  font: 400 1.9rem/1 var(--font-body);
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+}
+.wk-skip:hover { border-color: var(--gold-bright); color: var(--gold-bright); }
+.wk-skip:disabled { opacity: 0.35; cursor: default; border-color: var(--line-strong); color: var(--paper); }
+
+.wk-options { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 1.2rem; color: var(--muted); font-size: 0.98rem; }
+.wk-options label { display: inline-flex; align-items: center; gap: 0.45rem; cursor: pointer; }
+.wk-options input { width: 1.05rem; height: 1.05rem; margin: 0; accent-color: var(--gold); }
+.wk-reset {
+  margin-left: auto;
+  padding: 0.1rem 0;
+  border: 0;
+  border-bottom: 1px solid var(--line-strong);
+  background: none;
+  color: var(--muted);
+  font: inherit;
+  cursor: pointer;
+}
+.wk-reset:hover { color: var(--gold-bright); border-color: var(--gold-bright); }
+
+.wk-totals { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.5rem; margin: 0.3rem 0 0; padding-top: 0.8rem; border-top: 1px solid var(--line); }
+.wk-totals dd { margin: 0; font-size: 1.25rem; font-variant-numeric: lining-nums tabular-nums; }
+.wk-totals dd.is-behind { color: var(--gold-bright); }
+
+.wk-strip { position: relative; display: flex; gap: 1px; height: 16px; margin-top: 0.4rem; cursor: pointer; }
+.wk-strip span { min-width: 1px; background-color: var(--wk-accent); }
+.wk-strip .k-rest { background-color: transparent; }
+.wk-strip .is-done { opacity: 0.3; }
+.wk-strip .wk-playhead { position: absolute; top: -4px; bottom: -4px; width: 2px; margin-left: -1px; background: var(--paper); pointer-events: none; }
+.wk-keys { margin: 0.3rem 0 0; }
+
+.wk-flow { display: grid; gap: 1.75rem; }
+.wk-block-row { padding-top: 1rem; border-top: 1px solid var(--rule); }
+.wk-block-head { display: grid; grid-template-columns: 5.4rem minmax(0, 1fr); column-gap: 1rem; align-items: baseline; }
+.wk-block-head h3 { margin: 0; font-size: clamp(1.12rem, 1rem + 0.5vw, 1.38rem); }
+.wk-time { font: 600 0.8rem var(--font-display); letter-spacing: 0.1em; color: var(--gold-bright); white-space: nowrap; }
+.wk-pattern { grid-column: 2; color: var(--muted-dim); font-size: 0.95rem; }
+.wk-about { margin: 0.55rem 0 0.8rem; color: var(--muted); font-size: 1.02rem; }
+.wk-steps { display: grid; gap: 2px; margin: 0; padding: 0; list-style: none; }
+.wk-item {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 0.7rem minmax(0, 1fr) auto;
+  gap: 0.75rem;
+  align-items: center;
+  padding: 0.42rem 0.65rem;
+  border: 1px solid transparent;
+  background: rgba(255, 255, 255, 0.02);
+  color: var(--paper);
+  font: inherit;
+  font-size: 1rem;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+.wk-item:hover { border-color: var(--line-strong); }
+.wk-item.k-rest { color: var(--muted); }
+.wk-swatch { width: 0.7rem; height: 0.7rem; background-color: var(--wk-accent); }
+.k-rest .wk-swatch { background-color: transparent; outline: 1px solid var(--silver-deep); }
+.wk-item-time { color: var(--muted-dim); font-size: 0.93rem; font-variant-numeric: lining-nums tabular-nums; white-space: nowrap; }
+.wk-item.is-done { opacity: 0.5; }
+.wk-item.is-current { border-color: var(--wk-accent); background: rgba(255, 255, 255, 0.06); box-shadow: inset 4px 0 0 var(--wk-accent); }
+
+.wk-rules { max-width: 72ch; margin-top: clamp(2.5rem, 5vw, 3.5rem); }
+.wk-notes { display: grid; gap: 0.6rem; }
+.wk-notes li { position: relative; padding-left: 1.4rem; color: var(--muted); }
+.wk-notes li::before { content: "◆"; position: absolute; left: 0; top: 0.55em; color: var(--gold); font-size: 0.6rem; }
+
 /* 6 ── motion ------------------------------------------------------------- */
 @keyframes pulse {
   0%, 100% { opacity: 1; }
@@ -1298,17 +1454,9 @@ footer.site {
   .pillar-lede, .pillar-list { columns: 1; column-rule: none; }
 }
 
-@media (max-width: 900px) {
-  .hero h1 { max-width: none; }
-  .tourney-grid { grid-template-columns: 1fr; }
-  .coach-grid .coach { grid-template-columns: minmax(0, 1fr); }
-  .coach-grid .coach > *,
-  .coach-grid .coach .portrait { grid-column: 1; grid-row: auto; }
-  .coach-grid .coach .portrait { margin-bottom: 0.9rem; }
-
-  /* the chart is a background at this width, not a companion to the type */
-  .skychart svg { width: 128vw; right: -42vw; top: 8vh; opacity: 0.4; }
-
+/* The menu collapses before the rest of the layout does: in English the nav
+   links, the language switch and both header buttons need about 1100px. */
+@media (max-width: 1100px) {
   .nav {
     position: fixed;
     inset: var(--nav-h) 0 auto;
@@ -1340,6 +1488,22 @@ footer.site {
     margin-top: 1.1rem;
     border-bottom: 1px solid var(--silver-deep);
   }
+}
+
+@media (max-width: 900px) {
+  .hero h1 { max-width: none; }
+  .wk-layout { grid-template-columns: minmax(0, 1fr); }
+  .wk-timer { position: static; max-height: none; }
+  .wk-keys { display: none; }
+  .tourney-grid { grid-template-columns: 1fr; }
+  .coach-grid .coach { grid-template-columns: minmax(0, 1fr); }
+  .coach-grid .coach > *,
+  .coach-grid .coach .portrait { grid-column: 1; grid-row: auto; }
+  .coach-grid .coach .portrait { margin-bottom: 0.9rem; }
+
+  /* the chart is a background at this width, not a companion to the type */
+  .skychart svg { width: 128vw; right: -42vw; top: 8vh; opacity: 0.4; }
+
   .line-fab { display: inline-flex; bottom: 16px; }
   .to-top { bottom: 74px; right: 18px; }
 }

@@ -17,11 +17,13 @@ package manager. Open `index.html` in a browser and it works.
 
 ```
 index.html          the whole page
+workouts.html       pre-defined workouts and the coach's stop/go timer
 404.html            not-found page
 css/styles.css      all styling
 js/config.js        the bits an owner edits — form endpoint, socials, language,
                     and the member app's address
 js/events.js        club calendar events, which also feed the tournament desk
+js/workouts.js      the workouts, block by block, to the second
 js/main.js          language switch, nav, reveals, share, embeds, calendar, contact form
 assets/             emblem (artwork, trace, raster), favicon, social card, icons
 tools/              generators for every drawing (see below)
@@ -320,6 +322,35 @@ a `registration` object and it also appears in the tournament desk list. Add
 `repeat: "weekly"` and an `until` date for a regular session: it appears every
 week on the grid, under the Weekly filter, but stays out of the month's list of
 special events. The field reference is at the top of the file.
+
+## Workouts
+
+`workouts.html` lists pre-defined sessions and runs one of them for a coach.
+The sessions live in `js/workouts.js`, which works like `js/events.js`: add
+an object, save, reload. The field reference is at the top of the file. A block
+is either a list of steps (`easy`, `work` or `rest`, each with its seconds) or
+a set of intervals — moves, a work time, a rest time and a repeat count — that
+the page expands into work/rest pairs. The timetable is drawn from those
+seconds, so a session's blocks have to add up to its length; nothing is typed
+in twice.
+
+`?w=<id>` opens a session. The timer walks its steps one at a time:
+
+- **Go / Stop** runs and pauses the clock; Space does the same on a keyboard.
+- **‹ ›** step back and forward, and any step in the timetable or the bar
+  under the clock can be tapped to jump to it. A step left by hand keeps the
+  time it actually took, shown beside the planned time as `0:45 → 0:52`.
+- **Auto-advance** moves on when a step runs out. Switched off, the clock
+  counts on past zero (`+0:12`) until the coach moves on, so a step can be
+  held exactly as long as it needs.
+- **Beeps** sound three short ticks into every change and a tone at each
+  change: high into work, low into rest. Phones that allow it also vibrate.
+- **Vs plan** is the time spent against where the plan says the session should
+  be: `+` is behind schedule, `−` ahead.
+
+Time is summed from `performance.now()`, not counted in ticks, so a dimmed
+phone or a background tab loses nothing. While the clock runs the page asks
+the browser to keep the screen on, and warns before a link navigates away.
 
 ## Deploying
 

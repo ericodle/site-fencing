@@ -3,7 +3,7 @@
    No framework, no build step, no dependencies. Runs as a classic script.
    1 i18n · 2 header & nav · 3 scrollspy · 4 reveal on scroll
    5 share · 6 deferred embeds · 7 calendar · 8 contact form
-   9 member-app links, misc
+   9 workouts and the coach's timer · 10 member-app links, misc
    --------------------------------------------------------------------------- */
 (function () {
   "use strict";
@@ -44,6 +44,21 @@
     reg_soon: { en: "Closes soon", zh: "即將截止" },
     reg_tba: { en: "Not yet announced", zh: "尚未公告" },
     reg_closed: { en: "Registration closed", zh: "報名截止" },
+    wk_work: { en: "Work", zh: "訓練" },
+    wk_rest: { en: "Rest", zh: "休息" },
+    wk_easy: { en: "Easy", zh: "緩和" },
+    wkGo: { en: "Go", zh: "開始" },
+    wkStop: { en: "Stop", zh: "暫停" },
+    wkAgain: { en: "Run it again", zh: "再來一次" },
+    wkDone: { en: "Done", zh: "完成" },
+    wkComplete: { en: "Session complete", zh: "課表完成" },
+    wkEnd: { en: "End of session", zh: "課表結束" },
+    wkRound: { en: "Round {n} of {of}", zh: "第 {n} 組，共 {of} 組" },
+    wkPattern: { en: "{n} × {work} work / {rest} rest", zh: "{n} 組・每組訓練 {work}／休息 {rest}" },
+    wkSec: { en: "{n} s", zh: "{n} 秒" },
+    wkMin: { en: "{n} min", zh: "{n} 分鐘" },
+    wkShape: { en: "{blocks} blocks · {steps} timed steps", zh: "{blocks} 段・{steps} 個計時步驟" },
+    wkOpen: { en: "Open the timer", zh: "開啟計時器" },
     ytMissing: {
       en: "No video is wired up yet — set data-video on this block in index.html to a YouTube video ID.",
       zh: "尚未設定影片——請在 index.html 中將此區塊的 data-video 改為 YouTube 影片 ID。"
@@ -149,7 +164,7 @@
     if (e.key === "Escape") closeNav();
   });
   window.addEventListener("resize", function () {
-    if (window.innerWidth > 900) closeNav();
+    if (window.innerWidth > 1100) closeNav();
   });
 
   /* 3 ── scrollspy ───────────────────────────────────────────────────── */
@@ -687,7 +702,418 @@
     });
   }
 
-  /* 9 ── member-app links, back to top, scroll wiring ────────────────── */
+  /* 9 ── workouts and the coach's timer ──────────────────────────────────
+     workouts.html lists the sessions in js/workouts.js and runs one of them.
+     Every block expands into one flat list of timed steps, work and rest
+     alike, and the timer walks that list: Go and Stop, step back and
+     forward, or jump to any step in the timetable.
+
+     Time is summed from performance.now() deltas rather than counted in
+     ticks, so a throttled background tab or a dimmed phone loses no time —
+     it only redraws late. When a step runs out, the overshoot carries into
+     the next one, so the hour stays an hour.                               */
+
+  var WORKOUTS = window.CLUB_WORKOUTS || [];
+  var wkList = $("#wk-list");
+  var wkSession = $("#session");
+
+  function mmss(secs) {
+    var s = secs % 60;
+    return Math.floor(secs / 60) + ":" + (s < 10 ? "0" : "") + s;
+  }
+
+  // a length of time in words: "45 s", "2 min", or 1:30
+  function span(secs) {
+    if (secs % 60 === 0) return t("wkMin").replace("{n}", secs / 60);
+    if (secs < 60) return t("wkSec").replace("{n}", secs);
+    return mmss(secs);
+  }
+
+  // a point in the session, as the timetables write it: 0:08
+  function hmm(secs) {
+    var m = Math.floor(secs / 60) % 60;
+    return Math.floor(secs / 3600) + ":" + (m < 10 ? "0" : "") + m;
+  }
+
+  function expand(workout) {
+    var steps = [];
+    workout.blocks.forEach(function (block, b) {
+      if (block.moves) {
+        var rounds = block.moves.length * (block.repeat || 1);
+        for (var r = 0; r < rounds; r++) {
+          var move = block.moves[r % block.moves.length];
+          steps.push({ block: b, kind: "work", secs: block.work, name: move.name, cue: move.cue, round: r + 1, rounds: rounds });
+          steps.push({ block: b, kind: "rest", secs: block.rest, name: block.restName, round: r + 1, rounds: rounds });
+        }
+      } else {
+        block.steps.forEach(function (s) {
+          steps.push({ block: b, kind: s.kind, secs: s.secs, name: s.name, cue: s.cue });
+        });
+      }
+    });
+    var at = 0;
+    steps.forEach(function (s) { s.at = at; at += s.secs; });
+    return steps;
+  }
+
+  function stepName(s) { return pick(s.name) || t("wk_" + s.kind); }
+
+  var wanted = new URLSearchParams(location.search).get("w");
+  var workout = WORKOUTS.filter(function (w) { return w.id === wanted; })[0] || WORKOUTS[0];
+
+  function renderWorkoutList() {
+    wkList.innerHTML = "";
+    WORKOUTS.forEach(function (w) {
+      var card = el("li", "card wk-card" + (w === workout ? " is-current" : ""));
+      card.appendChild(el("span", "tag tag-gold", pick(w.tag)));
+      card.appendChild(el("h3", "", pick(w.title)));
+      card.appendChild(el("p", "", pick(w.summary)));
+      card.appendChild(el("p", "wk-card-meta", t("wkShape")
+        .replace("{blocks}", w.blocks.length)
+        .replace("{steps}", expand(w).length)));
+      // the open session only scrolls; another one loads fresh, timer and all
+      var open = el("a", "btn btn-silver", t("wkOpen"));
+      open.href = w === workout ? "#session" : "?w=" + encodeURIComponent(w.id) + "#session";
+      card.appendChild(open);
+      wkList.appendChild(card);
+    });
+  }
+
+  if (wkList) {
+    langHooks.push(renderWorkoutList);
+    renderWorkoutList();
+  }
+
+  if (wkSession && workout) {
+    var steps = expand(workout);
+    var last = steps[steps.length - 1];
+    var totalMs = (last.at + last.secs) * 1000;
+
+    var timer = $("#wk-timer");
+    var goBtn = $("#wk-go");
+    var auto = $("#wk-auto");
+    var beeps = $("#wk-sound");
+    var strip = $("#wk-strip");
+    var stepButtons = [];
+    var stripCells = [];
+    var playhead = null;
+
+    var st;
+    function fresh() {
+      st = { i: 0, stepMs: 0, totalMs: 0, running: false, done: false, last: 0, spent: [], lastSec: null, overBeeped: false };
+    }
+    fresh();
+
+    /* sound: a square wave carries across a park where a sine does not */
+    var audio = null;
+    var TONES = { tick: [880, 0.12, 1], work: [1320, 0.5, 1], rest: [660, 0.5, 1], easy: [660, 0.5, 1], over: [440, 0.3, 2], end: [990, 0.22, 3] };
+
+    function unlockAudio() {
+      var AC = window.AudioContext || window.webkitAudioContext;
+      if (!AC) return;
+      if (!audio) audio = new AC();
+      if (audio.state === "suspended") audio.resume();
+    }
+
+    function sound(name) {
+      if (!audio || !beeps.checked) return;
+      var tone = TONES[name];
+      for (var n = 0; n < tone[2]; n++) {
+        var at = audio.currentTime + n * (tone[1] + 0.12);
+        var osc = audio.createOscillator();
+        var gain = audio.createGain();
+        osc.type = "square";
+        osc.frequency.value = tone[0];
+        gain.gain.setValueAtTime(0.0001, at);
+        gain.gain.exponentialRampToValueAtTime(0.25, at + 0.01);
+        gain.gain.exponentialRampToValueAtTime(0.0001, at + tone[1]);
+        osc.connect(gain);
+        gain.connect(audio.destination);
+        osc.start(at);
+        osc.stop(at + tone[1] + 0.02);
+      }
+    }
+
+    function buzz() { if (navigator.vibrate) navigator.vibrate(180); }
+
+    /* keep the coach's screen on while the clock runs */
+    var screenLock = null;
+    function holdScreen(on) {
+      if (!navigator.wakeLock) return;
+      if (on && !screenLock) {
+        navigator.wakeLock.request("screen").then(function (lock) {
+          if (!st.running) { lock.release(); return; }
+          screenLock = lock;
+          lock.addEventListener("release", function () { screenLock = null; });
+        }).catch(function () { /* refused, or the tab is hidden */ });
+      } else if (!on && screenLock) {
+        screenLock.release();
+        screenLock = null;
+      }
+    }
+
+    var loop = null;
+
+    function enter(i, carryMs) {
+      st.i = i;
+      st.stepMs = carryMs;
+      st.lastSec = null;
+      st.overBeeped = false;
+      if (st.running) {
+        sound(steps[i].kind);
+        buzz();
+      }
+    }
+
+    function finish() {
+      st.running = false;
+      st.done = true;
+      clearInterval(loop);
+      loop = null;
+      holdScreen(false);
+      sound("end");
+      buzz();
+    }
+
+    // bank the time since the last tick, and move on if the step ran out
+    function tick() {
+      if (!st.running) return;
+      var now = performance.now();
+      var dt = now - st.last;
+      st.last = now;
+      st.stepMs += dt;
+      st.totalMs += dt;
+      while (auto.checked && st.stepMs >= steps[st.i].secs * 1000) {
+        // time past zero within this tick carries into the next step; an
+        // overrun held with auto-advance off stays with the step it ran over
+        var carry = Math.min(st.stepMs - steps[st.i].secs * 1000, dt);
+        st.spent[st.i] = st.stepMs - carry;
+        if (st.i === steps.length - 1) {
+          st.stepMs -= carry;
+          finish();
+          break;
+        }
+        enter(st.i + 1, carry);
+        dt = carry;
+      }
+      if (st.running) countdown();
+      draw();
+    }
+
+    // three short beeps into every change; with auto-advance off, a double
+    // beep at zero and the clock counts on past it
+    function countdown() {
+      var sec = Math.ceil((steps[st.i].secs * 1000 - st.stepMs) / 1000);
+      if (sec === st.lastSec) return;
+      st.lastSec = sec;
+      if (sec >= 1 && sec <= 3) sound("tick");
+      if (sec <= 0 && !st.overBeeped) {
+        st.overBeeped = true;
+        sound("over");
+        buzz();
+      }
+    }
+
+    function toggle() {
+      if (st.running) {
+        tick();
+        st.running = false;
+        clearInterval(loop);
+        loop = null;
+      } else {
+        if (st.done) fresh();
+        unlockAudio();
+        st.running = true;
+        st.last = performance.now();
+        if (st.stepMs === 0) sound(steps[st.i].kind);
+        loop = setInterval(tick, 100);
+      }
+      holdScreen(st.running);
+      draw();
+    }
+
+    // a step left by hand keeps the time it actually took
+    function jump(i) {
+      if (i < 0 || i >= steps.length) return;
+      tick();
+      if (st.stepMs > 0) st.spent[st.i] = st.stepMs;
+      st.done = false;
+      enter(i, 0);
+      draw();
+    }
+
+    function forward() {
+      if (st.done) return;
+      if (st.i < steps.length - 1) { jump(st.i + 1); return; }
+      tick();
+      st.spent[st.i] = st.stepMs;
+      if (st.running) finish();
+      else st.done = true;
+      draw();
+    }
+
+    function back() { jump(Math.max(0, st.i - 1)); }
+
+    function reset() {
+      clearInterval(loop);
+      loop = null;
+      holdScreen(false);
+      fresh();
+      draw();
+    }
+
+    function blockPattern(block, own) {
+      if (!block.moves) return span(own.reduce(function (sum, s) { return sum + s.secs; }, 0));
+      return t("wkPattern")
+        .replace("{n}", own.length / 2)
+        .replace("{work}", span(block.work))
+        .replace("{rest}", span(block.rest));
+    }
+
+    function renderSession() {
+      $("#wk-tag").textContent = pick(workout.tag);
+      $("#wk-title").textContent = pick(workout.title);
+      $("#wk-summary").textContent = pick(workout.summary);
+      $("#wk-needs").textContent = pick(workout.needs);
+
+      var notes = $("#wk-notes");
+      notes.innerHTML = "";
+      (workout.notes || []).forEach(function (note) { notes.appendChild(el("li", "", pick(note))); });
+
+      var flow = $("#wk-flow");
+      flow.innerHTML = "";
+      workout.blocks.forEach(function (block, b) {
+        var own = steps.filter(function (s) { return s.block === b; });
+        var end = own[own.length - 1];
+        var box = el("section", "wk-block-row");
+        var head = el("div", "wk-block-head");
+        head.appendChild(el("span", "wk-time", hmm(own[0].at) + "–" + hmm(end.at + end.secs)));
+        head.appendChild(el("h3", "", pick(block.name)));
+        head.appendChild(el("span", "wk-pattern", blockPattern(block, own)));
+        box.appendChild(head);
+        if (block.about) box.appendChild(el("p", "wk-about", pick(block.about)));
+        var list = el("ol", "wk-steps");
+        own.forEach(function (s) {
+          var i = steps.indexOf(s);
+          var item = el("button", "wk-item k-" + s.kind);
+          item.type = "button";
+          item.appendChild(el("span", "wk-swatch"));
+          item.appendChild(el("span", "wk-item-name", stepName(s)));
+          item.appendChild(el("span", "wk-item-time"));
+          item.addEventListener("click", function () { jump(i); });
+          stepButtons[i] = item;
+          var li = el("li");
+          li.appendChild(item);
+          list.appendChild(li);
+        });
+        box.appendChild(list);
+        flow.appendChild(box);
+      });
+
+      // the whole hour as one bar, each step as wide as it is long
+      strip.innerHTML = "";
+      steps.forEach(function (s, i) {
+        var cell = el("span", "k-" + s.kind);
+        cell.style.flexGrow = s.secs;
+        stripCells[i] = cell;
+        strip.appendChild(cell);
+      });
+      playhead = el("span", "wk-playhead");
+      strip.appendChild(playhead);
+
+      draw();
+    }
+
+    function draw() {
+      var s = steps[st.i];
+      var ms = s.secs * 1000;
+      var left = ms - st.stepMs;
+      var over = left < 0;
+      timer.setAttribute("data-kind", st.done ? "done" : s.kind);
+      $("#wk-kind").textContent = st.done ? t("wkDone") : t("wk_" + s.kind);
+      $("#wk-round").textContent = s.rounds && !st.done ? t("wkRound").replace("{n}", s.round).replace("{of}", s.rounds) : "";
+      $("#wk-block").textContent = pick(workout.blocks[s.block].name);
+      $("#wk-step").textContent = st.done ? t("wkComplete") : stepName(s);
+      $("#wk-cue").textContent = st.done ? "" : pick(s.cue);
+
+      var clockEl = $("#wk-clock");
+      clockEl.textContent = over ? "+" + mmss(Math.floor(-left / 1000)) : mmss(Math.ceil(left / 1000));
+      clockEl.classList.toggle("is-over", over);
+      $("#wk-bar").style.width = Math.min(100, st.stepMs / ms * 100) + "%";
+
+      var next = steps[st.i + 1];
+      $("#wk-next").textContent = next && !st.done ? stepName(next) + " · " + span(next.secs) : t("wkEnd");
+
+      goBtn.textContent = st.running ? t("wkStop") : st.done ? t("wkAgain") : t("wkGo");
+      goBtn.classList.toggle("is-stop", st.running);
+      $("#wk-fwd").disabled = st.done;
+
+      // where the plan says we are, against the time actually spent
+      var planned = st.done ? totalMs : s.at * 1000 + Math.min(st.stepMs, ms);
+      var drift = Math.round((st.totalMs - planned) / 1000);
+      $("#wk-elapsed").textContent = mmss(Math.floor(st.totalMs / 1000));
+      $("#wk-left").textContent = mmss(Math.ceil((totalMs - planned) / 1000));
+      var driftEl = $("#wk-drift");
+      driftEl.textContent = drift === 0 ? "±0:00" : (drift > 0 ? "+" : "−") + mmss(Math.abs(drift));
+      driftEl.classList.toggle("is-behind", drift > 0);
+
+      steps.forEach(function (step, i) {
+        var item = stepButtons[i];
+        var current = i === st.i && !st.done;
+        var spent = st.spent[i];
+        item.classList.toggle("is-current", current);
+        item.classList.toggle("is-done", spent != null && !current);
+        if (current) item.setAttribute("aria-current", "step");
+        else item.removeAttribute("aria-current");
+        var label = mmss(step.secs);
+        if (spent != null && Math.round(spent / 1000) !== step.secs) label += " → " + mmss(Math.round(spent / 1000));
+        $(".wk-item-time", item).textContent = label;
+        stripCells[i].classList.toggle("is-done", st.done || i < st.i);
+      });
+      playhead.style.left = planned / totalMs * 100 + "%";
+    }
+
+    goBtn.addEventListener("click", toggle);
+    $("#wk-prev").addEventListener("click", back);
+    $("#wk-fwd").addEventListener("click", forward);
+    $("#wk-reset").addEventListener("click", reset);
+    strip.addEventListener("click", function (e) { jump(stripCells.indexOf(e.target)); });
+
+    doc.addEventListener("keydown", function (e) {
+      if (e.altKey || e.ctrlKey || e.metaKey || e.target.closest("input, select, textarea")) return;
+      if (e.key === " ") {
+        if (e.target.closest("button, a, summary")) return; // they have their own Space
+        e.preventDefault();
+        toggle();
+      } else if (e.key === "ArrowRight") {
+        e.preventDefault();
+        forward();
+      } else if (e.key === "ArrowLeft") {
+        e.preventDefault();
+        back();
+      }
+    });
+
+    doc.addEventListener("visibilitychange", function () {
+      if (doc.visibilityState === "visible" && st.running) {
+        holdScreen(true);
+        tick();
+      }
+    });
+
+    // a stray tap on a link must not throw away a session in progress
+    window.addEventListener("beforeunload", function (e) {
+      if (!st.running) return;
+      e.preventDefault();
+      e.returnValue = "";
+    });
+
+    wkSession.hidden = false;
+    langHooks.push(renderSession);
+    renderSession();
+  }
+
+  /* 10 ── member-app links, back to top, scroll wiring ───────────────── */
 
   /* The member app is a separate thing on its own subdomain, and its address
      is a deployment detail rather than page content — so it is set once in
